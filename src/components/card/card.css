@@ -1,0 +1,65 @@
+
+:root {
+  --color--card--background: var(--site-global--color-primary);
+  --color--card--border: var(--site-global--color-primary-accent);
+  --color--card--text: var(--site-global--color-basic-black);
+}
+
+.card {
+  border-bottom: var(--site-global--border-width--thicker) solid var(--color--card--border);
+  color: var(--color--card--text);
+  max-width: var(--card-width--content);
+}
+
+.card[data-component-variant="primary"] {
+  --color--card--background: var(--site-global--color-primary);
+  --color--card--border: var(--site-global--color-primary-accent);
+  --color--card--text: var(--site-global--color-basic-black);
+}
+
+.card[data-component-variant="secondary"] {
+  --color--card--background: var(--site-global--color-secondary);
+  --color--card--border: var(--site-global--color-secondary-accent);
+  --color--card--text: var(--site-global--color-basic-black);
+}
+
+.card[data-component-variant="tertiary"] {
+  --color--card--background: var(--site-global--color-tertiary);
+  --color--card--border: var(--site-global--color-tertiary-accent);
+  --color--card--text: var(--site-global--color-basic-black);
+}
+
+.card__image {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color--card--background);
+  line-height: 0;
+}
+
+.card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--site-global--gap--type);
+  padding: var(--site-global--spacing-vertical) var(--site-global--spacing-horizontal);
+}
+
+.card__link {
+  font-size: var(--site-global--font-size--button);
+  font-weight: var(--site-global--font-weight--medium);
+  display: inline-block;
+  color: var(--color--card--text);
+  background-color: var(--color--card--background);
+  border: var(--site-global--border-width) solid var(--color--card--border);
+  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal);
+  text-decoration: none;
+}
+.card__link:hover {
+  background-color: var(--color--card--border);
+  border-color: var(--color--card--background);
+  text-decoration: underline;
+}

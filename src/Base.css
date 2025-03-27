@@ -1,0 +1,149 @@
+:root {
+
+	/* Widths */
+	--site-width--full: 100%;
+	--site-width--extra-wide: 120rem; /* 1920px */
+	--site-width--wide: 100rem; /* 1600px */
+	--site-width--inner: 80rem; /* 1280px */
+	--site-width--text: 60rem; /* 960px */
+ 
+	/* Spacing */
+	--site-global--spacing-vertical: 2rem;
+	--site-global--spacing-horizontal: 2rem;
+
+	--site-global--spacing-vertical--half: 1rem;
+	--site-global--spacing-horizontal--half: 1rem;
+
+	--site-navigation--spacing-vertical: 0.5rem;
+	--site-navigation--spacing-vertical--half: 0.25rem;
+	--site-navigation--spacing-horizontal: 0.75rem;
+	--site-navigation--spacing-horizontal---half: 0.375rem;
+
+	--site-global--gap: 0.5rem;
+	--site-global--gap--type: 1rem;
+	--site-global--gap--wide: 2rem;
+
+	/* Buttons */
+	--site-button--spacing-vertical: 0.5rem;
+	--site-button--spacing-vertical--half: 0.25rem;
+	--site-button--spacing-horizontal: 1rem;
+	--site-button--spacing-horizontal--half: 0.5rem;
+
+	/* Site focus outline */
+	--site-focus-outline--width: 0.125rem; /* 2px */
+	--site-focus-outline--color: var(--site-global--color-primary-accent-dark);
+
+	/* Borders */
+	--site-global--border-width: 0.125rem; /* 2px */
+	--site-global--border-width--thick: 0.25rem; /* 4px */
+	--site-global--border-width--thicker: 0.375rem; /* 6px */
+	--site-global--border-width--thickest: 0.5rem; /* 8px */
+
+	/* Global Colors */
+	--site-global--color-primary: hsl(205, 55%, 63%);
+	--site-global--color-secondary: hsl(212, 60%, 95%);
+	--site-global--color-tertiary: hsl(94, 55%, 57%);
+
+	--site-global--color-primary-accent: hsl(205, 74%, 49%);
+	--site-global--color-primary-accent-dark: hsl(205, 77%, 15%);
+	--site-global--color-primary-accent-light: hsl(205, 84%, 80%);
+
+	--site-global--color-secondary-accent: hsl(212, 80%, 80%);
+	--site-global--color-secondary-accent-dark: hsl(211, 23%, 18%);
+	--site-global--color-secondary-accent-light: hsl(213, 56%, 88%);
+
+	--site-global--color-tertiary-accent: hsl(94, 88%, 37%);
+	--site-global--color-tertiary-accent-dark: hsl(94, 87%, 12%);
+	--site-global--color-tertiary-accent-light: hsl(95, 81%, 87%);
+
+	--site-global--color-quaternary-accent: hsl(283, 70%, 58%);
+	--site-global--color-quaternary-accent-dark: hsl(283, 70%, 25%);
+	--site-global--color-quaternary-accent-light: hsl(283, 70%, 78%);
+
+	--site-global--color-basic-white: hsl(0, 0%, 100%);
+	--site-global--color-basic-black: hsl(0, 0%, 0%);
+	--site-global--color-basic-gray-30: hsl(0, 0%, 30%);
+	--site-global--color-basic-gray-50: hsl(0, 0%, 50%);
+	--site-global--color-basic-gray-80: hsl(0, 0%, 80%);
+	--site-global--color-basic-gray-90: hsl(0, 0%, 90%);
+
+	/* Font sizes */
+	--site-global--font-size--base: 1rem; /* 16px */
+	--site-global--font-size--label: 1.2rem; /* 19px */
+  --site-global--font-size--h1: 2.5rem; /* 40px */
+	--site-global--font-size--h2: 2rem; /* 32px */
+	--site-global--font-size--h3: 1.5rem; /* 24px */
+	--site-global--font-size--h4: 1.25rem; /* 20px */
+	--site-global--font-size--h5: 1.125rem; /* 18px */
+	--site-global--font-size--h6: 1rem; /* 16px */
+	--site-global--font-size--button: 1.1rem; /* 18px */
+
+	--site-global--line-height-base: 1.5;
+
+	/* Component width to override based on theme widths */
+	--cta-width--content: var(--site-width--text);
+	--cta-width--wide: var(--site-width--extra-wide);
+	--cta-width--full: var(--site-width--full);
+	
+	--card-width--content: var(--site-width--text);
+	--card-width--wide: var(--site-width--wide);
+	--card-width--full: var(--site-width--full);
+
+	/* Site Header */
+	--site-header--background-color: var(--site-global--color-secondary);
+	--site-header--background-color--accent: var(--site-global--color-primary-accent);
+
+	--site-global--font-family: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	--site-global--font-weight--light: 300;
+	--site-global--font-weight: 400;
+	--site-global--font-weight--medium: 500;
+	--site-global--font-weight--bold: 700;
+	--site-global--font-weight--bolder: 900;
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+html {
+	font-family: var(--site-global--font-family);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--site-global--font-size--h1);
+}
+h2 {
+  font-size: var(--site-global--font-size--h2);
+}
+h3 {
+  font-size: var(--site-global--font-size--h3);
+}
+h4 {
+  font-size: var(--site-global--font-size--h4);
+}
+h5 {
+  font-size: var(--site-global--font-size--h5);
+}
+h6 {
+  font-size: var(--site-global--font-size--h6);
+}
+
+p, li, span, a, button {
+  font-size: var(--site-global--font-size--base);
+  line-height: var(--site-global--line-height-base);
+}
+
+img {
+	width: 100%;
+	height: auto;
+	max-width: var(--site-width--full);
+}
