@@ -7,6 +7,7 @@ interface CardData {
   content: string;
   link: string;
   link_title: string; // Added link_title prop
+  link_text: string; // Optional prop for link text which is shown as link text
   image_source: string;
   image_alt: string;
 }
@@ -52,7 +53,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({variant, gridCount, anim
       <div className="cards" data-grid-count={gridCount || 4}>
         <div className='cards__inner'>
           {cardsDataTyped.cards.map((card: CardData) => (
-            <Card heading={card.title} animation={animation} text={card.content} link={card.link} link_title={card.link_title} variant={variant} imageSrc={card.image_source} imageAlt={card.image_alt} />
+            <Card heading={card.title} animation={animation} text={card.content} link={card.link} link_text={card.link_text} link_title={card.link_title} variant={variant} imageSrc={card.image_source} imageAlt={card.image_alt} />
           ))}
         </div>
       </div>
