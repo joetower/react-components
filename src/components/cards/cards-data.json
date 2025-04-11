@@ -1,0 +1,37 @@
+{
+  "cards": [
+    {
+      "title": "Card title one",
+      "content": "This is the first card.",
+      "link": "https://google.com",
+      "link_title": "Google Link",
+      "image_source": "https://placehold.co/600x400",
+      "image_alt": "Placeholder image that is 600px width by 400px high"
+    },
+    {
+      "title": "Card title two",
+      "content": "This is the second card.",
+      "link": "https://joetower.com",
+      "link_title": "Joe Tower Link",
+      "image_source": "https://placehold.co/600x400",
+      "image_alt": "Placeholder image that is 600px width by 400px high"
+    },
+    {
+      "title": "Card title three",
+      "content": "This is the third card.",
+      "link": "https://augustash.com",
+      "link_title": "August Ash Link",
+      "image_source": "https://placehold.co/600x400",
+      "image_alt": "Placeholder image that is 600px width by 400px high"
+    },
+    {
+      "title": "Card title four",
+      "content": "This is the fourth card.",
+      "link": "https://drupal.org",
+      "link_title": "Drupal Link",
+      "image_source": "https://placehold.co/600x400",
+      "image_alt": "Placeholder image that is 600px width by 400px high"
+    }
+
+  ]
+}
