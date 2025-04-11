@@ -21,9 +21,9 @@
     {
       "title": "Card title three",
       "content": "This is the third card.",
-      "link": "https://augustash.com",
-      "link_text": "August Ash Link",
-      "link_title": "Navigate to August Ash Link",
+      "link": "https://wordpress.org/",
+      "link_text": "WordPress Link",
+      "link_title": "Navigate to WordPress Link",
       "image_source": "https://placehold.co/600x400",
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
@@ -48,9 +48,9 @@
     {
       "title": "Card title six",
       "content": "This is the sixth card.",
-      "link": "https://augustash.com",
-      "link_text": "August Ash Link",
-      "link_title": "Navigate to August Ash Link",
+      "link": "https://wordpress.org/",
+      "link_text": "WordPress Link",
+      "link_title": "Navigate to WordPress Link",
       "image_source": "https://placehold.co/600x400",
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
@@ -75,9 +75,9 @@
     {
       "title": "Card title nine",
       "content": "This is the ninth card.",
-      "link": "https://augustash.com",
-      "link_text": "August Ash Link",
-      "link_title": "Navigate to August Ash Link",
+      "link": "https://wordpress.org/",
+      "link_text": "WordPress Link",
+      "link_title": "Navigate to WordPress Link",
       "image_source": "https://placehold.co/600x400",
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
