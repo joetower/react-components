@@ -3,9 +3,9 @@
     {
       "title": "Card title one",
       "content": "This is the first card.",
-      "link": "https://google.com",
-      "link_text": "Google Link",
-      "link_title": "Navigate to Google Link",
+      "link": "https://www.11ty.dev",
+      "link_text": "Eleventy Link",
+      "link_title": "Navigate to Eleventy Link",
       "image_source": "https://placehold.co/600x400",
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
