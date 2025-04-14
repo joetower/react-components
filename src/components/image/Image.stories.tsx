@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import Image from "./Image";
+import ImageItem from "./Image";
 
 // Default export for Storybook
 interface ImageProps {
@@ -7,12 +7,12 @@ interface ImageProps {
   alt: string;
 }
 
-export const Default = ({ src, alt }: ImageProps) => (
+export const Image = ({ src, alt }: ImageProps) => (
   <img src={src} alt={alt} />
 );
 
 
-Default.args = {
+Image.args = {
   src: 'https://placehold.co/600x400',
   alt: 'Placeholder Image',
 };

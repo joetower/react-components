@@ -35,6 +35,7 @@
 	/* Site focus outline */
 	--site-focus-outline--width: 0.125rem; /* 2px */
 	--site-focus-outline--color: var(--site-global--color-primary-accent-dark);
+	--site-focus-outline--offset: 0.25rem;
 
 	/* Borders */
 	--site-global--border-width: 0.125rem; /* 2px */
@@ -46,6 +47,7 @@
 	--site-global--color-primary: hsl(205, 55%, 63%);
 	--site-global--color-secondary: hsl(32, 86%, 51%);
 	--site-global--color-tertiary: hsl(94, 55%, 57%);
+	--site-global--color-quaternary: hsl(278, 86%, 73%);
 
 	--site-global--color-primary-accent: hsl(205, 74%, 49%);
 	--site-global--color-primary-accent-dark: hsl(205, 77%, 15%);
@@ -149,4 +151,10 @@ img {
 	width: 100%;
 	height: auto;
 	max-width: var(--site-width--full);
+}
+
+a:focus-visible, 
+button:focus-visible {
+	outline: var(--site-focus-outline--width) solid var(--site-focus-outline--color);
+	outline-offset: 0.125rem; /* 2px */
 }

@@ -9,7 +9,7 @@ interface CardProps {
   imageSrc?: string; // Optional prop for image source
   imageAlt?: string; // Optional prop for image alt text
   animation?: boolean; // Optional prop for animation class
-  variant?: 'primary' | 'secondary' | 'tertiary'; // Optional prop for card variant
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card variant
 }
 
 export default function Card({heading, text, link, link_title, link_text, animation, imageSrc, imageAlt, variant}: CardProps) {

@@ -1,7 +1,7 @@
-import Card from "./Card";
+import CardItem from "./Card";
 import { Meta } from "@storybook/react";
 
-export const Default = (
+export const Card = (
   { animation, imageSrc, imageAlt, variant, heading, text, link, link_title, link_text }
   : { 
     heading: string; 
@@ -12,8 +12,8 @@ export const Default = (
     animation: boolean; 
     imageSrc: string; 
     imageAlt: string; 
-    variant: 'primary' | 'secondary' | 'tertiary'; }) => (
-  <Card
+    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
+  <CardItem
     heading={heading}
     text={text}
     link={link}
@@ -26,7 +26,7 @@ export const Default = (
   />
 );
 
-Default.args = {
+Card.args = {
   heading: 'This is a heading',
   text: 'This is a primary card description.',
   link: '#',
@@ -43,7 +43,7 @@ const meta: Meta<typeof Card> = {
   component: Card,
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'tertiary'],
+      options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'radio' },
     },
     heading: { control: 'text' },

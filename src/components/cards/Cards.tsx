@@ -21,7 +21,7 @@ const cardsDataTyped: CardsData = cardsData;
 import './cards.css'; // Import the SCSS file for styling
 
 interface CardCollectionProps {
-  variant?: 'primary' | 'secondary' | 'tertiary'; // Optional prop for card variant
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card variant
   animation?: boolean; // Optional prop for animation class
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
   heading: string;
@@ -34,7 +34,7 @@ interface CardCollectionProps {
 const CardCollection: React.FC<CardCollectionProps> = ({variant, gridCount, animation, heading, text, cards_link_url, cards_link_title, cards_link_text}) => {
   return (
     <>
-      <div className='cards__header'>
+      <div className='cards__header' data-component-variant={variant}>
         <div className='cards__header__inner'>
           <div className='cards__heading'>
             <h2>{heading}</h2>
@@ -43,11 +43,9 @@ const CardCollection: React.FC<CardCollectionProps> = ({variant, gridCount, anim
             <div className='cards__text'>
               <p>{text}</p>
             </div>
-            <div className='cards__link'>
-              <a href={cards_link_url} title={cards_link_title}>
-                {cards_link_text}
-              </a>
-            </div>
+            <a className='cards__link' href={cards_link_url} title={cards_link_title}>
+              {cards_link_text}
+            </a>
           </div>
         </div>
       </div>
@@ -55,7 +53,9 @@ const CardCollection: React.FC<CardCollectionProps> = ({variant, gridCount, anim
         <div className='cards__inner'>
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (
-              <li key={card.id}><Card heading={card.title} animation={animation} text={card.content} link={card.link} link_text={card.link_text} link_title={card.link_title} variant={variant} imageSrc={card.image_source} imageAlt={card.image_alt} /></li>
+              <li key={card.id}>
+                <Card heading={card.title} animation={animation} text={card.content} link={card.link} link_text={card.link_text} link_title={card.link_title} variant={variant} imageSrc={card.image_source} imageAlt={card.image_alt} />
+              </li>
             ))}
           </ul>
         </div>
