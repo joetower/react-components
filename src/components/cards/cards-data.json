@@ -1,6 +1,7 @@
 {
   "cards": [
     {
+      "id": "1",
       "title": "Card title one",
       "content": "This is the first card.",
       "link": "https://www.11ty.dev",
@@ -10,6 +11,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "2",
       "title": "Card title two",
       "content": "This is the second card.",
       "link": "https://joetower.com",
@@ -19,6 +21,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "3",
       "title": "Card title three",
       "content": "This is the third card.",
       "link": "https://wordpress.org/",
@@ -28,6 +31,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "4",
       "title": "Card title four",
       "content": "This is the fourth card.",
       "link": "https://drupal.org",
@@ -37,6 +41,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "5",
       "title": "Card title five",
       "content": "This is the fifth card.",
       "link": "https://joetower.com",
@@ -46,6 +51,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "6",
       "title": "Card title six",
       "content": "This is the sixth card.",
       "link": "https://wordpress.org/",
@@ -55,6 +61,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "7",
       "title": "Card title seven",
       "content": "This is the seventh card.",
       "link": "https://drupal.org",
@@ -64,6 +71,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "8",
       "title": "Card title eight",
       "content": "This is the eighth card.",
       "link": "https://joetower.com",
@@ -73,6 +81,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "9",
       "title": "Card title nine",
       "content": "This is the ninth card.",
       "link": "https://wordpress.org/",
@@ -82,6 +91,7 @@
       "image_alt": "Placeholder image that is 600px width by 400px high"
     },
     {
+      "id": "10",
       "title": "Card title ten",
       "content": "This is the tenth card.",
       "link": "https://drupal.org",

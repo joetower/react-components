@@ -17,13 +17,17 @@ export default function Card({heading, text, link, link_title, link_text, animat
     <div className="card" data-component-animation={animation ? 'true' : 'false'} data-component-variant={variant || 'primary'}>
       {imageSrc && (
         <div className="card__image">
-          <Image src={imageSrc} alt={imageAlt || "Placeholder Image"} />
+          <a className="card__image__link" href={link} target="_blank" rel="noopener noreferrer" title={link_title} tabIndex={-1} aria-hidden="true">
+            <Image src={imageSrc} alt={imageAlt || "Placeholder Image"} />
+          </a>
         </div>
       )}
       <div className="card__content">
-        <div className="card__heading">
-          <h2>{heading}</h2>
-        </div>
+        <h2 className="card__heading">
+          <a className="card__heading__link" href={link} target="_blank" rel="noopener noreferrer" title={link_title} tabIndex={-1} aria-hidden="true">
+            {heading}
+          </a>
+        </h2>
         <div className="card__text">
           {text}
         </div>
