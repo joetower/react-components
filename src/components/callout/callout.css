@@ -79,6 +79,18 @@
   --color--callout--link-hover: var(--site-global--color-quaternary-accent-dark);
 }
 
+.callout[data-component-alignment="right"] {
+  text-align: right;
+}
+
+.callout[data-component-alignment="left"] {
+  text-align: left;
+}
+
+.callout[data-component-alignment="center"] {
+  text-align: center;
+}
+
 .callout__content {
   display: flex;
   flex-flow: column nowrap;
@@ -116,20 +128,14 @@
   width: 100%;
 }
 
-.callout:hover .callout__link {
+.callout .callout__link:hover {
   background-color: transparent;
   border-color: var(--color--callout--border);
-  text-decoration: underline;
   color: var(--color--callout--link-hover);
 }
 
 .callout:hover img {
   opacity: 0.8;
-}
-
-.callout:hover .callout__heading__link {
-  text-decoration: none;
-  color: var(--color--callout--title-hover);
 }
 
 /* Media Queries: hover effects */

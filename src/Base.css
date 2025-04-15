@@ -6,6 +6,7 @@
 	--site-width--wide: 100rem; /* 1600px */
 	--site-width--inner: 80rem; /* 1280px */
 	--site-width--text: 60rem; /* 960px */
+	--site-width--narrow: 40rem; /* 640px */
 
 	/* Animation */
  --site-global--transition-timing: 0.3s;
@@ -88,7 +89,7 @@
 	--site-global--line-height-base: 1.5;
 
 	/* Component width to override based on theme widths */
-	--cta-width--content: var(--site-width--text);
+	--cta-width--content: var(--site-width--narrow);
 	--cta-width--wide: var(--site-width--extra-wide);
 	--cta-width--full: var(--site-width--full);
 	
