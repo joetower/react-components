@@ -1,0 +1,142 @@
+
+:root {
+  --color--callout--background: var(--site-global--color-primary);
+  --color--callout--background-accent: var(--site-global--color-primary-accent-dark);
+  --color--callout--border: var(--site-global--color-primary-accent-dark);
+  --color--callout--text: var(--site-global--color-basic-black);
+  --color--callout--title: var(--site-global--color-primary-accent-dark);
+  --color--callout--title-hover: var(--site-global--color-primary-accent-light);
+  --color--callout--link: var(--site-global--color-primary-accent-light);
+  --color--callout--link-hover: var(--site-global--color-primary-accent-dark);
+}
+
+.callout {
+  position: relative;
+  color: var(--color--callout--text);
+  background-color: var(--color--callout--background);
+}
+
+.callout::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--site-global--border-width--thicker);
+  width: 0;
+  background-color: var(--color--callout--border);
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .callout[data-component-animation="true"]::before {
+    transition: width var(--site-global--transition-timing) ease-in-out;
+  }
+}
+
+.callout[data-component-variant="primary"] {
+  --color--callout--background: var(--site-global--color-primary);
+  --color--callout--background-accent: var(--site-global--color-primary-accent-dark);
+  --color--callout--border: var(--site-global--color-primary-accent-dark);
+  --color--callout--text: var(--site-global--color-basic-black);
+  --color--callout--title: var(--site-global--color-primary-accent-dark);
+  --color--callout--title-hover: var(--site-global--color-primary-accent-dark);
+  --color--callout--link: var(--site-global--color-primary-accent-light);
+  --color--callout--link-hover: var(--site-global--color-primary-accent-dark);
+}
+
+.callout[data-component-variant="secondary"] {
+  --color--callout--background: var(--site-global--color-secondary);
+  --color--callout--background-accent: var(--site-global--color-secondary-accent-dark);
+  --color--callout--border: var(--site-global--color-secondary-accent-dark);
+  --color--callout--text: var(--site-global--color-basic-black);
+  --color--callout--title: var(--site-global--color-secondary-accent-dark);
+  --color--callout--title-hover: var(--site-global--color-secondary-accent-dark);
+  --color--callout--link: var(--site-global--color-secondary-accent-light);
+  --color--callout--link-hover: var(--site-global--color-secondary-accent-dark);
+}
+
+.callout[data-component-variant="tertiary"] {
+  --color--callout--background: var(--site-global--color-tertiary);
+  --color--callout--background-accent: var(--site-global--color-tertiary-accent-dark);
+  --color--callout--border: var(--site-global--color-tertiary-accent-dark);
+  --color--callout--text: var(--site-global--color-basic-black);
+  --color--callout--title: var(--site-global--color-tertiary-accent-dark);
+  --color--callout--title-hover: var(--site-global--color-tertiary-accent-dark);
+  --color--callout--link: var(--site-global--color-tertiary-accent-light);
+  --color--callout--link-hover: var(--site-global--color-tertiary-accent-dark);
+}
+
+.callout[data-component-variant="quaternary"] {
+  --color--callout--background: var(--site-global--color-quaternary);
+  --color--callout--background-accent: var(--site-global--color-quaternary-accent-dark);
+  --color--callout--border: var(--site-global--color-quaternary-accent-dark);
+  --color--callout--text: var(--site-global--color-basic-black);
+  --color--callout--title: var(--site-global--color-quaternary-accent-dark);
+  --color--callout--title-hover: var(--site-global--color-quaternary-accent-dark);
+  --color--callout--link: var(--site-global--color-quaternary-accent-light);
+  --color--callout--link-hover: var(--site-global--color-quaternary-accent-dark);
+}
+
+.callout__content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--site-global--gap--type);
+  padding: var(--site-global--spacing-vertical--wide) var(--site-global--spacing-horizontal);
+  max-width: var(--cta-width--content);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+
+.callout__heading,
+.callout__heading__link {
+  color: var(--color--callout--title);
+  font-size: var(--site-global--font-size--h2);
+}
+
+.callout__link {
+  font-size: var(--site-global--font-size--button);
+  font-weight: var(--site-global--font-weight--medium);
+  border: var(--site-global--border-width) solid transparent;
+  display: inline-block;
+  color: var(--color--callout--link);
+  background-color: var(--color--callout--background-accent);
+  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal);
+  text-decoration: none;
+}
+
+.callout__text p {
+  margin: 0;
+  font-size: var(--site-global--font-size--large);
+}
+
+.callout:hover::before {
+  background-color: var(--color--callout--border);
+  width: 100%;
+}
+
+.callout:hover .callout__link {
+  background-color: transparent;
+  border-color: var(--color--callout--border);
+  text-decoration: underline;
+  color: var(--color--callout--link-hover);
+}
+
+.callout:hover img {
+  opacity: 0.8;
+}
+
+.callout:hover .callout__heading__link {
+  text-decoration: none;
+  color: var(--color--callout--title-hover);
+}
+
+/* Media Queries: hover effects */
+@media (prefers-reduced-motion: no-preference) {
+  .callout:hover .callout__heading__link,
+  .callout:hover .callout__link,
+  .callout:hover img {
+    transition: all var(--site-global--transition-timing) ease-in-out;
+  }
+}

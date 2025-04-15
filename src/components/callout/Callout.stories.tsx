@@ -1,0 +1,52 @@
+import CalloutItem from "./Callout";
+import { Meta } from "@storybook/react";
+
+export const Callout = (
+  { animation, variant, heading, text, link, link_title, link_text }
+  : { 
+    heading: string; 
+    text: string; 
+    link: string;
+    link_text: string;
+    link_title: string; 
+    animation: boolean;  
+    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
+  <CalloutItem
+    heading={heading}
+    text={text}
+    link={link}
+    link_title={link_title}
+    link_text={link_text}
+    animation={animation}  // Set to true to enable animation
+    variant={variant}  // Default variant
+  />
+);
+
+Callout.args = {
+  heading: 'This is a heading',
+  text: 'Some posit the matey sudan to be less than purplish. Extending this logic, the sorry deficit reveals itself as an agley degree to those who look.',
+  link: '#',
+  link_text: 'This is a link text',
+  link_title: 'This is a link title',
+  animation: false,  // Set to true to enable animation
+  variant: 'primary',  // Default variant
+};
+// Default export for Storybook
+const meta: Meta<typeof Callout> = {
+  title: 'Components/Callout',
+  component: Callout,
+  argTypes: {
+    variant: {
+      options: ['primary', 'secondary', 'tertiary', 'quaternary'],
+      control: { type: 'radio' },
+    },
+    heading: { control: 'text' },
+    text: { control: 'text' },
+    link: { control: 'text' },
+    link_text: { control: 'text' },
+    link_title: { control: 'text' },
+    animation: { control: 'boolean' },  // Set to true to enable animation
+  },
+}
+ 
+export default meta;

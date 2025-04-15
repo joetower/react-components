@@ -1,0 +1,88 @@
+.header {
+  width: 100%;
+}
+
+.header[data-component-variant="primary"] {
+  --color--header--link: var(--site-global--color-primary-accent-dark);
+  --color--header--link-hover: var(--site-global--color-primary-accent);
+}
+
+.header[data-component-variant="secondary"] {
+  --color--header--link: var(--site-global--color-secondary-accent-dark);
+  --color--header--link-hover: var(--site-global--color-secondary-accent);
+}
+
+.header[data-component-variant="tertiary"] {
+  --color--header--link: var(--site-global--color-tertiary-accent-dark);
+  --color--header--link-hover: var(--site-global--color-tertiary-accent);
+}
+
+.header[data-component-variant="quaternary"] {
+  --color--header--link: var(--site-global--color-quaternary-accent-dark);
+  --color--header--link-hover: var(--site-global--color-quaternary-accent);
+}
+
+.header__inner {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100rem; /* max-width: 1200px */
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+
+.header__logo {
+  flex: 0 auto;
+}
+
+.header__logo a {
+  display: block;
+  line-height: 0;
+}
+
+.header__nav {
+  flex: 1 0 auto;
+}
+
+.header__nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.header__nav ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav ul li a {
+  color: var(--color--header--link);
+  text-decoration: none;
+  font-size: var(--site-global--font-size--base);
+  font-weight: var(--site-global--font-weight--bold);
+}
+
+.header__nav ul li a:hover {
+  color: var(--color--header--link-hover);
+}
+
+.header__logo a:hover svg {
+  fill: var(--color--header--link-hover);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .header a {
+    transition: all var(--site-global--transition-timing) ease-in-out;
+  }
+  
+  .header__logo a:hover svg {
+    transition: all var(--site-global--transition-timing) ease-in-out;
+  }
+}
