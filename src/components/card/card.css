@@ -16,12 +16,6 @@
   max-width: var(--card-width--content);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .card[data-component-animation="true"] {
-    transition: all var(--site-global--transition-timing) ease-in-out;
-  }
-}
-
 .card[data-component-variant="primary"] {
   --color--card--background: var(--site-global--color-primary);
   --color--card--border: var(--site-global--color-primary-accent);
@@ -120,6 +114,14 @@
 
 /* Media Queries: hover effects */
 @media (prefers-reduced-motion: no-preference) {
+
+  .card[data-component-animation="true"] {
+    transition: all var(--site-global--transition-timing) ease-in-out;
+  }
+
+  .card[data-component-animation="true"]:hover {
+    animation: pulse var(--site-global--transition-timing) ease-in-out;
+  }
   .card[data-component-animation="true"]:hover .card__heading__link,
   .card[data-component-animation="true"]:hover .card__link,
   .card[data-component-animation="true"]:hover img {
