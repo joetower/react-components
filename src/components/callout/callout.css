@@ -1,6 +1,6 @@
 
 :root {
-  --color--callout--background: var(--site-global--color-primary);
+  --color--callout--background: var(--site-global--color-primary-accent-light);
   --color--callout--background-accent: var(--site-global--color-primary-accent-dark);
   --color--callout--border: var(--site-global--color-primary-accent-dark);
   --color--callout--text: var(--site-global--color-basic-black);
@@ -36,7 +36,7 @@
 }
 
 .callout[data-component-variant="primary"] {
-  --color--callout--background: var(--site-global--color-primary);
+  --color--callout--background: var(--site-global--color-primary-accent-light);
   --color--callout--background-accent: var(--site-global--color-primary-accent-dark);
   --color--callout--border: var(--site-global--color-primary-accent-dark);
   --color--callout--text: var(--site-global--color-basic-black);
@@ -47,7 +47,7 @@
 }
 
 .callout[data-component-variant="secondary"] {
-  --color--callout--background: var(--site-global--color-secondary);
+  --color--callout--background: var(--site-global--color-secondary-accent-light);
   --color--callout--background-accent: var(--site-global--color-secondary-accent-dark);
   --color--callout--border: var(--site-global--color-secondary-accent-dark);
   --color--callout--text: var(--site-global--color-basic-black);
@@ -58,7 +58,7 @@
 }
 
 .callout[data-component-variant="tertiary"] {
-  --color--callout--background: var(--site-global--color-tertiary);
+  --color--callout--background: var(--site-global--color-tertiary-accent-light);
   --color--callout--background-accent: var(--site-global--color-tertiary-accent-dark);
   --color--callout--border: var(--site-global--color-tertiary-accent-dark);
   --color--callout--text: var(--site-global--color-basic-black);
@@ -69,7 +69,7 @@
 }
 
 .callout[data-component-variant="quaternary"] {
-  --color--callout--background: var(--site-global--color-quaternary);
+  --color--callout--background: var(--site-global--color-quaternary-accent-light);
   --color--callout--background-accent: var(--site-global--color-quaternary-accent-dark);
   --color--callout--border: var(--site-global--color-quaternary-accent-dark);
   --color--callout--text: var(--site-global--color-basic-black);
