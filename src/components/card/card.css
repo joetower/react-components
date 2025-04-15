@@ -1,12 +1,13 @@
 
 :root {
   --color--card--background: var(--site-global--color-primary);
+  --color--card--background-accent: var(--site-global--color-basic-white);
   --color--card--border: var(--site-global--color-primary-accent);
   --color--card--text: var(--site-global--color-basic-black);
   --color--card--title: var(--site-global--color-primary-accent-dark);
   --color--card--title-hover: var(--site-global--color-primary-accent);
   --color--card--link: var(--site-global--color-primary-accent-dark);
-  --color--card--link-hover: var(--site-global--color-primary-accent);
+  --color--card--link-hover: var(--site-global--color-primary-accent-dark);
 }
 
 .card {
@@ -15,29 +16,15 @@
   max-width: var(--card-width--content);
 }
 
-.card::before {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: var(--site-global--border-width--thicker);
-  width: 0;
-  background-color: var(--color--card--border);
-  z-index: 1;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .card[data-component-animation="true"]::before {
-    transition: width var(--site-global--transition-timing) ease-in-out;
+  .card[data-component-animation="true"] {
+    transition: all var(--site-global--transition-timing) ease-in-out;
   }
 }
 
 .card[data-component-variant="primary"] {
   --color--card--background: var(--site-global--color-primary);
   --color--card--border: var(--site-global--color-primary-accent);
-  --color--card--text: var(--site-global--color-basic-black);
   --color--card--title: var(--site-global--color-primary-accent-dark);
   --color--card--title-hover: var(--site-global--color-primary-accent);
   --color--card--link: var(--site-global--color-primary-accent-dark);
@@ -47,7 +34,6 @@
 .card[data-component-variant="secondary"] {
   --color--card--background: var(--site-global--color-secondary);
   --color--card--border: var(--site-global--color-secondary-accent);
-  --color--card--text: var(--site-global--color-basic-black);
   --color--card--title: var(--site-global--color-secondary-accent-dark);
   --color--card--title-hover: var(--site-global--color-secondary-accent);
   --color--card--link: var(--site-global--color-secondary-accent-dark);
@@ -57,7 +43,6 @@
 .card[data-component-variant="tertiary"] {
   --color--card--background: var(--site-global--color-tertiary);
   --color--card--border: var(--site-global--color-tertiary-accent);
-  --color--card--text: var(--site-global--color-basic-black);
   --color--card--title: var(--site-global--color-tertiary-accent-dark);
   --color--card--title-hover: var(--site-global--color-tertiary-accent);
   --color--card--link: var(--site-global--color-tertiary-accent-dark);
@@ -67,7 +52,6 @@
 .card[data-component-variant="quaternary"] {
   --color--card--background: var(--site-global--color-quaternary);
   --color--card--border: var(--site-global--color-quaternary-accent);
-  --color--card--text: var(--site-global--color-basic-black);
   --color--card--title: var(--site-global--color-quaternary-accent-dark);
   --color--card--title-hover: var(--site-global--color-quaternary-accent);
   --color--card--link: var(--site-global--color-quaternary-accent-dark);
@@ -106,7 +90,7 @@
 
 .card__link {
   font-size: var(--site-global--font-size--button);
-  font-weight: var(--site-global--font-weight--medium);
+  font-weight: var(--site-global--font-weight--bold);
   border: var(--site-global--border-width) solid transparent;
   display: inline-block;
   color: var(--color--card--text);
@@ -115,15 +99,14 @@
   text-decoration: none;
 }
 
-.card:hover::before {
-  background-color: var(--color--card--border);
-  width: 100%;
+.card:hover {
+  box-shadow: 0 0 var(--site-global--border-width--thick) var(--site-global--border-width) var(--color--card--background);
 }
 
 .card:hover .card__link {
-  background-color: transparent;
+  background-color: var(--color--card--background-accent);
   border-color: var(--color--card--border);
-  text-decoration: underline;
+  color: var(--color--card--link-hover);
 }
 
 .card:hover img {
@@ -137,9 +120,9 @@
 
 /* Media Queries: hover effects */
 @media (prefers-reduced-motion: no-preference) {
-  .card:hover .card__heading__link,
-  .card:hover .card__link,
-  .card:hover img {
+  .card[data-component-animation="true"]:hover .card__heading__link,
+  .card[data-component-animation="true"]:hover .card__link,
+  .card[data-component-animation="true"]:hover img {
     transition: all var(--site-global--transition-timing) ease-in-out;
   }
 }

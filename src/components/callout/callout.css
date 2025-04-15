@@ -140,9 +140,8 @@
 
 /* Media Queries: hover effects */
 @media (prefers-reduced-motion: no-preference) {
-  .callout:hover .callout__heading__link,
-  .callout:hover .callout__link,
-  .callout:hover img {
+  .callout[data-component-animation="true"] .callout__link:hover,
+  .callout[data-component-animation="true"]:hover img {
     transition: all var(--site-global--transition-timing) ease-in-out;
   }
 }
