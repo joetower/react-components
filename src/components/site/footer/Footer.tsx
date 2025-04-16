@@ -9,15 +9,12 @@ export default function Footer({variant}: FooterProps) {
   <footer className="footer" data-component-variant={variant}>
     <div className="footer__inner">
       <div className="footer__logo">
-        <a href="/" title="Home">
-          <img src="/images/logo.png" alt="Logo" />
-        </a>
+        This is a footer
       </div>
       <nav className="footer__nav">
         <ul>
-          <li><a href="/about" title="About Us">About Us</a></li>
-          <li><a href="/services" title="Services">Services</a></li>
-          <li><a href="/contact" title="Contact Us">Contact Us</a></li>
+          <li><a href="https://github.com/joetower" title="GitHub">GitHub</a></li>
+          <li><a href="https://bsky.app/profile/joetower.bsky.social" title="Bluesky Social">Bluesky</a></li>
         </ul>
       </nav>
     </div>

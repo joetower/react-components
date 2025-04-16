@@ -18,9 +18,14 @@ export default function Header({variant}: HeaderProps) {
       </div>
       <nav className="header__nav">
         <ul>
-          <li><a href="/about" title="About Us">About Us</a></li>
-          <li><a href="/services" title="Services">Services</a></li>
-          <li><a href="/contact" title="Contact Us">Contact Us</a></li>
+          <li>
+            <a 
+              href="/storybook/" 
+              title="Storybook Component Library"
+            >
+              Components
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
