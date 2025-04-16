@@ -1,0 +1,48 @@
+:root {
+  --color--button--background: var(--site-global--color-primary-accent-light);
+  --color--button--background-hover: var(--site-global--color-primary-accent);
+  --color--button--text: var(--site-global--color-basic-black);
+}
+
+.button[data-component-variant="primary"] {
+  --color--button--background: var(--site-global--color-primary-accent-light);
+  --color--button--background-accent: var(--site-global--color-primary-accent);
+  --color--button--text: var(--site-global--color-basic-black);
+}
+
+.button[data-component-variant="secondary"] {
+  --color--button--background: var(--site-global--color-secondary-accent-light);
+  --color--button--background-accent: var(--site-global--color-secondary-accent);
+  --color--button--text: var(--site-global--color-basic-black);
+}
+
+.button[data-component-variant="tertiary"] {
+  --color--button--background: var(--site-global--color-tertiary-accent-light);
+  --color--button--background-accent: var(--site-global--color-tertiary-accent);
+  --color--button--text: var(--site-global--color-basic-black);
+}
+
+.button[data-component-variant="quaternary"] {
+  --color--button--background: var(--site-global--color-quaternary-accent-light);
+  --color--button--background-accent: var(--site-global--color-quaternary-accent);
+  --color--button--text: var(--site-global--color-basic-black);
+}
+
+.button {
+  position: relative;
+  color: var(--color--button--text);
+  background-color: var(--color--button--background);
+  cursor: pointer;
+  font-size: var(--site-global--font-size--button);
+  font-weight: var(--site-global--font-weight--bold);
+  border: var(--site-global--border-width) solid transparent;
+  display: inline-block;
+  color: var(--color--button--text);
+  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal);
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: transparent;
+  border-color:var(--color--button--background-accent);
+}

@@ -2,6 +2,16 @@
   width: 100%;
 }
 
+.footer a {
+  color: var(--color--footer--link);
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  color: var(--color--footer--link-hover);
+  text-decoration:none ;
+}
+
 .footer[data-component-variant="primary"] {
   --color--footer--link: var(--site-global--color-primary-accent-dark);
   --color--footer--link-hover: var(--site-global--color-primary-accent);

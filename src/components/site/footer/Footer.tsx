@@ -9,7 +9,7 @@ export default function Footer({variant}: FooterProps) {
   <footer className="footer" data-component-variant={variant}>
     <div className="footer__inner">
       <div className="footer__logo">
-        This is a footer
+        <p>View <a href="https://github.com/joetower/react-components" title="View Source Code">source code</a></p>
       </div>
       <nav className="footer__nav">
         <ul>

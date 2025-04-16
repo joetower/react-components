@@ -109,7 +109,7 @@
 
 .callout__link {
   font-size: var(--site-global--font-size--button);
-  font-weight: var(--site-global--font-weight--medium);
+  font-weight: var(--site-global--font-weight--bold);
   border: var(--site-global--border-width) solid transparent;
   display: inline-block;
   color: var(--color--callout--link);

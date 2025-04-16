@@ -145,7 +145,7 @@ h6 {
   font-size: var(--site-global--font-size--h6);
 }
 
-p, li, span, a, button {
+p, li, span, a, .button {
   font-size: var(--site-global--font-size--base);
   line-height: var(--site-global--line-height-base);
 }
@@ -157,7 +157,7 @@ img {
 }
 
 a:focus-visible, 
-button:focus-visible {
+.button:focus-visible {
 	outline: var(--site-focus-outline--width) solid var(--site-focus-outline--color);
 	outline-offset: 0.125rem; /* 2px */
 }
