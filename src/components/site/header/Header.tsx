@@ -19,6 +19,12 @@ export default function Header({variant}: HeaderProps) {
       <nav className="header__nav">
         <ul>
           <li>
+          <a 
+              href="/" 
+              title="Home - Main Application"
+            >
+              Home
+            </a>
             <a 
               href="/storybook/" 
               title="Storybook Component Library"
