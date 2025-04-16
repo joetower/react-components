@@ -25,6 +25,8 @@ export default function Header({variant}: HeaderProps) {
             >
               Home
             </a>
+            </li>
+          <li>
             <a 
               href="/storybook/" 
               title="Storybook Component Library"
