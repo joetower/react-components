@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface TodoProps {
     text: string;
 }

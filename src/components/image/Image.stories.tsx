@@ -8,7 +8,7 @@ interface ImageProps {
 }
 
 export const Image = ({ src, alt }: ImageProps) => (
-  <img src={src} alt={alt} />
+  <ImageItem src={src} alt={alt} />
 );
 
 
