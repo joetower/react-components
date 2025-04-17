@@ -23,6 +23,6 @@ export function ToDo() {
 }
 
 export default {
-  title: 'Components/ToDo',
+  title: 'Components/Z-In-Progress/ToDo',
   component: ToDo,
 };

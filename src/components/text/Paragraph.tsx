@@ -1,14 +1,18 @@
 import './text.css';
 
 interface ParagraphProps {
-  content: string; // Required prop for image source
   style: 'default' | 'emphasized' ;
   baseClass?: string | 'text';
+  children?: React.ReactNode;
 }
-export default function Paragraph({ content, style, baseClass }: ParagraphProps) {
+
+export default function Paragraph({style, baseClass, children }: ParagraphProps) {
   return (
-    <p data-component-style={style} className={baseClass}>
-      {content}
-    </p>
+    <div
+      data-component-style={style}
+      className={`text-block ${baseClass || ''}`}
+    >
+      {children}
+    </div>
   );
 }

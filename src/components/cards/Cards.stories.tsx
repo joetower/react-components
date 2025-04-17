@@ -4,9 +4,9 @@ import { Meta, StoryFn } from '@storybook/react';
 interface CardsProps {
   heading: string;
   text: string;
-  cards_link_title: string;
-  cards_link_url: string;
-  cards_link_text: string;
+  cardsLinkTitle: string;
+  cardsLinkUrl: string;
+  cardsLinkText: string;
   animation?: boolean; // Optional prop for animation class
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
@@ -18,9 +18,9 @@ export const Cards = Template.bind({});
 Cards.args = {
   heading: 'Cards: Default Heading',
   text: 'Cards: Default Text Description',
-  cards_link_title: 'Cards: Default Link Title',
-  cards_link_text: 'Cards: Default Link Text',
-  cards_link_url: 'https://example.com',
+  cardsLinkTitle: 'Cards: Default Link Title',
+  cardsLinkText: 'Cards: Default Link Text',
+  cardsLinkUrl: 'https://example.com',
   animation: false,
   theme: 'primary', // Default value for card theme
   gridCount: '4', // Default value for grid count

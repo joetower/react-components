@@ -1,15 +1,17 @@
 import React from 'react';
 import Card from '../card/Card'; // Assuming Card is exported from Card.tsx
+import Heading from '../text/Heading';
+import Paragraph from '../text/Paragraph';
 import cardsData from '../cards/cards-data.json';
 
 interface CardData {
   title: string;
   content: string;
   link: string;
-  link_title: string; // Added link_title prop
-  link_text: string; // Optional prop for link text which is shown as link text
-  image_source: string;
-  image_alt: string;
+  linkTitle: string; // Added linkTitle prop
+  linkText: string; // Optional prop for link text which is shown as link text
+  imageSource: string;
+  imageAlt: string;
   id: string;
 }
 
@@ -19,6 +21,7 @@ interface CardsData {
 
 const cardsDataTyped: CardsData = cardsData;
 import './cards.css'; // Import the SCSS file for styling
+import { useEffect } from 'react';
 
 interface CardCollectionProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
@@ -26,25 +29,50 @@ interface CardCollectionProps {
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
   heading: string;
   text: string;
-  cards_link_url?: string; // Changed to string to match the expected type for href
-  cards_link_text?: string; // Optional prop for link text which is shown as link text
-  cards_link_title?: string; // Added link_title prop for title attribute
+  cardsLinkUrl?: string; // Changed to string to match the expected type for href
+  cardsLinkText?: string; // Optional prop for link text which is shown as link text
+  cardsLinkTitle?: string; // Added linkTitle prop for title attribute
 }
 
-const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cards_link_url, cards_link_title, cards_link_text}) => {
+const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cardsLinkUrl, cardsLinkTitle, cardsLinkText}) => {
+  useEffect(() => {
+    const listItems = document.querySelectorAll('.cards__list li');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target.classList.contains('animate')) {
+            setTimeout(() => {
+              entry.target.classList.add('fade-in-up');
+            }, 100 * (entries.indexOf(entry) + 1));
+          }
+        });
+      },
+      { threshold: 0.4 } // Adjust threshold as needed
+    );
+
+    listItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      listItems.forEach((item) => observer.unobserve(item));
+    };
+  }, [animation]);
+
   return (
     <>
       <div className='cards__header' data-component-theme={theme}>
         <div className='cards__header__inner'>
           <div className='cards__heading'>
-            <h2>{heading}</h2>
+            <Heading level='h2' baseClass='cards__heading__title' content={heading} />
           </div>
           <div className='cards__content'>
             <div className='cards__text'>
-              <p>{text}</p>
+              <Paragraph style="default" baseClass='cards__paragraph'>
+                {text}
+              </Paragraph>
             </div>
-            <a className='cards__link' href={cards_link_url} title={cards_link_title}>
-              {cards_link_text}
+            <a className='cards__link' href={cardsLinkUrl} title={cardsLinkTitle}>
+              {cardsLinkText}
             </a>
           </div>
         </div>
@@ -53,8 +81,8 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
         <div className='cards__inner'>
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (
-              <li key={card.id}>
-                <Card heading={card.title} animation={animation} text={card.content} link={card.link} link_text={card.link_text} link_title={card.link_title} theme={theme} imageSrc={card.image_source} imageAlt={card.image_alt} />
+              <li key={card.id} className={animation ? 'cards__list__item animate' : 'cards__list__item'}>
+                <Card heading={card.title} animation={animation} text={card.content} link={card.link} linkText={card.linkText} linkTitle={card.linkTitle} theme={theme} imageSrc={card.imageSource} imageAlt={card.imageAlt} />
               </li>
             ))}
           </ul>

@@ -1,6 +1,22 @@
-.text[data-component-style="emphasized"] {
+.text-block {
+  max-width: var(--site-width--text);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+
+.text-block[data-component-style="emphasized"] {
   font-weight: var(--site-global--font-weight--bold);
   font-size: var(--site-global--font-size--large);
   line-height: var(--site-global--line-height--loose);
   color: var(--site-global--color-basic-black);
+}
+
+.text-block a {
+  color: var(--site-global--color-primary-accent);
+  text-decoration: underline;
+}
+
+.text-block a:hover {
+  color: var(--site-global--color-primary-accent-dark);
+  text-decoration: none;
 }

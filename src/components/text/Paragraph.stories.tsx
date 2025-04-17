@@ -7,8 +7,10 @@ interface ParagraphProps {
   style: 'default' | 'emphasized' ;
 }
 
-export const Paragraph = ({ content, style }: ParagraphProps) => (
-  <ParagraphItem content={content} style={style} baseClass='text'/>
+export const Paragraph = ({ content, style = 'default' }: ParagraphProps) => (
+  <ParagraphItem style={style} baseClass='text'>
+    {content}
+  </ParagraphItem>
 );
 
 
@@ -19,7 +21,7 @@ Paragraph.args = {
 
 // Default export for Storybook
 const meta: Meta<typeof Paragraph> = {
-  title: 'Components/Paragraph',
+  title: 'Components/Text/Paragraph',
   component: Paragraph,
   argTypes: {
     content: { control: 'text' },

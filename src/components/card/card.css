@@ -82,6 +82,10 @@
   font-size: var(--site-global--font-size--h3);
 }
 
+.card__paragraph {
+  margin: 0;
+}
+
 .card__link {
   font-size: var(--site-global--font-size--button);
   font-weight: var(--site-global--font-weight--bold);
