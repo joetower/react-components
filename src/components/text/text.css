@@ -1,0 +1,6 @@
+.text[data-component-style="emphasized"] {
+  font-weight: var(--site-global--font-weight--bold);
+  font-size: var(--site-global--font-size--large);
+  line-height: var(--site-global--line-height--loose);
+  color: var(--site-global--color-basic-black);
+}

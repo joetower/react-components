@@ -102,7 +102,9 @@
 	--site-global--font-size--button: 1.1rem; /* 18px */
 
 	--site-global--line-height-base: 1.5;
-
+	--site-global--line-height--tight: 1.25;
+	--site-global--line-height--loose: 1.75;
+	
 	/* Font family and weights */
 	--site-global--font-family: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 	--site-global--font-weight--light: 300;
