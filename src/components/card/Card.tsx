@@ -1,5 +1,6 @@
 import Button from '../button/Button';
 import Image from "../image/Image";
+import Paragraph from '../text/Paragraph';
 import './card.css'; // Import the SCSS file for styling
 interface CardProps {
   heading: string;
@@ -30,7 +31,7 @@ export default function Card({heading, text, link, link_title, link_text, animat
           </a>
         </h2>
         <div className="card__text">
-          {text}
+          <Paragraph style="default" baseClass='card__paragraph' content={text} />        
         </div>
         <div className="card__actions">
           <Button

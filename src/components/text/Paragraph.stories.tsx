@@ -1,26 +1,26 @@
-import TextItem from './Text';
+import ParagraphItem from './Paragraph';
 import { Meta } from '@storybook/react';
 
 // Default export for Storybook
-interface TextProps {
+interface ParagraphProps {
   content: string; // Required prop for image source
   style: 'default' | 'emphasized' ;
 }
 
-export const Text = ({ content, style }: TextProps) => (
-  <TextItem content={content} style={style} baseClass='text'/>
+export const Paragraph = ({ content, style }: ParagraphProps) => (
+  <ParagraphItem content={content} style={style} baseClass='text'/>
 );
 
 
-Text.args = {
+Paragraph.args = {
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   style: 'default',
 };
 
 // Default export for Storybook
-const meta: Meta<typeof Text> = {
-  title: 'Components/Text',
-  component: Text,
+const meta: Meta<typeof Paragraph> = {
+  title: 'Components/Paragraph',
+  component: Paragraph,
   argTypes: {
     content: { control: 'text' },
     style: {

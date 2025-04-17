@@ -1,4 +1,5 @@
 import Button from '../button/Button';
+import Paragraph from '../text/Paragraph';
 import './callout.css'; // Import the SCSS file for styling
 interface CalloutProps {
   heading: string;
@@ -19,7 +20,7 @@ export default function Callout({heading, text, link, link_title, link_text, ani
           {heading}
         </h2>
         <div className="callout__text">
-          <p>{text}</p>
+          <Paragraph style="default" baseClass='callout__paragraph' content={text} />
         </div>
         <div className="callout__actions">
           <Button
