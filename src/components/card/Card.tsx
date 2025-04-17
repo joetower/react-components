@@ -1,3 +1,4 @@
+import Button from '../button/Button';
 import Image from "../image/Image";
 import './card.css'; // Import the SCSS file for styling
 interface CardProps {
@@ -9,12 +10,12 @@ interface CardProps {
   imageSrc?: string; // Optional prop for image source
   imageAlt?: string; // Optional prop for image alt text
   animation?: boolean; // Optional prop for animation class
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card variant
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
 
-export default function Card({heading, text, link, link_title, link_text, animation, imageSrc, imageAlt, variant}: CardProps) {
+export default function Card({heading, text, link, link_title, link_text, animation, imageSrc, imageAlt, theme}: CardProps) {
   return (<>
-    <div className="card" data-component-animation={animation ? 'true' : 'false'} data-component-variant={variant || 'primary'}>
+    <div className="card" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'}>
       {imageSrc && (
         <div className="card__image">
           <a className="card__image__link" href={link} target="_blank" rel="noopener noreferrer" title={link_title} tabIndex={-1} aria-hidden="true">
@@ -32,9 +33,14 @@ export default function Card({heading, text, link, link_title, link_text, animat
           {text}
         </div>
         <div className="card__actions">
-          <a className="card__link" href={link} target="_blank" rel="noopener noreferrer" title={link_title}>
-            {link_text}
-          </a>
+          <Button
+            baseClass={['card__link'].join(' ')}            
+            theme={theme || 'primary'}
+            label={link_text || 'Learn More'}
+            type="button-link"
+            title={link_title}
+            href={link}
+            />
         </div>
       </div>
     </div>

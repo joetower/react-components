@@ -1,3 +1,4 @@
+import Button from '../button/Button';
 import './callout.css'; // Import the SCSS file for styling
 interface CalloutProps {
   heading: string;
@@ -6,13 +7,13 @@ interface CalloutProps {
   link_text?: string; // Optional prop for link text
   link_title?: string; // Added link_title prop
   animation?: boolean; // Optional prop for animation class
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for callout variant
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for callout theme
   alignment?: 'left' | 'center' | 'right'; // Optional prop for callout alignment
 }
 
-export default function Callout({heading, text, link, link_title, link_text, animation, variant, alignment}: CalloutProps) {
+export default function Callout({heading, text, link, link_title, link_text, animation, theme, alignment}: CalloutProps) {
   return (<>
-    <div className="callout" data-component-animation={animation ? 'true' : 'false'} data-component-variant={variant || 'primary'} data-component-alignment={alignment || 'left'}>
+    <div className="callout" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'} data-component-alignment={alignment || 'left'}>
       <div className="callout__content">
         <h2 className="callout__heading">
           {heading}
@@ -21,9 +22,14 @@ export default function Callout({heading, text, link, link_title, link_text, ani
           <p>{text}</p>
         </div>
         <div className="callout__actions">
-          <a className="callout__link" href={link} target="_blank" rel="noopener noreferrer" title={link_title}>
-            {link_text}
-          </a>
+          <Button
+            baseClass={['callout__link'].join(' ')}            
+            theme={theme || 'primary'}
+            label={link_text || 'Learn More'}
+            type="button-link"
+            title={link_title}
+            href={link}
+            />
         </div>
       </div>
     </div>

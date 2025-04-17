@@ -2,16 +2,16 @@ import SiteFooter from "./Footer";
 import { Meta } from "@storybook/react";
 
 export const Footer = (
-  { variant }
+  { theme }
   : { 
-    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
+    theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
   <SiteFooter
-    variant={variant}  // Default variant
+    theme={theme}  // Default theme
   />
 );
 
 Footer.args = {
-  variant: 'primary',  // Default variant
+  theme: 'primary',  // Default theme
 };
 
 // Default export for Storybook
@@ -19,7 +19,7 @@ const meta: Meta<typeof Footer> = {
   title: 'Components/Site/Footer',
   component: Footer,
   argTypes: {
-    variant: {
+    theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'radio' },
     },

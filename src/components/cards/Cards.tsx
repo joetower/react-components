@@ -21,7 +21,7 @@ const cardsDataTyped: CardsData = cardsData;
 import './cards.css'; // Import the SCSS file for styling
 
 interface CardCollectionProps {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card variant
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
   animation?: boolean; // Optional prop for animation class
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
   heading: string;
@@ -31,10 +31,10 @@ interface CardCollectionProps {
   cards_link_title?: string; // Added link_title prop for title attribute
 }
 
-const CardCollection: React.FC<CardCollectionProps> = ({variant, gridCount, animation, heading, text, cards_link_url, cards_link_title, cards_link_text}) => {
+const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cards_link_url, cards_link_title, cards_link_text}) => {
   return (
     <>
-      <div className='cards__header' data-component-variant={variant}>
+      <div className='cards__header' data-component-theme={theme}>
         <div className='cards__header__inner'>
           <div className='cards__heading'>
             <h2>{heading}</h2>
@@ -54,7 +54,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({variant, gridCount, anim
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (
               <li key={card.id}>
-                <Card heading={card.title} animation={animation} text={card.content} link={card.link} link_text={card.link_text} link_title={card.link_title} variant={variant} imageSrc={card.image_source} imageAlt={card.image_alt} />
+                <Card heading={card.title} animation={animation} text={card.content} link={card.link} link_text={card.link_text} link_title={card.link_title} theme={theme} imageSrc={card.image_source} imageAlt={card.image_alt} />
               </li>
             ))}
           </ul>

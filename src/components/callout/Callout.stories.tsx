@@ -2,7 +2,7 @@ import CalloutItem from "./Callout";
 import { Meta } from "@storybook/react";
 
 export const Callout = (
-  { animation, variant, heading, text, link, link_title, link_text, alignment }
+  { animation, theme, heading, text, link, link_title, link_text, alignment }
   : { 
     heading: string; 
     text: string; 
@@ -10,7 +10,7 @@ export const Callout = (
     link_text: string;
     link_title: string; 
     animation: boolean;  
-    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; 
+    theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; 
     alignment?: 'left' | 'center' | 'right'; // Optional prop for callout alignment
   }) => (
   <CalloutItem
@@ -20,7 +20,7 @@ export const Callout = (
     link_title={link_title}
     link_text={link_text}
     animation={animation}  // Set to true to enable animation
-    variant={variant}  // Default variant
+    theme={theme}  // Default theme
     alignment={alignment} // Default alignment
   />
 );
@@ -32,7 +32,7 @@ Callout.args = {
   link_text: 'This is a link text',
   link_title: 'This is a link title',
   animation: false,  // Set to true to enable animation
-  variant: 'primary',  // Default variant
+  theme: 'primary',  // Default theme
   alignment: 'left', // Default alignment
 };
 // Default export for Storybook
@@ -40,7 +40,7 @@ const meta: Meta<typeof Callout> = {
   title: 'Components/Callout',
   component: Callout,
   argTypes: {
-    variant: {
+    theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'radio' },
     },

@@ -16,7 +16,7 @@
   max-width: var(--card-width--content);
 }
 
-.card[data-component-variant="primary"] {
+.card[data-component-theme="primary"] {
   --color--card--background: var(--site-global--color-primary);
   --color--card--border: var(--site-global--color-primary-accent);
   --color--card--title: var(--site-global--color-primary-accent-dark);
@@ -25,7 +25,7 @@
   --color--card--link-hover: var(--site-global--color-primary-accent);
 }
 
-.card[data-component-variant="secondary"] {
+.card[data-component-theme="secondary"] {
   --color--card--background: var(--site-global--color-secondary);
   --color--card--border: var(--site-global--color-secondary-accent);
   --color--card--title: var(--site-global--color-secondary-accent-dark);
@@ -34,7 +34,7 @@
   --color--card--link-hover: var(--site-global--color-secondary-accent);
 }
 
-.card[data-component-variant="tertiary"] {
+.card[data-component-theme="tertiary"] {
   --color--card--background: var(--site-global--color-tertiary);
   --color--card--border: var(--site-global--color-tertiary-accent);
   --color--card--title: var(--site-global--color-tertiary-accent-dark);
@@ -43,7 +43,7 @@
   --color--card--link-hover: var(--site-global--color-tertiary-accent);
 }
 
-.card[data-component-variant="quaternary"] {
+.card[data-component-theme="quaternary"] {
   --color--card--background: var(--site-global--color-quaternary);
   --color--card--border: var(--site-global--color-quaternary-accent);
   --color--card--title: var(--site-global--color-quaternary-accent-dark);

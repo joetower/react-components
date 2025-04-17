@@ -5,22 +5,22 @@
   margin-inline-end: auto;
 }
 
-.cards__header[data-component-variant="primary"] {
+.cards__header[data-component-theme="primary"] {
   --color--card--link: var(--site-global--color-primary-accent-dark);
   --color--card--link-hover: var(--site-global--color-primary-accent);
 }
 
-.cards__header[data-component-variant="secondary"] {
+.cards__header[data-component-theme="secondary"] {
   --color--card--link: var(--site-global--color-secondary-accent-dark);
   --color--card--link-hover: var(--site-global--color-secondary-accent);
 }
 
-.cards__header[data-component-variant="tertiary"] {
+.cards__header[data-component-theme="tertiary"] {
   --color--card--link: var(--site-global--color-tertiary-accent-dark);
   --color--card--link-hover: var(--site-global--color-tertiary-accent);
 }
 
-.cards__header[data-component-variant="quaternary"] {
+.cards__header[data-component-theme="quaternary"] {
   --color--card--link: var(--site-global--color-quaternary-accent-dark);
   --color--card--link-hover: var(--site-global--color-quaternary-accent);
 }

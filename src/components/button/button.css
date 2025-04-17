@@ -4,25 +4,25 @@
   --color--button--text: var(--site-global--color-basic-black);
 }
 
-.button[data-component-variant="primary"] {
+.button[data-component-theme="primary"] {
   --color--button--background: var(--site-global--color-primary-accent-light);
   --color--button--background-accent: var(--site-global--color-primary-accent);
   --color--button--text: var(--site-global--color-basic-black);
 }
 
-.button[data-component-variant="secondary"] {
+.button[data-component-theme="secondary"] {
   --color--button--background: var(--site-global--color-secondary-accent-light);
   --color--button--background-accent: var(--site-global--color-secondary-accent);
   --color--button--text: var(--site-global--color-basic-black);
 }
 
-.button[data-component-variant="tertiary"] {
+.button[data-component-theme="tertiary"] {
   --color--button--background: var(--site-global--color-tertiary-accent-light);
   --color--button--background-accent: var(--site-global--color-tertiary-accent);
   --color--button--text: var(--site-global--color-basic-black);
 }
 
-.button[data-component-variant="quaternary"] {
+.button[data-component-theme="quaternary"] {
   --color--button--background: var(--site-global--color-quaternary-accent-light);
   --color--button--background-accent: var(--site-global--color-quaternary-accent);
   --color--button--text: var(--site-global--color-basic-black);
@@ -38,11 +38,19 @@
   border: var(--site-global--border-width) solid transparent;
   display: inline-block;
   color: var(--color--button--text);
-  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal);
+  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal--wide);
   text-decoration: none;
 }
 
 .button:hover {
   background-color: transparent;
   border-color:var(--color--button--background-accent);
+}
+
+/* Media Queries: hover effects */
+@media (prefers-reduced-motion: no-preference) {
+  .button:hover {
+    transition: all var(--site-global--transition-timing) ease-in-out;
+    box-shadow: 0 0 var(--site-global--border-width--thick) var(--site-global--border-width) var(--color--button--background-accent);
+  }
 }

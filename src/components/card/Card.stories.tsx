@@ -2,7 +2,7 @@ import CardItem from "./Card";
 import { Meta } from "@storybook/react";
 
 export const Card = (
-  { animation, imageSrc, imageAlt, variant, heading, text, link, link_title, link_text }
+  { animation, imageSrc, imageAlt, theme, heading, text, link, link_title, link_text }
   : { 
     heading: string; 
     text: string; 
@@ -12,7 +12,7 @@ export const Card = (
     animation: boolean; 
     imageSrc: string; 
     imageAlt: string; 
-    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
+    theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
   <CardItem
     heading={heading}
     text={text}
@@ -22,7 +22,7 @@ export const Card = (
     imageSrc={imageSrc}
     imageAlt={imageAlt}
     animation={animation}  // Set to true to enable animation
-    variant={variant}  // Default variant
+    theme={theme}  // Default theme
   />
 );
 
@@ -35,14 +35,14 @@ Card.args = {
   imageSrc: 'https://placehold.co/600x400',
   imageAlt: 'Placeholder Image',
   animation: false,  // Set to true to enable animation
-  variant: 'primary',  // Default variant
+  theme: 'primary',  // Default theme
 };
 // Default export for Storybook
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
   component: Card,
   argTypes: {
-    variant: {
+    theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'radio' },
     },

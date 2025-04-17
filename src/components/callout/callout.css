@@ -16,7 +16,7 @@
   background-color: var(--color--callout--background);
 }
 
-.callout::before {
+.callout::after {
   content: '';
   display: block;
   position: absolute;
@@ -30,12 +30,12 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .callout[data-component-animation="true"]::before {
+  .callout[data-component-animation="true"]::after {
     transition: width var(--site-global--transition-timing) ease-in-out;
   }
 }
 
-.callout[data-component-variant="primary"] {
+.callout[data-component-theme="primary"] {
   --color--callout--background: var(--site-global--color-primary-accent-light);
   --color--callout--background-accent: var(--site-global--color-primary-accent-dark);
   --color--callout--border: var(--site-global--color-primary-accent-dark);
@@ -46,7 +46,7 @@
   --color--callout--link-hover: var(--site-global--color-primary-accent-dark);
 }
 
-.callout[data-component-variant="secondary"] {
+.callout[data-component-theme="secondary"] {
   --color--callout--background: var(--site-global--color-secondary-accent-light);
   --color--callout--background-accent: var(--site-global--color-secondary-accent-dark);
   --color--callout--border: var(--site-global--color-secondary-accent-dark);
@@ -57,7 +57,7 @@
   --color--callout--link-hover: var(--site-global--color-secondary-accent-dark);
 }
 
-.callout[data-component-variant="tertiary"] {
+.callout[data-component-theme="tertiary"] {
   --color--callout--background: var(--site-global--color-tertiary-accent-light);
   --color--callout--background-accent: var(--site-global--color-tertiary-accent-dark);
   --color--callout--border: var(--site-global--color-tertiary-accent-dark);
@@ -68,7 +68,7 @@
   --color--callout--link-hover: var(--site-global--color-tertiary-accent-dark);
 }
 
-.callout[data-component-variant="quaternary"] {
+.callout[data-component-theme="quaternary"] {
   --color--callout--background: var(--site-global--color-quaternary-accent-light);
   --color--callout--background-accent: var(--site-global--color-quaternary-accent-dark);
   --color--callout--border: var(--site-global--color-quaternary-accent-dark);
@@ -123,7 +123,7 @@
   font-size: var(--site-global--font-size--large);
 }
 
-.callout:hover::before {
+.callout:hover::after {
   background-color: var(--color--callout--border);
   width: 100%;
 }

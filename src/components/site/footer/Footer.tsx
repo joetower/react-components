@@ -1,12 +1,12 @@
 import './footer.css'; // Import the SCSS file for styling
 interface FooterProps {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card variant
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
 
-export default function Footer({variant}: FooterProps) {
+export default function Footer({theme}: FooterProps) {
   return (
   <>
-  <footer className="footer" data-component-variant={variant}>
+  <footer className="footer" data-component-theme={theme}>
     <div className="footer__inner">
       <div className="footer__logo">
         <p>View <a href="https://github.com/joetower/react-components" title="View Source Code">source code</a></p>

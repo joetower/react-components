@@ -1,12 +1,12 @@
 import './header.css'; // Import the SCSS file for styling
 interface HeaderProps {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card variant
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
 
-export default function Header({variant}: HeaderProps) {
+export default function Header({theme}: HeaderProps) {
   return (
   <>
-  <header className="header" data-component-variant={variant}>
+  <header className="header" data-component-theme={theme}>
     <div className="header__inner">
       <div className="header__logo">
         <a href="/" title="Home">

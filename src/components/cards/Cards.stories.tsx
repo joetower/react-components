@@ -9,7 +9,7 @@ interface CardsProps {
   cards_link_text: string;
   animation?: boolean; // Optional prop for animation class
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card variant
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
 }
 
 const Template: StoryFn<CardsProps> = (args: CardsProps) => <CardCollection {...args} />;
@@ -22,7 +22,7 @@ Cards.args = {
   cards_link_text: 'Cards: Default Link Text',
   cards_link_url: 'https://example.com',
   animation: false,
-  variant: 'primary', // Default value for card variant
+  theme: 'primary', // Default value for card theme
   gridCount: '4', // Default value for grid count
 };
 
@@ -31,7 +31,7 @@ const meta: Meta<CardsProps> = {
   title: 'Components/Cards',
   component: CardCollection,
   argTypes: {
-    variant: {
+    theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'radio' },
     },

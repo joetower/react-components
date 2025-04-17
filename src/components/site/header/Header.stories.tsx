@@ -2,16 +2,16 @@ import SiteHeader from "./Header";
 import { Meta } from "@storybook/react";
 
 export const Header = (
-  { variant }
+  { theme }
   : { 
-    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
+    theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
   <SiteHeader
-    variant={variant}  // Default variant
+    theme={theme}  // Default theme
   />
 );
 
 Header.args = {
-  variant: 'primary',  // Default variant
+  theme: 'primary',  // Default theme
 };
 
 // Default export for Storybook
@@ -19,7 +19,7 @@ const meta: Meta<typeof Header> = {
   title: 'Components/Site/Header',
   component: Header,
   argTypes: {
-    variant: {
+    theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'radio' },
     },

@@ -31,6 +31,8 @@
 	/* Buttons */
 	--site-button--spacing-vertical: 0.5rem;
 	--site-button--spacing-vertical--half: 0.25rem;
+	--site-button--spacing-veritcal--wide: 1rem;
+	--site-button--spacing-horizontal--wide: 1.5rem;
 	--site-button--spacing-horizontal: 1rem;
 	--site-button--spacing-horizontal--half: 0.5rem;
 
@@ -74,6 +76,19 @@
 	--site-global--color-basic-gray-80: hsl(0, 0%, 80%);
 	--site-global--color-basic-gray-90: hsl(0, 0%, 90%);
 
+	/* Component width to override based on theme widths */
+	--cta-width--content: var(--site-width--narrow);
+	--cta-width--wide: var(--site-width--extra-wide);
+	--cta-width--full: var(--site-width--full);
+	
+	--card-width--content: var(--site-width--text);
+	--card-width--wide: var(--site-width--wide);
+	--card-width--full: var(--site-width--full);
+
+	/* Site Header */
+	--site-header--background-color: var(--site-global--color-secondary);
+	--site-header--background-color--accent: var(--site-global--color-primary-accent);
+
 	/* Font sizes */
 	--site-global--font-size--base: 1rem; /* 16px */
 	--site-global--font-size--label: 1.2rem; /* 19px */
@@ -88,19 +103,7 @@
 
 	--site-global--line-height-base: 1.5;
 
-	/* Component width to override based on theme widths */
-	--cta-width--content: var(--site-width--narrow);
-	--cta-width--wide: var(--site-width--extra-wide);
-	--cta-width--full: var(--site-width--full);
-	
-	--card-width--content: var(--site-width--text);
-	--card-width--wide: var(--site-width--wide);
-	--card-width--full: var(--site-width--full);
-
-	/* Site Header */
-	--site-header--background-color: var(--site-global--color-secondary);
-	--site-header--background-color--accent: var(--site-global--color-primary-accent);
-
+	/* Font family and weights */
 	--site-global--font-family: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 	--site-global--font-weight--light: 300;
 	--site-global--font-weight: 400;

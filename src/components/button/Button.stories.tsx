@@ -2,26 +2,35 @@ import type { Meta } from '@storybook/react';
 import ButtonItem from './Button';
 
 export const Button = (
-  { variant, type, label,size }
+  { theme, type, label, size, href, title, baseClass }
   : { 
     label: string;
     type: 'button' | 'button-link' | 'text-link'; 
-    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; 
-    size: 'small' | 'medium' | 'large';   // Added size prop s
+    theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; 
+    size: 'small' | 'medium' | 'large';   // Added size prop
+    href?: string;
+    title?: string;
+    baseClass?: string;
   }) => (
   <ButtonItem
     label={label}
     type={type}
-    variant={variant}  // Default variant
+    theme={theme}  // Default theme
     size={size}  // Default size
+    href={href}
+    title={title}
+    baseClass={baseClass}
   />
 );
 
 Button.args = {
   label: 'Button',
   type: 'button',
-  variant: 'primary',  // Default variant
+  theme: 'primary',  // Default theme
   size: 'medium',  // Default size
+  href: '#',
+  title: 'Button Title',
+  baseClass: 'button',
 };
 
 
@@ -31,7 +40,7 @@ const meta = {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    variant: {
+    theme: {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'tertiary', 'quaternary'], // Add valid options here
     },
