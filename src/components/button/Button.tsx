@@ -14,12 +14,14 @@ export interface ButtonProps {
   title?: string;
   /** Optional href */
   href?: string;
+  /** Optional tabIndex */
+  tabIndex?: number;
   /** Optional click handler */
   onClick?: () => void;
 }
 
 /** Primary UI component for user interaction */
-export default function Button({theme, size, label, type, href, title, baseClass, ...rest}: ButtonProps) {
+export default function Button({theme, size, label, type, href, title, baseClass, tabIndex, ...rest}: ButtonProps) {
   return (
     <>
       {type === 'button' && (
@@ -29,6 +31,7 @@ export default function Button({theme, size, label, type, href, title, baseClass
           data-component-theme={theme || 'primary'} 
           data-component-size={size || 'medium'}
           className={[`${baseClass}`, 'button'].join(' ')}
+          tabIndex={tabIndex}
           {...rest}
         >
           {label}
@@ -42,6 +45,7 @@ export default function Button({theme, size, label, type, href, title, baseClass
           className={[`${baseClass}`, 'button', 'button-link'].join(' ')}
           href={href}
           title={title}
+          tabIndex={tabIndex}
           {...rest}
         >
           {label}
@@ -55,6 +59,7 @@ export default function Button({theme, size, label, type, href, title, baseClass
           className={[`${baseClass}`, 'button', 'text-link'].join(' ')}
           href={href}
           title={title}
+          tabIndex={tabIndex}
           {...rest}
         >
           {label}
