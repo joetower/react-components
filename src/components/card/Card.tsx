@@ -1,6 +1,6 @@
 import Button from '../button/Button';
 import Image from "../image/Image";
-import Paragraph from '../text/Paragraph';
+import Paragraph from '../text/TextBlock';
 import Heading from '../text/Heading';
 import './card.css'; // Import the SCSS file for styling
 interface CardProps {

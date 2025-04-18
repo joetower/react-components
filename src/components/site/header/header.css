@@ -27,7 +27,6 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   max-width: var(--site-width--inner);
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -49,12 +48,12 @@
 }
 
 .header__nav {
-  flex: 1 0 auto;
+  flex: 1 auto;
 }
 
 .header__nav ul {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: flex-end;
   list-style: none;
@@ -108,5 +107,11 @@
   
   .header__logo a:hover svg {
     transition: all var(--site-global--transition-timing) ease-in-out;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .header__inner {
+    padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal--half);
   }
 }

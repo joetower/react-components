@@ -1,5 +1,5 @@
 import Button from '../button/Button';
-import Paragraph from '../text/Paragraph';
+import Paragraph from '../text/TextBlock';
 import Heading from '../text/Heading';
 import './callout.css'; // Import the SCSS file for styling
 interface CalloutProps {

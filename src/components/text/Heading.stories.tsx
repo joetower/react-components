@@ -6,10 +6,11 @@ interface HeadingProps {
   content: string; // Required prop for image source
   level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Added prop for heading level
   baseClass: string;
+  width?: 'content' | 'full';
 }
 
-export const Heading = ({ content, level = 'h2', baseClass = 'heading'}: HeadingProps) => (
-  <HeadingItem content={content} level={level} baseClass={baseClass}/>
+export const Heading = ({ content, level = 'h2', baseClass = 'heading', width = 'content'}: HeadingProps) => (
+  <HeadingItem content={content} level={level} baseClass={baseClass} width={width}/>
 );
 
 

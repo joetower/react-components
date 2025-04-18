@@ -1,4 +1,8 @@
-.text-block {
+.text-block[data-component-width="full"] {
+  width: 100%;
+}
+
+.text-block[data-component-width="content"] {
   max-width: var(--site-width--components);
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -19,4 +23,11 @@
 .text-block a:hover {
   color: var(--site-global--color-primary-accent-dark);
   text-decoration: none;
+}
+
+@media screen and (max-width: 1350px) {
+  .text-block {
+    padding-inline-start: var(--site-global--spacing-horizontal--half);
+    padding-inline-end: var(--site-global--spacing-horizontal--half);
+  }
 }

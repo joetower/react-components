@@ -11,7 +11,10 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  height: 100%;
   color: var(--color--card--text);
   max-width: var(--card-width--content);
   border: var(--site-global--border-width) solid var(--site-global--color-basic-gray-90);
@@ -78,6 +81,11 @@
   display: flex;
   flex-flow: column nowrap;
   gap: var(--site-global--gap--type);
+  padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal--half);
+  height: 100%;
+}
+
+[data-component-width="full"] .card__content {
   padding: var(--site-global--spacing-vertical) var(--site-global--spacing-horizontal);
 }
 

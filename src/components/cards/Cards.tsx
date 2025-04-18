@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../card/Card'; // Assuming Card is exported from Card.tsx
 import Heading from '../text/Heading';
-import Paragraph from '../text/Paragraph';
+import Paragraph from '../text/TextBlock';
 import cardsData from '../cards/cards-data.json';
 
 interface CardData {
@@ -32,9 +32,10 @@ interface CardCollectionProps {
   cardsLinkUrl?: string; // Changed to string to match the expected type for href
   cardsLinkText?: string; // Optional prop for link text which is shown as link text
   cardsLinkTitle?: string; // Added linkTitle prop for title attribute
+  width?: 'content' | 'full';
 }
 
-const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cardsLinkUrl, cardsLinkTitle, cardsLinkText}) => {
+const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'content'}) => {
   useEffect(() => {
     const listItems = document.querySelectorAll('.cards__list li');
 
@@ -60,7 +61,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
 
   return (
     <>
-      <div className='cards__header' data-component-theme={theme}>
+      <div className='cards__header' data-component-theme={theme} data-component-width={width}>
         <div className='cards__header__inner'>
           <div className='cards__heading'>
             <Heading level='h2' baseClass='cards__heading__title' content={heading} />
@@ -77,7 +78,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           </div>
         </div>
       </div>
-      <div className="cards" data-grid-count={gridCount || 4}>
+      <div className="cards" data-grid-count={gridCount || 4} data-component-width={width}>
         <div className='cards__inner'>
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (

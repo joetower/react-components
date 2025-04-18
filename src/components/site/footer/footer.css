@@ -42,7 +42,6 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   max-width: var(--site-width--inner);
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -56,7 +55,7 @@
 
 .footer__nav ul {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: flex-end;
   list-style: none;
@@ -85,5 +84,11 @@
 @media (prefers-reduced-motion: no-preference) {
   .footer a {
     transition: all var(--site-global--transition-timing) ease-in-out;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .footer__inner {
+    padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal--half);
   }
 }

@@ -10,6 +10,7 @@ interface CardsProps {
   animation?: boolean; // Optional prop for animation class
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
+  width?: 'content' | 'full';
 }
 
 const Template: StoryFn<CardsProps> = (args: CardsProps) => <CardCollection {...args} />;
@@ -24,6 +25,7 @@ Cards.args = {
   animation: false,
   theme: 'primary', // Default value for card theme
   gridCount: '4', // Default value for grid count
+  width: 'content', // Default value for width
 };
 
 // Default export for Storybook

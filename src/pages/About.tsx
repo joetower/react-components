@@ -1,5 +1,5 @@
 import MainLayout from '../components/layouts/MainLayout';
-import Paragraph from '../components/text/Paragraph';
+import Paragraph from '../components/text/TextBlock';
 import Heading from '../components/text/Heading';
 
 function About() {

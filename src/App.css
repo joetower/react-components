@@ -34,3 +34,10 @@ main.home-page {
 .read-the-docs {
   color: #888;
 }
+
+@media screen and (max-width: 1350px) {
+  main.home-page .intro__heading {
+    padding-inline-start: var(--site-global--spacing-horizontal--half);
+    padding-inline-end: var(--site-global--spacing-horizontal--half);
+  }
+}
