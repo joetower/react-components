@@ -91,6 +91,10 @@
   font-size: var(--site-global--font-size--h3);
 }
 
+.card__text {
+  flex: 1 0 auto;
+}
+
 .card__paragraph {
   margin: 0;
 }

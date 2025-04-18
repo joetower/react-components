@@ -1,6 +1,6 @@
 import Button from '../button/Button';
 import Image from "../image/Image";
-import Paragraph from '../text/TextBlock';
+import TextBlock from '../text/TextBlock';
 import Heading from '../text/Heading';
 import './card.css'; // Import the SCSS file for styling
 interface CardProps {
@@ -12,10 +12,11 @@ interface CardProps {
   imageSrc?: string; // Optional prop for image source
   imageAlt?: string; // Optional prop for image alt text
   animation?: boolean; // Optional prop for animation class
+  showButton?: boolean; // Optional prop to show buttons
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
 
-export default function Card({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme}: CardProps) {
+export default function Card({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, showButton}: CardProps) {
   return (<>
     <div className="card" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'}>
       {imageSrc && (
@@ -28,20 +29,24 @@ export default function Card({heading, text, link, linkTitle, linkText, animatio
       <div className="card__content">
         <Heading level='h2' baseClass='card__heading' content={heading} link={link} linkTitle={linkTitle} linkClass='card__heading__link' />
         <div className="card__text">
-          <Paragraph style="default" baseClass='card__paragraph'>
+          <TextBlock style="default" baseClass='card__paragraph'>
             {text}
-          </Paragraph>
+          </TextBlock>
         </div>
-        {/* <div className="card__actions">
-          <Button
-            baseClass={['card__link'].join(' ')}            
-            theme={theme || 'primary'}
-            label={linkText || 'Learn More'}
-            type="button-link"
-            title={linkTitle}
-            href={link}
+        {showButton && (
+            <div className="card__actions">
+            <Button
+              baseClass={['card__link'].join(' ')}            
+              theme={theme || 'primary'}
+              label={linkText || 'Learn More'}
+              type="button-link"
+              title={linkTitle}
+              href={link}
+              aria-hidden="true"
+              tabIndex={-1}
             />
-        </div> */}
+            </div>
+        )}
       </div>
     </div>
   </>);

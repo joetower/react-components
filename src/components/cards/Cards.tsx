@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../card/Card'; // Assuming Card is exported from Card.tsx
 import Heading from '../text/Heading';
-import Paragraph from '../text/TextBlock';
+import TextBlock from '../text/TextBlock';
 import cardsData from '../cards/cards-data.json';
 
 interface CardData {
@@ -13,13 +13,19 @@ interface CardData {
   imageSource: string;
   imageAlt: string;
   id: string;
+  showButton: boolean; // Optional prop to show buttons
 }
 
 interface CardsData {
   cards: CardData[];
 }
 
-const cardsDataTyped: CardsData = cardsData;
+const cardsDataTyped: CardsData = {
+  cards: cardsData.cards.map(card => ({
+    ...card,
+    showButton: card.showButton ?? false, // Provide a default value for showButton
+  })),
+};
 import './cards.css'; // Import the SCSS file for styling
 import { useEffect } from 'react';
 
@@ -33,9 +39,10 @@ interface CardCollectionProps {
   cardsLinkText?: string; // Optional prop for link text which is shown as link text
   cardsLinkTitle?: string; // Added linkTitle prop for title attribute
   width?: 'content' | 'full';
+  showButtons?: boolean; // Optional prop to show buttons
 }
 
-const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'content'}) => {
+const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'content', showButtons}) => {
   useEffect(() => {
     const listItems = document.querySelectorAll('.cards__list li');
 
@@ -68,9 +75,9 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           </div>
           <div className='cards__content'>
             <div className='cards__text'>
-              <Paragraph style="default" baseClass='cards__paragraph'>
+              <TextBlock style="default" baseClass='cards__paragraph'>
                 {text}
-              </Paragraph>
+              </TextBlock>
             </div>
             <a className='cards__link' href={cardsLinkUrl} title={cardsLinkTitle}>
               {cardsLinkText}
@@ -78,12 +85,12 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           </div>
         </div>
       </div>
-      <div className="cards" data-grid-count={gridCount || 4} data-component-width={width}>
+      <div className="cards" data-grid-count={gridCount || 4} data-component-width={width} data-component-card-show-buttons={showButtons}>
         <div className='cards__inner'>
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (
               <li key={card.id} className={animation ? 'cards__list__item animate' : 'cards__list__item'}>
-                <Card heading={card.title} animation={animation} text={card.content} link={card.link} linkText={card.linkText} linkTitle={card.linkTitle} theme={theme} imageSrc={card.imageSource} imageAlt={card.imageAlt} />
+                <Card heading={card.title} animation={animation} text={card.content} link={card.link} linkText={card.linkText} linkTitle={card.linkTitle} theme={theme} imageSrc={card.imageSource} imageAlt={card.imageAlt} showButton={showButtons}/>
               </li>
             ))}
           </ul>
@@ -92,6 +99,5 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
     </>
   );
 };
-
 
 export default CardCollection;

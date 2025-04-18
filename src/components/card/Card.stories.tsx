@@ -2,29 +2,31 @@ import CardItem from "./Card";
 import { Meta } from "@storybook/react";
 
 export const Card = (
-  { animation, imageSrc, imageAlt, theme, heading, text, link, linkTitle, linkText }
+  { animation, imageSrc, imageAlt, theme, heading, text, link, linkTitle, linkText, showButton }
   : { 
     heading: string; 
     text: string; 
     link: string;
     linkText: string;
-    linkTitle: string; 
-    animation: boolean; 
+    linkTitle: string;
+    animation: boolean;
     imageSrc: string; 
-    imageAlt: string; 
+    imageAlt: string;
+    showButton: boolean;
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
-  <CardItem
-    heading={heading}
-    text={text}
-    link={link}
-    linkTitle={linkTitle}
-    linkText={linkText}
-    imageSrc={imageSrc}
-    imageAlt={imageAlt}
-    animation={animation}  // Set to true to enable animation
-    theme={theme}  // Default theme
-  />
-);
+      <CardItem
+        heading={heading}
+        text={text}
+        link={link}
+        linkTitle={linkTitle}
+        linkText={linkText}
+        imageSrc={imageSrc}
+        imageAlt={imageAlt}
+        animation={animation}  // Set to true to enable animation
+        theme={theme}  // Default theme
+        showButton={showButton} // Set show button to false
+      />
+    );
 
 Card.args = {
   heading: 'This is a heading',
@@ -35,7 +37,7 @@ Card.args = {
   imageSrc: 'https://placehold.co/600x400',
   imageAlt: 'Placeholder Image',
   animation: false,  // Set to true to enable animation
-  theme: 'primary',  // Default theme
+  showButton: false, // Set show button to false
 };
 // Default export for Storybook
 const meta: Meta<typeof Card> = {
@@ -53,7 +55,8 @@ const meta: Meta<typeof Card> = {
     linkTitle: { control: 'text' },
     imageSrc: { control: 'text' },
     imageAlt: { control: 'text' },
-    animation: { control: 'boolean' },  // Set to true to enable animation
+    animation: { control: 'boolean' },
+    showButton: { control: 'boolean' },
   },
 }
  
