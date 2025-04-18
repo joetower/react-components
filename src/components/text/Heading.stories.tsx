@@ -5,14 +5,16 @@ import { Meta } from '@storybook/react';
 interface HeadingProps {
   content: string; // Required prop for image source
   level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Added prop for heading level
-  baseClass: string;
+  baseClass?: string;
   width?: 'content' | 'full';
+  link?: string; // Added link prop
+  linkTitle?: string; // Added link_title prop
+  linkClass?: string; // Added link_class prop
 }
 
-export const Heading = ({ content, level = 'h2', baseClass = 'heading', width = 'content'}: HeadingProps) => (
-  <HeadingItem content={content} level={level} baseClass={baseClass} width={width}/>
+export const Heading = ({ content, level = 'h2', baseClass = 'heading__item', width = 'content', link, linkTitle, linkClass ='heading__link' }: HeadingProps) => (
+  <HeadingItem content={content} level={level} baseClass={baseClass} width={width} link={link} linkTitle={linkTitle} linkClass={linkClass}/>
 );
-
 
 Heading.args = {
   content: 'This is a heading',
