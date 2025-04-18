@@ -1,4 +1,5 @@
 import './header.css'; // Import the SCSS file for styling
+import Menu from '../../menu/Menu';
 interface HeaderProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
@@ -16,18 +17,7 @@ export default function Header({theme}: HeaderProps) {
           </svg>
         </a>
       </div>
-      <nav className="header__nav">
-        <ul>
-          <li>
-            <a 
-              href="/storybook/" 
-              title="Storybook Component Library"
-            >
-              Components
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <Menu baseClass="header__nav" />
     </div>
   </header>
   </>
