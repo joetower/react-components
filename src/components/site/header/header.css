@@ -28,18 +28,23 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 100rem; /* max-width: 1200px */
+  max-width: 80rem;
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
 
 .header__logo {
-  flex: 0 auto;
+  flex: 0 250px;
 }
 
 .header__logo a {
   display: block;
   line-height: 0;
+}
+
+.header__logo svg {
+  width: 100%;
+  height: auto;
 }
 
 .header__nav {
@@ -75,6 +80,24 @@
 
 .header__logo a:hover svg {
   fill: var(--color--header--link-hover);
+}
+
+@media screen and (max-width: 768px) {
+  .header__inner {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .header__logo {
+    flex: 0 auto;
+  }
+
+  .header__nav ul {
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {

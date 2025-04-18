@@ -32,7 +32,7 @@ export default function Card({heading, text, link, linkTitle, linkText, animatio
             {text}
           </Paragraph>
         </div>
-        <div className="card__actions">
+        {/* <div className="card__actions">
           <Button
             baseClass={['card__link'].join(' ')}            
             theme={theme || 'primary'}
@@ -41,7 +41,7 @@ export default function Card({heading, text, link, linkTitle, linkText, animatio
             title={linkTitle}
             href={link}
             />
-        </div>
+        </div> */}
       </div>
     </div>
   </>);
