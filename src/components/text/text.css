@@ -24,10 +24,3 @@
   color: var(--site-global--color-primary-accent-dark);
   text-decoration: none;
 }
-
-@media screen and (max-width: 1350px) {
-  .text-block {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
-  }
-}

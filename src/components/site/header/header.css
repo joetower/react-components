@@ -88,6 +88,10 @@
   fill: var(--color--header--link-hover);
 }
 
+.header__logo a svg path.header__logo__mark {
+  scale: 0.98;
+}
+
 @media screen and (max-width: 768px) {
   .header__inner {
     flex-flow: column nowrap;
@@ -115,6 +119,10 @@
   
   .header__logo a:hover svg {
     transition: all var(--site-global--transition-timing) ease-in-out;
+  }
+
+  .header__logo a:hover svg path.header__logo__mark {
+    animation: pulse var(--site-global--transition-timing) ease-in-out;
   }
 }
 

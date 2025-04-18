@@ -40,4 +40,9 @@ main.home-page {
     padding-inline-start: var(--site-global--spacing-horizontal--half);
     padding-inline-end: var(--site-global--spacing-horizontal--half);
   }
+
+  main.home-page .text-block {
+    padding-inline-start: var(--site-global--spacing-horizontal--half);
+    padding-inline-end: var(--site-global--spacing-horizontal--half);
+  }
 }
