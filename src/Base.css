@@ -60,18 +60,22 @@
 	--site-global--color-primary-accent: hsl(205, 74%, 49%);
 	--site-global--color-primary-accent-dark: hsl(205, 77%, 15%);
 	--site-global--color-primary-accent-light: hsl(205, 84%, 80%);
+	--site-global--color-primary-accent-lightest: hsl(205, 84%, 90%);
 
 	--site-global--color-secondary-accent: hsl(16, 86%, 51%);
 	--site-global--color-secondary-accent-dark: hsl(46, 23%, 18%);
 	--site-global--color-secondary-accent-light: hsl(51, 57%, 88%);
+	--site-global--color-secondary-accent-lightest: hsl(51, 57%, 95%);
 
 	--site-global--color-tertiary-accent: hsl(94, 88%, 37%);
 	--site-global--color-tertiary-accent-dark: hsl(94, 87%, 12%);
 	--site-global--color-tertiary-accent-light: hsl(95, 81%, 87%);
+	--site-global--color-tertiary-accent-lightest: hsl(95, 81%, 95%);
 
 	--site-global--color-quaternary-accent: hsl(283, 70%, 58%);
 	--site-global--color-quaternary-accent-dark: hsl(283, 70%, 25%);
 	--site-global--color-quaternary-accent-light: hsl(283, 70%, 78%);
+	--site-global--color-quaternary-accent-lightest: hsl(283, 70%, 90%);
 
 	--site-global--color-basic-white: hsl(0, 0%, 100%);
 	--site-global--color-basic-black: hsl(0, 0%, 0%);
