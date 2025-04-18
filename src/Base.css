@@ -5,6 +5,7 @@
 	--site-width--extra-wide: 120rem; /* 1920px */
 	--site-width--wide: 100rem; /* 1600px */
 	--site-width--inner: 80rem; /* 1280px */
+	--site-width--components: 65rem; /* 1040px */
 	--site-width--text: 60rem; /* 960px */
 	--site-width--narrow: 40rem; /* 640px */
 
@@ -31,7 +32,7 @@
 	/* Buttons */
 	--site-button--spacing-vertical: 0.5rem;
 	--site-button--spacing-vertical--half: 0.25rem;
-	--site-button--spacing-veritcal--wide: 1rem;
+	--site-button--spacing-vertical--wide: 1rem;
 	--site-button--spacing-horizontal--wide: 1.5rem;
 	--site-button--spacing-horizontal: 1rem;
 	--site-button--spacing-horizontal--half: 0.5rem;

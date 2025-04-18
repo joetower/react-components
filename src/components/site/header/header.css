@@ -28,9 +28,10 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 80rem;
+  max-width: var(--site-width--inner);
   margin-inline-start: auto;
   margin-inline-end: auto;
+  padding-block-start: var(--site-global--spacing-vertical--half);
 }
 
 .header__logo {

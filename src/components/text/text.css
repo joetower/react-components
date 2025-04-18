@@ -1,5 +1,5 @@
 .text-block {
-  max-width: var(--site-width--text);
+  max-width: var(--site-width--components);
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
