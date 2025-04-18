@@ -20,10 +20,6 @@
   border: var(--site-global--border-width) solid var(--site-global--color-basic-gray-90);
 }
 
-.card:hover {
-  border-color: var(--color--card--border);
-} 
-
 .card[data-component-theme="primary"] {
   --color--card--background: var(--site-global--color-primary);
   --color--card--border: var(--site-global--color-primary-accent);
@@ -99,25 +95,9 @@
   margin: 0;
 }
 
-.card__link {
-  font-size: var(--site-global--font-size--button);
-  font-weight: var(--site-global--font-weight--bold);
-  border: var(--site-global--border-width) solid transparent;
-  display: inline-block;
-  color: var(--color--card--text);
-  background-color: var(--color--card--background);
-  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal);
-  text-decoration: none;
-}
-
 .card:hover {
   box-shadow: 0 0 var(--site-global--border-width--thick) var(--site-global--border-width) var(--color--card--background);
-}
-
-.card:hover .card__link {
-  background-color: var(--color--card--background-accent);
   border-color: var(--color--card--border);
-  color: var(--color--card--link-hover);
 }
 
 .card:hover img {
@@ -140,7 +120,6 @@
     animation: pulse var(--site-global--transition-timing) ease-in-out;
   }
   .card[data-component-animation="true"]:hover .card__heading__link,
-  .card[data-component-animation="true"]:hover .card__link,
   .card[data-component-animation="true"]:hover img {
     transition: all var(--site-global--transition-timing) ease-in-out;
   }

@@ -42,6 +42,16 @@
   text-decoration: none;
 }
 
+.button[data-component-size="small"] {
+  font-size: var(--site-global--font-size--button--small);
+  padding: var(--site-button--spacing-vertical--half) var(--site-button--spacing-horizontal--half);
+}
+
+.button[data-component-size="large"] {
+  font-size: var(--site-global--font-size--button--large);
+  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal--extra--wide);
+}
+
 .button:hover {
   background-color: transparent;
   border-color:var(--color--button--background-accent);
