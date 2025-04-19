@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import './menu.css';
 interface MenuProps {
   baseClass?: string | 'menu';
 }
