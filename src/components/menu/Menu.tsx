@@ -1,5 +1,5 @@
-import './menu.css';
 import { Link } from 'react-router-dom';
+import './menu.css';
 interface MenuProps {
   baseClass?: string | 'menu';
 }
@@ -7,20 +7,20 @@ interface MenuProps {
 const Menu = ({baseClass}: MenuProps) => {
   return (
     <nav className={baseClass}>
-      <ul className={`${baseClass} menu-links`}>
-      <li>
-        <a 
-        href="/storybook/" 
-        title="Storybook Component Library" 
-        
-        className={window.location.pathname === '/storybook/' ? 'active' : ''}
-        >
-        Components
-        </a>
-      </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
+      <ul className={`${baseClass}__menu-links`}>
+        <li>
+          <a 
+          href="/storybook/" 
+          title="Storybook Component Library" 
+          
+          className={window.location.pathname === '/storybook/' ? 'active' : ''}
+          >
+          Components
+          </a>
+        </li>
+        <li>
+          <Link to="/about" title='About the app' viewTransition>About</Link>
+        </li>
       </ul>
     </nav>
   );

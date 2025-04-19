@@ -1,13 +1,17 @@
 import SiteHeader from "./Header";
 import { Meta } from "@storybook/react";
 
+import { MemoryRouter } from "react-router-dom";
+
 export const Header = (
   { theme }
   : { 
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
-  <SiteHeader
-    theme={theme}  // Default theme
-  />
+  <MemoryRouter>
+    <SiteHeader
+      theme={theme}  // Default theme
+    />
+  </MemoryRouter>
 );
 
 Header.args = {

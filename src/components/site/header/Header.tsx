@@ -1,5 +1,6 @@
 import './header.css'; // Import the SCSS file for styling
 import Menu from '../../menu/Menu';
+
 interface HeaderProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
