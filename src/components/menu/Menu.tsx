@@ -1,5 +1,5 @@
 import './menu.css';
-
+import { Link } from 'react-router-dom';
 interface MenuProps {
   baseClass?: string | 'menu';
 }
@@ -19,13 +19,7 @@ const Menu = ({baseClass}: MenuProps) => {
         </a>
       </li>
       <li>
-        <a 
-        href="/about" 
-        title="Application about page" 
-        className={window.location.pathname === '/about' ? 'active' : ''}
-        >
-        About
-        </a>
+        <Link to="/about">About</Link>
       </li>
       </ul>
     </nav>
