@@ -24,3 +24,7 @@
   color: var(--site-global--color-primary-accent-dark);
   text-decoration: none;
 }
+
+.text-block p {
+  max-width: var(--site-width--text);
+}
