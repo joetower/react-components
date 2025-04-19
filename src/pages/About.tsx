@@ -4,9 +4,9 @@ import Heading from '../components/text/Heading';
 
 function About() {
   return (
-    <MainLayout baseClass='about-page'>
+    <MainLayout baseClass='page about-page'>
       <Heading level='h1' baseClass='intro__heading' content='About the app' />
-      <Paragraph baseClass='intro__paragraph' style='emphasized'>
+      <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
         <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries.</p>
       </Paragraph>
     </MainLayout>

@@ -16,7 +16,7 @@ main {
   flex: 1 0 auto;
 }
 
-main.home-page {
+main.page {
   padding-block-start: var(--site-global--spacing-vertical);
   padding-block-end: var(--site-global--spacing-vertical);
 }
@@ -36,12 +36,12 @@ main.home-page {
 }
 
 @media screen and (max-width: 1350px) {
-  main.home-page .intro__heading {
+  main.page .intro__heading {
     padding-inline-start: var(--site-global--spacing-horizontal--half);
     padding-inline-end: var(--site-global--spacing-horizontal--half);
   }
 
-  main.home-page .text-block {
+  main.page .text-block {
     padding-inline-start: var(--site-global--spacing-horizontal--half);
     padding-inline-end: var(--site-global--spacing-horizontal--half);
   }

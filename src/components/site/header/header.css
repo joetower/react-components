@@ -7,24 +7,28 @@
   --color--header--link: var(--site-global--color-primary-accent-dark);
   --color--header--link-hover: var(--site-global--color-primary-accent);
   --color--header--background: var(--site-global--color-primary-accent-lightest);
+  --color--header--link-active: var(--site-global--color-primary-accent-);
 }
 
 .header[data-component-theme="secondary"] {
   --color--header--link: var(--site-global--color-secondary-accent-dark);
   --color--header--link-hover: var(--site-global--color-secondary-accent);
   --color--header--background: var(--site-global--color-secondary-accent-lightest);
+  --color--header--link-active: var(--site-global--color-secondary-accent);
 }
 
 .header[data-component-theme="tertiary"] {
   --color--header--link: var(--site-global--color-tertiary-accent-dark);
   --color--header--link-hover: var(--site-global--color-tertiary-accent);
   --color--header--background: var(--site-global--color-tertiary-accent-lightest);
+  --color--header--link-active: var(--site-global--color-tertiary-accent);
 }
 
 .header[data-component-theme="quaternary"] {
   --color--header--link: var(--site-global--color-quaternary-accent-dark);
   --color--header--link-hover: var(--site-global--color-quaternary-accent);
   --color--header--background: var(--site-global--color-quaternary-accent-lightest);
+  --color--header--link-active: var(--site-global--color-quaternary-accent);
 }
 
 .header__inner {
@@ -80,8 +84,12 @@
   font-weight: var(--site-global--font-weight--bold);
 }
 
-.header__nav ul li a:hover {
+.header__nav ul li a.active {
   color: var(--color--header--link-hover);
+}
+
+.header__nav ul li a:hover {
+  color: var(--color--header--link-active);
 }
 
 .header__logo a:hover svg {

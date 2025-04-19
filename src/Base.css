@@ -10,7 +10,7 @@
 	--site-width--narrow: 40rem; /* 640px */
 
 	/* Animation */
- --site-global--transition-timing: 0.5s;
+ 	--site-global--transition-timing: 0.5s;
 
 	/* Spacing */
 	--site-global--spacing-vertical: 2rem;

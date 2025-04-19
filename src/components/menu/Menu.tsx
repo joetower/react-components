@@ -18,7 +18,7 @@ const Menu = ({baseClass}: MenuProps) => {
         Components
         </a>
       </li>
-      {/* <li>
+      <li>
         <a 
         href="/about" 
         title="Application about page" 
@@ -26,7 +26,7 @@ const Menu = ({baseClass}: MenuProps) => {
         >
         About
         </a>
-      </li> */}
+      </li>
       </ul>
     </nav>
   );

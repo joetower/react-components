@@ -1,20 +1,18 @@
-import MainLayout from './components/layouts/MainLayout';
-import Paragraph from './components/text/TextBlock';
-import Heading from './components/text/Heading';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import About from './pages/About';
+import Home from './pages/Home';
 import './App.css';
 
 function App() {
   return (
-    <MainLayout baseClass='home-page'>
-      <Heading level='h1' baseClass='intro__heading' content='Hello Vite + React!' />
-      <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
-        <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries.</p>
-      </Paragraph>
-      <Paragraph baseClass='paragraph' style='default' width='content' >
-        <p>This app applies the components from the <a href="/storybook" title="Storybook Components">Component Library</a></p>
-      </Paragraph>
-    </MainLayout>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/storybook' element={<div className="header__nav__storybook">Storybook</div>} />
+        <Route path='/about' element={<About /> }/>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App
