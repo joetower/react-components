@@ -7,7 +7,7 @@
   --color--header--link: var(--site-global--color-primary-accent-dark);
   --color--header--link-hover: var(--site-global--color-primary-accent);
   --color--header--background: var(--site-global--color-primary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-primary-accent-);
+  --color--header--link-active: var(--site-global--color-primary-accent);
 }
 
 .header[data-component-theme="secondary"] {

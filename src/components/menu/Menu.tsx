@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 interface MenuProps {
   baseClass?: string | 'menu';
 }
@@ -18,7 +18,7 @@ const Menu = ({baseClass}: MenuProps) => {
           </a>
         </li>
         <li>
-          <Link to="/about" title='About the app' viewTransition>About</Link>
+          <NavLink to="/about" title='About the app' className="selected" viewTransition>About</NavLink>
         </li>
       </ul>
     </nav>
