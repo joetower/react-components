@@ -5,6 +5,9 @@ import Heading from '../components/text/Heading';
 function About() {
   return (
     <MainLayout baseClass='page about-page'>
+      <title>About the app</title>
+      <meta name="description" content="About the Vite + React app with a component library." />
+      <meta name="keywords" content="Vite, React, component library, example site, about" />
       <Heading level='h1' baseClass='intro__heading' content='About the app' />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
         <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
