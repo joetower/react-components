@@ -13,8 +13,10 @@
     "build-both": "npm run build && npm run build-storybook -- -o dist/storybook"
   },
   "dependencies": {
+    "motion": "^12.7.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-responsive-image": "^5.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",

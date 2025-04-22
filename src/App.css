@@ -6,6 +6,11 @@
   margin: 0 auto;
 }
 
+.inner__layout {
+  display: flex;
+  flex: 1 0 auto;
+}
+
 .intro__heading {
   max-width: var(--site-width--components);
   margin-inline-start: auto;
@@ -19,12 +24,6 @@ main {
 main.page {
   padding-block-start: var(--site-global--spacing-vertical);
   padding-block-end: var(--site-global--spacing-vertical);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {

@@ -18,7 +18,7 @@ const Menu = ({baseClass}: MenuProps) => {
           </a>
         </li>
         <li>
-          <NavLink to="/about" title='About the app' className="selected" viewTransition>About</NavLink>
+          <NavLink to="/about" title='About the app' className="selected">About</NavLink>
         </li>
       </ul>
     </nav>
