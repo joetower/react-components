@@ -16,7 +16,7 @@ function Home() {
       <Paragraph baseClass='paragraph' style='default' width='content'>
         <p>This app applies the components from the <a href="/storybook" title="Storybook Components (opens in new tab/window)" target=''>Component Library &#8599;</a>. Here are some elephants.</p>
       </Paragraph>
-      <ResponsiveImage imageName="2-12-6-32 AM-2023-FUJIFILM-X-T3-DSCF1862" alt="Elephants drinking water | Uganda" />
+      <ResponsiveImage imageName="2-12-6-32 AM-2023-FUJIFILM-X-T3-DSCF1862" alt="Elephants drinking water | Uganda" sizes={[200, 400, 600, 800, 1200, 1400, 1600]}/>
     </MainLayout>
   )
 }

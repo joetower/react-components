@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const inputFolder = path.join(__dirname, "../../public/images-original");
 const outputFolder = path.join(__dirname, "../../public/images");
 
-const sizes = [400, 800, 1200, 1600];
+const sizes = [200, 400, 600, 800, 1200, 1400, 1600];
 
 fs.readdirSync(inputFolder).forEach((file) => {
   const inputPath = path.join(inputFolder, file);

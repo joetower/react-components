@@ -4,8 +4,8 @@ import './responsive-image.css'; // Import your CSS file for styles
 interface ResponsiveImageProps {
   imageName: string;
   alt: string;
-  ext?: "jpg" | "jpeg" | "png";
-  sizes?: number[];
+  ext?: "jpg" | "jpeg" | "png" | "webp" | "avif";
+  sizes?: number[]; // Example: [200, 400, 800]
   basePath?: string;
 }
 
@@ -16,59 +16,43 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   sizes = [400, 800, 1200, 1600],
   basePath = "/images",
 }) => {
+  const sortedSizes = [...sizes].sort((a, b) => a - b);
+  const smallestSize = sortedSizes[0];
+  const [isLoaded, setIsLoaded] = useState(false);
   const [currentSrc, setCurrentSrc] = useState<string>("");
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-
-  const sortedSizes = [...sizes].sort((a, b) => a - b); // Smallest → largest
 
   const updateImageSrc = () => {
     const windowWidth = window.innerWidth;
-
-    const suitableSize = sortedSizes.reduce((prev, curr) =>
+    const bestFitSize = sortedSizes.reduce((prev, curr) =>
       windowWidth >= curr ? curr : prev
     );
-
-    const imageSrc = `${basePath}/${imageName}-${suitableSize}.${ext}`;
-    setCurrentSrc(imageSrc);
+    const imagePath = `${basePath}/${imageName}-${bestFitSize}.${ext}`;
+    setCurrentSrc(imagePath);
   };
 
   useEffect(() => {
     updateImageSrc();
-
-    const handleResize = () => {
-      updateImageSrc();
-    };
-
+    const handleResize = () => updateImageSrc();
     window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [imageName, ext, basePath, sizes]);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [sizes, basePath, imageName, ext]);
+  const lowResSrc = `${basePath}/${imageName}-${smallestSize}.${ext}`;
+  const handleImageLoad = () => setIsLoaded(true);
 
-  const fallbackSrc = `${basePath}/${imageName}-${Math.min(...sizes)}.${ext}`;
-
-  // Low-res image for blur-up effect (e.g., a 400px version)
-  const lowResSrc = `${basePath}/${imageName}-400.${ext}`;
-
-  // Handle image load event to remove the blur
-  const handleImageLoad = () => {
-    setIsLoaded(true);
-  };
+  const srcSet = sortedSizes
+    .map((size) => `${basePath}/${imageName}-${size}.${ext} ${size}w`)
+    .join(", ");
 
   return (
-    <picture className="responsive-image__container">
-      {/* You can still include <source> elements for AVIF, WebP, etc., as needed */}
+    <picture>
       <img
-        src={isLoaded ? currentSrc || fallbackSrc : lowResSrc}
+        src={isLoaded ? currentSrc : lowResSrc}
         alt={alt}
-        className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
-        onLoad={handleImageLoad}
         loading="lazy"
-        srcSet={`${basePath}/${imageName}-400.${ext} 400w, 
-        ${basePath}/${imageName}-800.${ext} 800w, 
-        ${basePath}/${imageName}-1200.${ext} 1200w, 
-        ${basePath}/${imageName}-1600.${ext} 1600w`}
+        className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
+        srcSet={srcSet}
+        onLoad={handleImageLoad}
       />
     </picture>
   );

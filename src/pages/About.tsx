@@ -14,7 +14,7 @@ function About() {
         <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
         This site is a work in progress and will get updated many times per week.</p>
       </Paragraph>
-      <ResponsiveImage imageName="6-08-11-29 AM-2023-FUJIFILM-X-T3-DSCF3413" alt="Scenic view Yosemite National Park" />
+      <ResponsiveImage imageName="6-08-11-29 AM-2023-FUJIFILM-X-T3-DSCF3413" alt="Scenic view Yosemite National Park" sizes={[200, 400, 600, 800, 1200, 1400, 1600]} />
     </MainLayout>
   );
 }
