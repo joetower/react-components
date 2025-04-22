@@ -8,7 +8,7 @@ const MainLayout = ({ children, baseClass }: { children: ReactNode; baseClass: s
  return (
   <>
     <Header theme='primary' />
-      <motion.div initial={{opacity: 0, y:20, x:0}} animate={{opacity: 1, y:0, x:0}} exit={{opacity: 0, y:-20, x:0}} transition={{duration: 0.25}} className='inner__layout'>
+      <motion.div initial={{opacity: 0, y:35}} animate={{opacity: 1, y:0}} exit={{opacity: 0, y:-35}} transition={{duration: 0.45}} className='inner__layout'>
         <main className={baseClass}>
           {children}
           <Outlet />
