@@ -1,0 +1,21 @@
+.responsive-image {
+  transition: filter var(--site-global--transition-timing) ease-out, opacity var(--site-global--transition-timing) ease-out;
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+.responsive-image.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  line-height: 0;
+  max-width: var(--site-width--wide);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  margin-block-start: var(--site-global--spacing-vertical);
+}

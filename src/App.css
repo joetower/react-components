@@ -18,12 +18,19 @@
 }
 
 main {
+  width: 100%;
   flex: 1 0 auto;
 }
 
 main.page {
   padding-block-start: var(--site-global--spacing-vertical);
   padding-block-end: var(--site-global--spacing-vertical);
+}
+
+.page img {
+  width: 100%;
+  height: auto;
+  max-width: var(--site-width--full);
 }
 
 .card {

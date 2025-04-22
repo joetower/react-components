@@ -8,7 +8,7 @@ export default function Footer({theme}: FooterProps) {
   <>
   <footer className="footer" data-component-theme={theme}>
     <div className="footer__inner">
-      <div className="footer__logo">
+      <div className="footer__source">
         <p>View <a href="https://github.com/joetower/react-components" title="View Source Code">source code</a></p>
       </div>
       <nav className="footer__nav">

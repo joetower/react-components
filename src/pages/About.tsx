@@ -1,6 +1,7 @@
 import MainLayout from '../components/layouts/MainLayout';
 import Paragraph from '../components/text/TextBlock';
 import Heading from '../components/text/Heading';
+import ResponsiveImage from '../components/responsive-image/ResponsiveImage';
 
 function About() {
   return (
@@ -13,6 +14,7 @@ function About() {
         <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
         This site is a work in progress and will get updated many times per week.</p>
       </Paragraph>
+      <ResponsiveImage imageName="6-08-11-29 AM-2023-FUJIFILM-X-T3-DSCF3413" alt="Scenic view Yosemite National Park" />
     </MainLayout>
   );
 }

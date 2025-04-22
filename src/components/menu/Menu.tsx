@@ -8,6 +8,9 @@ const Menu = ({baseClass}: MenuProps) => {
     <nav className={baseClass}>
       <ul className={`${baseClass}__menu-links`}>
         <li>
+          <NavLink to="/about" title='About the app' className="selected">About</NavLink>
+        </li>
+        <li>
           <a 
           href="/storybook/" 
           title="Storybook Component Library - opens in new tab/window" 
@@ -16,9 +19,6 @@ const Menu = ({baseClass}: MenuProps) => {
           >
           Components &#8599;
           </a>
-        </li>
-        <li>
-          <NavLink to="/about" title='About the app' className="selected">About</NavLink>
         </li>
       </ul>
     </nav>
