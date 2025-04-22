@@ -10,11 +10,11 @@ const Menu = ({baseClass}: MenuProps) => {
         <li>
           <a 
           href="/storybook/" 
-          title="Storybook Component Library" 
-          
-          className={window.location.pathname === '/storybook/' ? 'active' : ''}
+          title="Storybook Component Library - opens in new tab/window" 
+          target='_blank'
+          rel="noopener noreferrer"
           >
-          Components
+          Components &#8599;
           </a>
         </li>
         <li>
