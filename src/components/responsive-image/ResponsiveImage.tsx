@@ -40,18 +40,27 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   const lowResSrc = `${basePath}/${imageName}-${smallestSize}.${ext}`;
   const handleImageLoad = () => setIsLoaded(true);
 
-  const srcSet = sortedSizes
-    .map((size) => `${basePath}/${imageName}-${size}.${ext} ${size}w`)
-    .join(", ");
+  const createSrcSet = (format: string) =>
+    sortedSizes
+      .map((size) => `${basePath}/${imageName}-${size}.${format} ${size}w`)
+      .join(", ");
 
   return (
     <picture>
+      <source
+        type="image/avif"
+        srcSet={createSrcSet("avif")}
+      />
+      <source
+        type="image/webp"
+        srcSet={createSrcSet("webp")}
+      />
       <img
         src={isLoaded ? currentSrc : lowResSrc}
         alt={alt}
         loading="lazy"
         className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
-        srcSet={srcSet}
+        srcSet={createSrcSet("jpg")}
         onLoad={handleImageLoad}
       />
     </picture>
