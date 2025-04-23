@@ -19,6 +19,8 @@ export const Heading = ({ content, level = 'h2', baseClass = 'heading__item', wi
 Heading.args = {
   content: 'This is a heading',
   level: 'h2',
+  width: 'content',
+  baseClass: 'heading__item',
 };
 
 // Default export for Storybook

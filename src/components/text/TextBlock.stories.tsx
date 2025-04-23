@@ -18,6 +18,7 @@ export const TextBlock = ({ content, style = 'default', width = 'content' }: Tex
 TextBlock.args = {
   content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   style: 'default',
+  width: 'content',
 };
 
 // Default export for Storybook

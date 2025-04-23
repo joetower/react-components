@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactNode } from "react";
 import './responsive-image.css'; // Import your CSS file for styles
 
 interface ResponsiveImageProps {
   imageName: string;
   alt: string;
+  credit?: string;
   ext?: "jpg" | "jpeg" | "png" | "webp" | "avif";
   sizes?: number[]; // Example: [200, 400, 800]
   basePath?: string;
@@ -13,6 +14,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   imageName,
   alt,
   ext = "jpg",
+  credit,
   sizes = [400, 800, 1200, 1600],
   basePath = "/images",
 }) => {
@@ -46,24 +48,50 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
       .join(", ");
 
   return (
-    <picture>
-      <source
-        type="image/avif"
-        srcSet={createSrcSet("avif")}
-      />
-      <source
-        type="image/webp"
-        srcSet={createSrcSet("webp")}
-      />
-      <img
-        src={isLoaded ? currentSrc : lowResSrc}
-        alt={alt}
-        loading="lazy"
-        className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
-        srcSet={createSrcSet("jpg")}
-        onLoad={handleImageLoad}
-      />
-    </picture>
+    <>
+      {alt ? (
+        <figure>
+          <picture>
+            <source
+              type="image/avif"
+              srcSet={createSrcSet("avif")}
+            />
+            <source
+              type="image/webp"
+              srcSet={createSrcSet("webp")}
+            />
+            <img
+              src={isLoaded ? currentSrc : lowResSrc}
+              alt={alt}
+              loading="lazy"
+              className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
+              srcSet={createSrcSet("jpg")}
+              onLoad={handleImageLoad}
+            />
+          </picture>
+          <figcaption>{alt} {credit ? `| ${credit}` : null}</figcaption>
+        </figure>
+      ) : (
+        <picture>
+          <source
+            type="image/avif"
+            srcSet={createSrcSet("avif")}
+          />
+          <source
+            type="image/webp"
+            srcSet={createSrcSet("webp")}
+          />
+          <img
+            src={isLoaded ? currentSrc : lowResSrc}
+            alt={alt}
+            loading="lazy"
+            className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
+            srcSet={createSrcSet("jpg")}
+            onLoad={handleImageLoad}
+          />
+        </picture>
+      )}
+    </>
   );
 };
 
