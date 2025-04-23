@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode } from "react";
+import React, { useState, useEffect } from "react";
 import './responsive-image.css'; // Import your CSS file for styles
 
 interface ResponsiveImageProps {
