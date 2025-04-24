@@ -24,3 +24,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+/* Box sizing */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
