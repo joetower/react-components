@@ -13,6 +13,7 @@
     "build-both": "npm run build && npm run build-storybook -- -o dist/storybook"
   },
   "dependencies": {
+    "mime": "^4.0.7",
     "motion": "^12.7.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

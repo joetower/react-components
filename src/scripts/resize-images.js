@@ -11,18 +11,36 @@ const inputFolder = path.join(__dirname, "../../public/images-original");
 const outputFolder = path.join(__dirname, "../../public/images");
 
 const sizes = [200, 400, 600, 800, 1200, 1400, 1600];
+const formats = ["jpg", "webp", "avif"]; // Add the formats you want to generate
 
 fs.readdirSync(inputFolder).forEach((file) => {
   const inputPath = path.join(inputFolder, file);
-  const ext = path.extname(file);
+  const ext = path.extname(file).toLowerCase();
   const name = path.basename(file, ext);
 
   sizes.forEach((size) => {
-    const outputPath = path.join(outputFolder, `${name}-${size}${ext}`);
-    sharp(inputPath)
-      .resize({ width: size })
-      .toFile(outputPath)
-      .then(() => console.log(`Generated: ${outputPath}`))
-      .catch((err) => console.error(`Error processing ${file}:`, err));
+    formats.forEach((format) => {
+      const outputPath = path.join(outputFolder, `${name}-${size}.${format}`);
+
+      let image = sharp(inputPath).resize({ width: size });
+
+      switch (format) {
+        case "webp":
+          image = image.webp({ quality: 80 });
+          break;
+        case "avif":
+          image = image.avif({ quality: 50 });
+          break;
+        case "jpg":
+        default:
+          image = image.jpeg({ quality: 85 });
+          break;
+      }
+
+      image
+        .toFile(outputPath)
+        .then(() => console.log(`Generated: ${outputPath}`))
+        .catch((err) => console.error(`Error processing ${file}:`, err));
+    });
   });
 });

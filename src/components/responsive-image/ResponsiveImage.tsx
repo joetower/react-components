@@ -52,41 +52,28 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
       {alt ? (
         <figure>
           <picture>
-            <source
-              type="image/avif"
-              srcSet={createSrcSet("avif")}
-            />
-            <source
-              type="image/webp"
-              srcSet={createSrcSet("webp")}
-            />
+            <source type="image/avif" srcSet={createSrcSet("avif")} />
+            <source type="image/webp" srcSet={createSrcSet("webp")} />
             <img
-              src={isLoaded ? currentSrc : lowResSrc}
+              src={isLoaded ? currentSrc : lowResSrc} // fallback if browser doesn't support source types
               alt={alt}
               loading="lazy"
               className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
-              srcSet={createSrcSet("jpg")}
               onLoad={handleImageLoad}
             />
           </picture>
+
           <figcaption>{alt} {credit ? `| ${credit}` : null}</figcaption>
         </figure>
       ) : (
         <picture>
-          <source
-            type="image/avif"
-            srcSet={createSrcSet("avif")}
-          />
-          <source
-            type="image/webp"
-            srcSet={createSrcSet("webp")}
-          />
+          <source type="image/avif" srcSet={createSrcSet("avif")} />
+          <source type="image/webp" srcSet={createSrcSet("webp")} />
           <img
-            src={isLoaded ? currentSrc : lowResSrc}
+            src={isLoaded ? currentSrc : lowResSrc} // fallback if browser doesn't support source types
             alt={alt}
             loading="lazy"
             className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
-            srcSet={createSrcSet("jpg")}
             onLoad={handleImageLoad}
           />
         </picture>
