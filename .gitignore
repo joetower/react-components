@@ -15,6 +15,7 @@ dist-ssr
 # Ignore generated images 
 # in the assets folder
 public/images/*
+!public/images/.gitkeep
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
