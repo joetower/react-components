@@ -123,15 +123,6 @@
 	--site-global--line-height--tightest: 1;
 	--site-global--line-height--loose: 1.75;
 
-	--site-component--blockquote--font-size: var(--site-global--font-size--large);
-	--site-component--blockquote--font-size--large: var(--site-global--font-size--xlarge);
-	--site-component--blockquote--line-height: var(--site-global--line-height--base);
-	--site-component--blockquote--font-style: italic;
-	--site-component--blockquote--font-family: var(--site-global--font-family--serif);
-	--site-component--blockquote--accent--font-size: var(--site-global--font-size--xxlarge);
-	--site-component--blockquote--accent--width: 1rem;
-	--site-component--blockquote--accent--quote-width: 2rem;
-
 	/* Font family and weights */
 	--site-global--font-family: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 	--site-global--font-family--serif: 'Besley Variable', 'Besley', Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -140,6 +131,17 @@
 	--site-global--font-weight--medium: 500;
 	--site-global--font-weight--bold: 700;
 	--site-global--font-weight--bolder: 900;
+
+	/* Components */
+	--site-component--blockquote--font-size: var(--site-global--font-size--large);
+	--site-component--blockquote--font-size--large: var(--site-global--font-size--xlarge);
+	--site-component--blockquote--line-height: var(--site-global--line-height--base);
+	--site-component--blockquote--font-style: italic;
+	--site-component--blockquote--font-family: var(--site-global--font-family--serif);
+	--site-component--blockquote--font-weight: var(--site-global--font-weight--bold);
+	--site-component--blockquote--accent--font-size: var(--site-global--font-size--xxlarge);
+	--site-component--blockquote--accent--width: 1rem;
+	--site-component--blockquote--accent--quote-width: 2rem;
 }
 
 @font-face {

@@ -54,6 +54,7 @@ blockquote {
 
 blockquote p {
   font-size: var(--site-component--blockquote--font-size);
+  font-weight: var(--site-component--blockquote--font-weight);
   line-height: var(--site-component--blockquote--line-height);
   margin: 0;
 
