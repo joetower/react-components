@@ -4,7 +4,6 @@
   --site-component--color--blockquote--background: var(--site-global--color-primary-accent--lightest);
 
   margin-block-start: var(--site-global--spacing-vertical);
-	margin-block-end: var(--site-global--spacing-vertical);
   background-color: var(--site-component--color--blockquote--background);
 
   &[data-component-align="left"] {

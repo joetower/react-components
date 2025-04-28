@@ -125,7 +125,7 @@
 
 	--site-component--blockquote--font-size: var(--site-global--font-size--large);
 	--site-component--blockquote--font-size--large: var(--site-global--font-size--xlarge);
-	--site-component--blockquote--line-height: var(--site-global--line-height--tight);
+	--site-component--blockquote--line-height: var(--site-global--line-height--base);
 	--site-component--blockquote--font-style: italic;
 	--site-component--blockquote--font-family: var(--site-global--font-family--serif);
 	--site-component--blockquote--accent--font-size: var(--site-global--font-size--xxlarge);
