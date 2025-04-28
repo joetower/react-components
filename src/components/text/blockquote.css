@@ -105,7 +105,7 @@ blockquote p {
     content: "“";
     position: absolute;
     top: 0;
-    left: calc(var(--site-component--blockquote--accent--quote-width) * -1);
+    left: 0;
     font-size: var(--site-global--font-size--xxlarge);
     line-height: var(--site-global--line-height--tightest);
     color: var(--site-component--color--blockquote--accent);
@@ -125,7 +125,11 @@ blockquote p {
     height: var(--site-component--blockquote--accent--quote-width);
   }
 }
-
+@media screen and (min-width: 1350px) {
+  [data-component-style="quote"] blockquote::before {
+    left: calc(var(--site-component--blockquote--accent--quote-width) * -1);
+  }
+}
 .blockquote__inner {
   padding-block-start: var(--site-global--spacing-vertical--wide);
   padding-block-end: var(--site-global--spacing-vertical--wide);
