@@ -8,6 +8,7 @@ interface CardData {
   title: string;
   content: string;
   link: string;
+  imageName: string; // Required prop for image name
   linkTitle: string; // Added linkTitle prop
   linkText: string; // Optional prop for link text which is shown as link text
   imageSource: string;
@@ -90,7 +91,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (
               <li key={card.id} className={animation ? 'cards__list__item animate' : 'cards__list__item'}>
-                <Card heading={card.title} animation={animation} text={card.content} link={card.link} linkText={card.linkText} linkTitle={card.linkTitle} theme={theme} imageSrc={card.imageSource} imageAlt={card.imageAlt} showButton={showButtons}/>
+                <Card heading={card.title} imageName={card.imageName} animation={animation} text={card.content} link={card.link} linkText={card.linkText} linkTitle={card.linkTitle} theme={theme} imageSrc={card.imageSource} imageAlt={card.imageAlt} showButton={showButtons}/>
               </li>
             ))}
           </ul>

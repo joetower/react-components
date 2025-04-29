@@ -23,6 +23,7 @@ function Home() {
       <ResponsiveImage 
       imageName="2-12-6-32 AM-2023-FUJIFILM-X-T3-DSCF1862" 
       alt="Elephants drinking water | Uganda" 
+      caption='Elephants drinking water | Uganda'
       credit="Photo by Joe Tower"
       sizes={[200, 400, 600, 800, 1200, 1400, 1600]}/>
     </MainLayout>

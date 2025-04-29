@@ -17,12 +17,6 @@ picture {
   max-width: var(--site-width--wide);
   margin-inline-start: auto;
   margin-inline-end: auto;
-  margin-block-start: var(--site-global--spacing-vertical);
-
-  @media screen and (max-width: 1350px) {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
-  }
 }
 
 figure {
@@ -30,6 +24,15 @@ figure {
   flex-flow: column wrap;
   gap: var(--site-global--gap);
   margin: 0;
+
+  picture {
+    margin-block-start: var(--site-global--spacing-vertical);
+    
+    @media screen and (max-width: 1350px) {
+      padding-inline-start: var(--site-global--spacing-horizontal--half);
+      padding-inline-end: var(--site-global--spacing-horizontal--half);
+    }
+  }
 }
 
 figcaption {

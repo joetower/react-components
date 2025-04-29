@@ -5,6 +5,7 @@ interface ResponsiveImageProps {
   imageName: string;
   alt: string;
   credit?: string;
+  caption?: string;
   ext?: "jpg" | "jpeg" | "png" | "webp" | "avif";
   sizes?: number[]; // Example: [200, 400, 800]
   basePath?: string;
@@ -15,6 +16,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   alt,
   ext = "jpg",
   credit,
+  caption,
   sizes = [400, 800, 1200, 1600],
   basePath = "/images",
 }) => {
@@ -49,7 +51,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
 
   return (
     <>
-      {alt ? (
+      {caption ? (
         <figure>
           <picture>
             <source type="image/avif" srcSet={createSrcSet("avif")} />
@@ -63,7 +65,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
             />
           </picture>
 
-          <figcaption>{alt} {credit ? `| ${credit}` : null}</figcaption>
+          <figcaption>{caption} {credit ? `| ${credit}` : null}</figcaption>
         </figure>
       ) : (
         <picture>

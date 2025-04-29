@@ -17,6 +17,7 @@ function About() {
       <ResponsiveImage 
       imageName="6-08-11-29 AM-2023-FUJIFILM-X-T3-DSCF3413" 
       alt="Scenic view Yosemite National Park" 
+      caption='Scenic view of Yosemite National Park'
       credit="Photo by Joe Tower"
       sizes={[200, 400, 600, 800, 1200, 1400, 1600]} />
     </MainLayout>

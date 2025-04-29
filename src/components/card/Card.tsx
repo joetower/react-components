@@ -1,5 +1,6 @@
 import Button from '../button/Button';
 import Image from "../image/Image";
+import ResponsiveImage from '../responsive-image/ResponsiveImage';
 import TextBlock from '../text/TextBlock';
 import Heading from '../text/Heading';
 import './card.css'; // Import the SCSS file for styling
@@ -9,6 +10,7 @@ interface CardProps {
   link: string;
   linkText?: string; // Optional prop for link text
   linkTitle?: string; // Added linkTitle prop
+  imageName: string; // Required prop for image name
   imageSrc?: string; // Optional prop for image source
   imageAlt?: string; // Optional prop for image alt text
   animation?: boolean; // Optional prop for animation class
@@ -16,13 +18,13 @@ interface CardProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
 
-export default function Card({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, showButton}: CardProps) {
+export default function Card({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, showButton, imageName = '6-11-11-29 PM-2023-FUJIFILM-X-T3-DSCF4085'}: CardProps) {
   return (<>
     <div className="card" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'}>
       {imageSrc && (
         <div className="card__image">
           <a className="card__image__link" href={link} target="_blank" rel="noopener noreferrer" title={linkTitle} tabIndex={-1} aria-hidden="true">
-            <Image src={imageSrc} alt={imageAlt || "Placeholder Image"} />
+            <ResponsiveImage sizes={[200,400,600,800]} alt={imageAlt || "Placeholder Image"} imageName={imageName} />
           </a>
         </div>
       )}
