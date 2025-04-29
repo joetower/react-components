@@ -1,5 +1,4 @@
 import Button from '../button/Button';
-import Image from "../image/Image";
 import ResponsiveImage from '../responsive-image/ResponsiveImage';
 import TextBlock from '../text/TextBlock';
 import Heading from '../text/Heading';

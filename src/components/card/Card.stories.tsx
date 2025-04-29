@@ -2,7 +2,7 @@ import CardItem from "./Card";
 import { Meta } from "@storybook/react";
 
 export const Card = (
-  { animation, imageSrc, imageAlt, theme, heading, text, link, linkTitle, linkText, showButton }
+  { animation, imageSrc, imageAlt, theme, heading, text, link, imageName, linkTitle, linkText, showButton }
   : { 
     heading: string; 
     text: string; 
@@ -10,6 +10,7 @@ export const Card = (
     linkText: string;
     linkTitle: string;
     animation: boolean;
+    imageName: string;
     imageSrc: string; 
     imageAlt: string;
     showButton: boolean;
@@ -20,6 +21,7 @@ export const Card = (
         link={link}
         linkTitle={linkTitle}
         linkText={linkText}
+        imageName={imageName}
         imageSrc={imageSrc}
         imageAlt={imageAlt}
         animation={animation}  // Set to true to enable animation
