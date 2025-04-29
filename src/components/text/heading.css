@@ -7,3 +7,7 @@
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
+
+a.heading__link {
+  font-weight: var(--site-global--font-weight--bold);
+}

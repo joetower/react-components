@@ -33,14 +33,6 @@ main.page {
   max-width: var(--site-width--full);
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 @media screen and (max-width: 1350px) {
   main.page .intro__heading {
     padding-inline-start: var(--site-global--spacing-horizontal--half);

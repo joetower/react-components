@@ -80,6 +80,10 @@
   }
 }
 
+.cards__header__inner {
+  padding-block-start: var(--site-global--spacing-vertical);
+}
+
 .cards__content {
   display: flex;
   flex-direction: column;
