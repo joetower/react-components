@@ -87,6 +87,7 @@ blockquote p {
 
 .blockquote__caption {
   font-size: var(--site-global--font-size--base);
+  font-weight: 600;
   line-height: var(--site-global--line-height--tight);
   color: var(--site-component--color--blockquote);
   padding: 0;
