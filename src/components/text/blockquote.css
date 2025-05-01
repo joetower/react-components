@@ -90,22 +90,22 @@ blockquote p {
   line-height: var(--site-global--line-height--tight);
   color: var(--site-component--color--blockquote);
 
-  [data-component-style="quote"] & {
-    padding-inline-start: var(--site-component--blockquote--accent--quote-width);
-    padding-inline-end: var(--site-component--blockquote--accent--quote-width);
+  @media screen and (max-width: 1000px) {
+    [data-component-style="quote"] & {
+      padding-inline-start: var(--site-component--blockquote--accent--quote-width);
+      padding-inline-end: var(--site-component--blockquote--accent--quote-width);
+    }
   }
 }
 
 [data-component-style="quote"] blockquote {
   position: relative;
   display: flex;
-  padding-inline-start: var(--site-component--blockquote--accent--quote-width);
-  padding-inline-end: var(--site-component--blockquote--accent--quote-width);
 
   &::before {
     content: "“";
     position: absolute;
-    top: 0;
+    top: calc(var(--site-component--blockquote--accent--quote-width) * -1);
     left: 0;
     font-size: var(--site-global--font-size--xxlarge);
     line-height: var(--site-global--line-height--tightest);
@@ -127,7 +127,12 @@ blockquote p {
   }
 }
 @media screen and (min-width: 1350px) {
+  [data-component-style="quote"] blockquote {
+    padding-inline-start: var(--site-component--blockquote--accent--quote-width);
+    padding-inline-end: var(--site-component--blockquote--accent--quote-width);
+  }
   [data-component-style="quote"] blockquote::before {
+    top: 0;
     left: calc(var(--site-component--blockquote--accent--quote-width) * -1);
   }
 }
