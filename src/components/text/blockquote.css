@@ -89,8 +89,9 @@ blockquote p {
   font-size: var(--site-global--font-size--base);
   line-height: var(--site-global--line-height--tight);
   color: var(--site-component--color--blockquote);
+  padding: 0;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (min-width: 1350px) {
     [data-component-style="quote"] & {
       padding-inline-start: var(--site-component--blockquote--accent--quote-width);
       padding-inline-end: var(--site-component--blockquote--accent--quote-width);
@@ -136,6 +137,7 @@ blockquote p {
     left: calc(var(--site-component--blockquote--accent--quote-width) * -1);
   }
 }
+
 .blockquote__inner {
   padding-block-start: var(--site-global--spacing-vertical--wide);
   padding-block-end: var(--site-global--spacing-vertical--wide);

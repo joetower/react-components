@@ -41,9 +41,6 @@ figcaption {
   max-width: var(--site-width--wide);
   margin-inline-start: auto;
   margin-inline-end: auto;
-
-  @media screen and (min-width: 1000px) {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
-  }
+  padding-inline-start: var(--site-global--spacing-horizontal--half);
+  padding-inline-end: var(--site-global--spacing-horizontal--half);
 }
