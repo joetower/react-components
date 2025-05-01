@@ -1,4 +1,5 @@
 .text-block {
+  width: 100%;
   max-width: 100%;
 }
 
@@ -26,5 +27,13 @@
 }
 
 .text-block p {
+  width: 100%;
   max-width: var(--site-width--text);
+}
+
+@media screen and (max-width: 1350px) {
+  main.home-page .text-block {
+    padding-inline-start: var(--site-global--spacing-horizontal--half);
+    padding-inline-end: var(--site-global--spacing-horizontal--half);
+  }
 }

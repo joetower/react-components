@@ -11,3 +11,17 @@
 a.heading__link {
   font-weight: var(--site-global--font-weight--bold);
 }
+
+.intro__heading {
+  width: 100%;
+  max-width: var(--site-width--components);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+
+@media screen and (max-width: 1350px) {
+  main.page .intro__heading {
+    padding-inline-start: var(--site-global--spacing-horizontal--half);
+    padding-inline-end: var(--site-global--spacing-horizontal--half);
+  }
+}

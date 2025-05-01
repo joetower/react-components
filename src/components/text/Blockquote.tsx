@@ -27,18 +27,19 @@ export default function Blockquote({style, baseClass, content, width = 'full', a
           whileInView={{ opacity: 1 }}
           viewport={{ once: false, amount: 0.8 }}
           animate={{opacity: 1, y:0}} 
-          exit={{opacity: 0, y:100}} 
+          exit={{opacity: 0, y:-100}} 
           transition={{duration: 0.45}}
           className={`blockquote ${baseClass || ''}`}
           >
             <p>{content}</p>
           </motion.blockquote>
+          
           <motion.figcaption
           initial={{opacity: 0, y:100}}
           whileInView={{ opacity: 1 }}
           viewport={{ once: false, amount: 0.8 }}
           animate={{opacity: 1, y:0}} 
-          exit={{opacity: 0, y:-100}} 
+          exit={{opacity: 0, y:200}} 
           transition={{duration: 0.45}}
           className={`blockquote__caption ${baseClass || ''}`}>
             <cite>— {author}</cite>

@@ -36,6 +36,7 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   max-width: var(--site-width--inner);
   margin-inline-start: auto;
   margin-inline-end: auto;

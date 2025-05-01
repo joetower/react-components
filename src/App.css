@@ -11,12 +11,6 @@
   flex: 1 0 auto;
 }
 
-.intro__heading {
-  max-width: var(--site-width--components);
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-}
-
 main {
   width: 100%;
   flex: 1 0 auto;
@@ -33,14 +27,3 @@ main.page {
   max-width: var(--site-width--full);
 }
 
-@media screen and (max-width: 1350px) {
-  main.page .intro__heading {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
-  }
-
-  main.page .text-block {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
-  }
-}

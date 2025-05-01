@@ -33,7 +33,13 @@
   flex-flow: column nowrap;
   gap: var(--site-global--gap);
   width: 100%;
+
+  @media screen and (max-width: 1350px) {
+    padding-inline-start: var(--site-global--spacing-horizontal--half);
+    padding-inline-end: var(--site-global--spacing-horizontal--half);
+  } 
 }
+
 
 [data-component-width="full"] .cards__header__inner {
   width: 100%;
