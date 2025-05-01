@@ -1,5 +1,5 @@
 import './blockquote.css';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface BlockquoteProps {
   style: 'quote' | 'bar' ;
@@ -12,6 +12,7 @@ interface BlockquoteProps {
 }
 
 export default function Blockquote({style, baseClass, content, width = 'full', align = 'left', theme = 'primary', author = 'Author' }: BlockquoteProps) {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <div
     className={
@@ -22,28 +23,43 @@ export default function Blockquote({style, baseClass, content, width = 'full', a
       data-component-theme={theme}>
       <div className={`blockquote__inner`}>
         <figure className={`blockquote__figure ${baseClass || ''}`}>
-          <motion.blockquote
-          initial={{opacity: 0, y:-100}}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
-          animate={{opacity: 1, y:0}} 
-          exit={{opacity: 0, y:-100}} 
-          transition={{duration: 0.45}}
-          className={`blockquote ${baseClass || ''}`}
-          >
-            <p>{content}</p>
-          </motion.blockquote>
-          
-          <motion.figcaption
-          initial={{opacity: 0, y:100}}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.8 }}
-          animate={{opacity: 1, y:0}} 
-          exit={{opacity: 0, y:200}} 
-          transition={{duration: 0.45}}
-          className={`blockquote__caption ${baseClass || ''}`}>
-            <cite>— {author}</cite>
-          </motion.figcaption>
+        {!prefersReducedMotion && (
+          <>
+            <motion.blockquote
+            initial={{opacity: 0, y:-100}}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.8 }}
+            animate={{opacity: 1, y:0}} 
+            exit={{opacity: 0, y:-100}} 
+            transition={{duration: 0.45}}
+            className={`blockquote ${baseClass || ''}`}
+            >
+              <p>{content}</p>
+            </motion.blockquote>
+            <motion.figcaption
+            initial={{opacity: 0, y:100}}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.8 }}
+            animate={{opacity: 1, y:0}} 
+            exit={{opacity: 0, y:200}} 
+            transition={{duration: 0.45}}
+            className={`blockquote__caption ${baseClass || ''}`}>
+              <cite>— {author}</cite>
+            </motion.figcaption>
+          </>
+        )}
+
+        {prefersReducedMotion && (
+          <>
+            <blockquote className={`blockquote ${baseClass || ''}`}>
+              <p>{content}</p>
+            </blockquote>
+            <figcaption className={`blockquote__caption ${baseClass || ''}`}>
+              <cite>— {author}</cite>
+            </figcaption>
+          </>
+        )}
+
         </figure>
       </div>
     </div>
