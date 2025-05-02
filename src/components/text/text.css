@@ -28,8 +28,9 @@
 
 .text-block p {
   width: 100%;
+  font-weight: var(--site-global--font-weight--medium);
   max-width: var(--site-width--text);
-  margin: 0;
+  margin-block-start: 0;
 }
 
 @media screen and (max-width: 1350px) {

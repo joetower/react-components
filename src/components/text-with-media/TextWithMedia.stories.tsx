@@ -55,7 +55,7 @@ TextBlockWithMedia.args = {
 
 // Default export for Storybook
 const meta: Meta<typeof TextBlockWithMedia> = {
-  title: 'Components/Text/TextBlockWithMedia',
+  title: 'Components/Text Block With Media',
   component: TextBlockWithMedia,
   argTypes: {
     twmHeading: { control: 'text' },
