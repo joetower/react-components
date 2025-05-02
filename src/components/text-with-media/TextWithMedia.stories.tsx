@@ -6,6 +6,8 @@ interface TextBlockWithMediaProps {
   imageAlignment?: 'left' | 'right'; // Optional prop for callout imageAlignment
   baseClass?: string | 'text';
   width?: 'components' | 'inner';
+  animation?: boolean; // Optional prop for animation class
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for callout theme
   twmContent?: string;
   twmHeading?: string;
   twmImageName?: string;
@@ -16,11 +18,13 @@ interface TextBlockWithMediaProps {
   twmButtonType?: 'button' | 'button-link' | 'text-link'; // Optional prop for button type
 }
 
-export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'components', twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextBlockWithMediaProps) => (
+export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'components', theme = 'primary', animation, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextBlockWithMediaProps) => (
   <TextBlockWithMediaItem 
   imageAlignment={imageAlignment} 
   baseClass='text' 
   width={width} 
+  theme={theme}
+  animation={animation}
   twmHeading={twmHeading}
   twmContent={twmContent} 
   twmImageAlt={twmImageAlt} 
@@ -36,6 +40,8 @@ export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'component
 TextBlockWithMedia.args = {
   imageAlignment: 'left',
   width: 'components',
+  theme: 'primary',
+  animation: false,
   baseClass: 'item',
   twmHeading: 'Text with Media',
   twmContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -61,6 +67,11 @@ const meta: Meta<typeof TextBlockWithMedia> = {
     twmButtonTitle: { control: 'text' },
     twmButtonType: {
       options: ['button', 'button-link', 'text-link'],
+      control: { type: 'radio' },
+    },
+    animation: { control: 'boolean' },
+    theme: {
+      options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'radio' },
     },
     width: {

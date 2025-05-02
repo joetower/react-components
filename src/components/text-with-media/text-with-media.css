@@ -1,3 +1,37 @@
+.text-with-media[data-component-theme='primary'] {
+  --color--background: var(--site-global--color-primary-accent-lightest);
+  --color--text: var(--site-global--color-primary-accent-dark);
+  --color--text--hover: var(--site-global--color-primary-accent-dark);
+  --color--border: var(--site-global--color-primary-accent-dark);
+}
+.text-with-media[data-component-theme='secondary'] {
+  --color--background: var(--site-global--color-secondary-accent-lightest);
+  --color--text: var(--site-global--color-secondary-accent-dark);
+  --color--text--hover: var(--site-global--color-secondary-accent-dark);
+  --color--border: var(--site-global--color-secondary-accent-dark);
+}
+.text-with-media[data-component-theme='tertiary'] {
+  --color--background: var(--site-global--color-tertiary-accent-lightest);
+  --color--text: var(--site-global--color-tertiary-accent-dark);
+  --color--text--hover: var(--site-global--color-tertiary-accent-dark);
+  --color--border: var(--site-global--color-tertiary-accent-dark);
+}
+.text-with-media[data-component-theme='quaternary'] {
+  --color--background: var(--site-global--color-quaternary-accent-lightest);
+  --color--text: var(--site-global--color-quaternary-accent-dark);
+  --color--text--hover: var(--site-global--color-quaternary-accent-dark);
+  --color--border: var(--site-global--color-quaternary-accent-dark);
+}
+
+.text-with-media {
+  background-color: var(--color--background);
+  color: var(--color--text);
+}
+
+.text-block + .text-with-media {
+  margin-block-start: var(--site-global--spacing-vertical);
+}
+
 .text-with-media__inner {
   display: flex;
   flex-direction: row;
@@ -6,6 +40,8 @@
   gap: var(--site-global--spacing-vertical);
   margin: 0 auto;
   max-width: var(--site-width--inner);
+  padding-block-start: var(--site-global--spacing-vertical--wide);
+  padding-block-end: var(--site-global--spacing-vertical--wide);
 }
 
 .text-with-media__content {
@@ -20,6 +56,17 @@
 
 [data-component-width="components"] .text-with-media__inner {
   max-width: var(--site-width--components);
+}
+
+.text-with-media__link[data-component-theme="inherit"] {
+  --color--button--background: var(--color--text);
+  --color--button--background-accent: var(--color--text--hover);
+  --color--button--text: var(--color--background);
+
+  &:hover {
+    color: var(--color--text--hover);
+    border-color: var(--color--border);
+  }
 }
 
 @media (width < 768px) {

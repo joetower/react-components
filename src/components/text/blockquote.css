@@ -3,7 +3,6 @@
   --site-component--color--blockquote--accent: var(--site-global--color-primary-accent-dark);
   --site-component--color--blockquote--background: var(--site-global--color-primary-accent--lightest);
 
-  margin-block-start: var(--site-global--spacing-vertical);
   background-color: var(--site-component--color--blockquote--background);
 
   &[data-component-align="left"] {
@@ -42,6 +41,10 @@
     --site-component--color--blockquote--background: var(--site-global--color-quaternary-accent-lightest);
   }
   
+}
+
+.text-block + .blockquote__container {
+  margin-block-start: var(--site-global--spacing-vertical);
 }
 
 blockquote {

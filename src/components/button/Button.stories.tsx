@@ -6,7 +6,7 @@ export const Button = (
   : { 
     label: string;
     type: 'button' | 'button-link' | 'text-link'; 
-    theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; 
+    theme: 'inherit' | 'primary' | 'secondary' | 'tertiary' | 'quaternary'; 
     size: 'small' | 'medium' | 'large';   // Added size prop
     href?: string;
     title?: string;

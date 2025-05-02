@@ -1,7 +1,7 @@
 import './button.css';
 
 export interface ButtonProps {
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for callout theme
+  theme?: 'inherit' | 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for callout theme
   /** How large should the button be? */
   size?: 'small' | 'medium' | 'large';
   /** Button contents */

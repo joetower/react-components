@@ -1,9 +1,9 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Card from '../card/Card'; // Assuming Card is exported from Card.tsx
 import Heading from '../text/Heading';
 import TextBlock from '../text/TextBlock';
 import cardsData from '../cards/cards-data.json';
-
+import './cards.css'; // Import the SCSS file for styling
 interface CardData {
   title: string;
   content: string;
@@ -27,8 +27,6 @@ const cardsDataTyped: CardsData = {
     showButton: card.showButton ?? false, // Provide a default value for showButton
   })),
 };
-import './cards.css'; // Import the SCSS file for styling
-import { useEffect } from 'react';
 
 interface CardCollectionProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme

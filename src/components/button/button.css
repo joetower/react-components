@@ -4,6 +4,12 @@
   --color--button--text: var(--site-global--color-basic-black);
 }
 
+.button[data-component-theme="inherit"] {
+  --color--button--background: var(--site-global--color-primary-accent-light);
+  --color--button--background-accent: var(--site-global--color-primary-accent);
+  --color--button--text: var(--site-global--color-basic-black);
+}
+
 .button[data-component-theme="primary"] {
   --color--button--background: var(--site-global--color-primary-accent-light);
   --color--button--background-accent: var(--site-global--color-primary-accent);

@@ -29,6 +29,7 @@
 .text-block p {
   width: 100%;
   max-width: var(--site-width--text);
+  margin: 0;
 }
 
 @media screen and (max-width: 1350px) {
