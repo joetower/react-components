@@ -106,7 +106,6 @@
 	--site-global--font-size--large: clamp(1rem, calc(2vw + 1rem), 1.5rem);
 	--site-global--font-size--xlarge: clamp(1.2rem, calc(2vw + 1rem), 2rem);
 	--site-global--font-size--xxlarge: clamp(1.5rem, calc(2vw + 1rem), 4rem);
-
   --site-global--font-size--h1: clamp(2rem, calc(2vw + 1rem), 3.4rem);
 	--site-global--font-size--h2: clamp(1.2rem, calc(2vw + 1rem), 2.2rem);
 	--site-global--font-size--h3: clamp(1.2rem, calc(2vw + 1rem), 1.8rem); 
@@ -141,7 +140,9 @@
 	--site-component--blockquote--font-weight: var(--site-global--font-weight--bold);
 	--site-component--blockquote--accent--font-size: var(--site-global--font-size--xxlarge);
 	--site-component--blockquote--accent--width: 1rem;
-	--site-component--blockquote--accent--quote-width: 2rem;
+	--site-component--blockquote--accent--quote-size: 3rem;
+	--site-component--blockquote--accent--quote-offset-bottom: 4rem;
+	--site-component--blockquote--accent--quote-font-size: clamp(3rem, calc(2vw + 1rem), 5rem);
 }
 
 @font-face {

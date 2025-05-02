@@ -20,25 +20,25 @@
 
   &[data-component-theme="primary"]{
     --site-component--color--blockquote: var(--site-global--color-primary-accent-dark);
-    --site-component--color--blockquote--accent: var(--site-global--color-primary-accent-dark);
+    --site-component--color--blockquote--accent: var(--site-global--color-primary-accent);
     --site-component--color--blockquote--background: var(--site-global--color-primary-accent-lightest);
   }
 
   &[data-component-theme="secondary"]{
     --site-component--color--blockquote: var(--site-global--color-secondary-accent-dark);
-    --site-component--color--blockquote--accent: var(--site-global--color-secondary-accent-dark);
+    --site-component--color--blockquote--accent: var(--site-global--color-secondary-accent);
     --site-component--color--blockquote--background: var(--site-global--color-secondary-accent-lightest);
   }
 
   &[data-component-theme="tertiary"]{
     --site-component--color--blockquote: var(--site-global--color-tertiary-accent-dark);
-    --site-component--color--blockquote--accent: var(--site-global--color-tertiary-accent-dark);
+    --site-component--color--blockquote--accent: var(--site-global--color-tertiary-accent);
     --site-component--color--blockquote--background: var(--site-global--color-tertiary-accent-lightest);
   }
 
   &[data-component-theme="quaternary"]{
     --site-component--color--blockquote: var(--site-global--color-quaternary-accent-dark);
-    --site-component--color--blockquote--accent: var(--site-global--color-quaternary-accent-dark);
+    --site-component--color--blockquote--accent: var(--site-global--color-quaternary-accent);
     --site-component--color--blockquote--background: var(--site-global--color-quaternary-accent-lightest);
   }
   
@@ -71,17 +71,17 @@ blockquote p {
 
   [data-component-style="bar"][data-component-align="left"] & {
     border-left: var(--site-component--blockquote--accent--width) solid var(--site-component--color--blockquote--accent);
-    padding-inline-start: var(--site-component--blockquote--accent--quote-width);
+    padding-inline-start: var(--site-component--blockquote--accent--quote-size);
   }
 
   [data-component-style="bar"][data-component-align="right"] & {
     border-right: var(--site-component--blockquote--accent--width) solid var(--site-component--color--blockquote--accent);
-    padding-inline-end: var(--site-component--blockquote--accent--quote-width);
+    padding-inline-end: var(--site-component--blockquote--accent--quote-size);
   }
 
   [data-component-style="bar"][data-component-align="center"] & {
     border-top: var(--site-component--blockquote--accent--width) solid var(--site-component--color--blockquote--accent);
-    padding-block-start: var(--site-component--blockquote--accent--quote-width);
+    padding-block-start: var(--site-component--blockquote--accent--quote-size);
   }
 }
 
@@ -94,8 +94,8 @@ blockquote p {
 
   @media screen and (min-width: 1350px) {
     [data-component-style="quote"] & {
-      padding-inline-start: var(--site-component--blockquote--accent--quote-width);
-      padding-inline-end: var(--site-component--blockquote--accent--quote-width);
+      padding-inline-start: var(--site-component--blockquote--accent--quote-size);
+      padding-inline-end: var(--site-component--blockquote--accent--quote-size);
     }
   }
 }
@@ -107,43 +107,38 @@ blockquote p {
   &::before {
     content: "“";
     position: absolute;
-    top: calc(var(--site-component--blockquote--accent--quote-width) * -1);
+    top: calc(var(--site-component--blockquote--accent--quote-size) * -1);
     left: 0;
-    font-size: var(--site-global--font-size--xxlarge);
+    font-size: var(--site-component--blockquote--accent--quote-font-size);
+    font-weight: 900;
     line-height: var(--site-global--line-height--tightest);
     color: var(--site-component--color--blockquote--accent);
-    width: var(--site-component--blockquote--accent--quote-width);
-    height: var(--site-component--blockquote--accent--quote-width);
   }
 
   &::after {
     content: "”";
     position: absolute;
-    bottom: 0;
+    bottom: calc(var(--site-component--blockquote--accent--quote-offset-bottom) * -1);
     right: 0;
-    font-size: var(--site-global--font-size--xxlarge);
+    font-size: var(--site-component--blockquote--accent--quote-font-size);
+    font-weight: 900;
     line-height: var(--site-global--line-height--tightest);
     color: var(--site-component--color--blockquote--accent);
-    width: var(--site-component--blockquote--accent--quote-width);
-    height: var(--site-component--blockquote--accent--quote-width);
   }
 }
 @media screen and (min-width: 1350px) {
   [data-component-style="quote"] blockquote {
-    padding-inline-start: var(--site-component--blockquote--accent--quote-width);
-    padding-inline-end: var(--site-component--blockquote--accent--quote-width);
-  }
-  [data-component-style="quote"] blockquote::before {
-    top: 0;
-    left: calc(var(--site-component--blockquote--accent--quote-width) * -1);
+    padding-inline-start: var(--site-component--blockquote--accent--quote-size);
+    padding-inline-end: var(--site-component--blockquote--accent--quote-offset-bottom);
   }
 }
 
 .blockquote__inner {
   padding-block-start: var(--site-global--spacing-vertical--wide);
-  padding-block-end: var(--site-global--spacing-vertical--wide);
+  padding-block-end: var(--site-global--spacing-vertical);
   padding-inline-start: var(--site-global--spacing-horizontal);
   padding-inline-end: var(--site-global--spacing-horizontal);
+  position: relative;
 
   [data-component-width="content"] & {
     max-width: var(--site-width--components);
