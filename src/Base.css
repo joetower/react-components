@@ -15,8 +15,10 @@
 	/* Spacing */
 	--site-global--spacing-vertical: 2rem;
 	--site-global--spacing-horizontal: 2rem;
+
 	--site-global--spacing-vertical--half: 1rem;
 	--site-global--spacing-horizontal--half: 1rem;
+	
 	--site-global--spacing-vertical--wide: 4rem;
 	--site-global--spacing-horizontal--wide: 4rem;
 
