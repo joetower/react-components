@@ -19,7 +19,7 @@ function About() {
         This site is a work in progress and will get updated many times per week.</p>
       </Paragraph>
 
-      <Paragraph baseClass='paragraph' style='default' width='content'>
+      <Paragraph baseClass='intro__paragraph' style='default' width='content'>
         <p>Page transitions and the quote component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>. Animation on cards and text with media is handled by CSS animations with useEffect and vanilla JS.</p>
       </Paragraph>
 
