@@ -36,14 +36,14 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
             if (Array.from(mediaItems).includes(entry.target)) {
               entry.target.classList.add('animate');
               setTimeout(() => {
-              entry.target.classList.add('fade-in-up');
+              entry.target.classList.add('fade-in-left');
               }, 100 * (Array.from(mediaItems).indexOf(entry.target) + 1));
             }
             // Check if the target is a media text item
             if (Array.from(mediaTextItems).includes(entry.target)) {
               entry.target.classList.add('animate');
               setTimeout(() => {
-                entry.target.classList.add('fade-in-down');
+                entry.target.classList.add('fade-in-right');
               }, 100 * (Array.from(mediaTextItems).indexOf(entry.target) + 1));
             }
           }

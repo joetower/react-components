@@ -16,7 +16,7 @@ function Home() {
         <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries.</p>
       </Paragraph>
       <Paragraph baseClass='paragraph' style='default' width='content'>
-        <p>This app applies the components from the <a href="/storybook" title="Storybook Components (opens in new tab/window)" target=''>Component Library &#8599;</a>. Here are some elephants.</p>
+        <p>This app applies the components from the <a href="/storybook" title="Storybook Components (opens in new tab/window)" target=''>Component Library &#8599;</a>.</p>
       </Paragraph>
       <Quote align="left" baseClass='quote' style='quote' content="Never worry about failure. It's gonna happen. But that's OK: Go ahead, take chances… and you might just find that what feels like failure isn't failure at all, it's what inspires you to dream even bigger." author="Kermit the Frog" theme='tertiary' width='content' />
       <Callout heading='Callout component' alignment='center' animation={true} text="This is a callout component. It is made up of combining three components: the heading, text-block, and button components." theme='secondary' link='#' linkText='Call to Action' linkTitle='Link going nowhere for demonstration' />

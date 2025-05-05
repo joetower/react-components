@@ -36,7 +36,7 @@
 @media screen and (max-width: 1350px) {
   main.home-page .text-block,
   .text-block.intro__paragraph {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
+    padding-inline-start: var(--site-global--spacing-horizontal);
+    padding-inline-end: var(--site-global--spacing-horizontal);
   }
 }

@@ -9,7 +9,7 @@ import TextWithMediaBlock from '../components/text-with-media/TextWithMedia';
 function About() {
   return (
     <MainLayout baseClass='page about-page'>
-      <p>
+      <>
       <title>About the app</title>
       <meta name="description" content="About the Vite + React app with a component library." />
       <meta name="keywords" content="Vite, React, component library, example site, about" />
@@ -49,7 +49,7 @@ function About() {
       caption='Scenic view of Yosemite National Park'
       credit="Photo by Joe Tower"
       sizes={[200, 400, 600, 800, 1200, 1400, 1600]} />
-      </p>
+      </>
     </MainLayout>
   );
 }
