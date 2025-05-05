@@ -21,7 +21,7 @@ a.heading__link {
 
 @media screen and (max-width: 1350px) {
   main.page .intro__heading {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
+    padding-inline-start: var(--site-global--spacing-horizontal);
+    padding-inline-end: var(--site-global--spacing-horizontal);
   }
 }

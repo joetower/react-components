@@ -76,8 +76,8 @@
   }
 
   .text-with-media__content {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
+    padding-inline-start: var(--site-global--spacing-horizontal);
+    padding-inline-end: var(--site-global--spacing-horizontal);
   }
 }
 

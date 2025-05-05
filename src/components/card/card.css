@@ -77,7 +77,7 @@
   display: flex;
   flex-flow: column nowrap;
   gap: var(--site-global--gap--type);
-  padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal--half);
+  padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal);
   height: 100%;
 }
 

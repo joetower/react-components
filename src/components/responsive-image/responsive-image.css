@@ -27,11 +27,6 @@ figure {
 
   picture {
     margin-block-start: var(--site-global--spacing-vertical);
-
-    @media screen and (max-width: 1000px) {
-      padding-inline-start: var(--site-global--spacing-horizontal--half);
-      padding-inline-end: var(--site-global--spacing-horizontal--half);
-    }
   }
 }
 

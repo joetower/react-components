@@ -35,8 +35,8 @@
   width: 100%;
 
   @media screen and (max-width: 1350px) {
-    padding-inline-start: var(--site-global--spacing-horizontal--half);
-    padding-inline-end: var(--site-global--spacing-horizontal--half);
+    padding-inline-start: var(--site-global--spacing-horizontal);
+    padding-inline-end: var(--site-global--spacing-horizontal);
   } 
 }
 
