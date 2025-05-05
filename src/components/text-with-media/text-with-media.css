@@ -70,6 +70,11 @@
   }
 }
 
+.text-with-media__media {
+  width: 100%;
+  max-width: 600px;
+}
+
 @media (width < 768px) {
   .text-with-media__inner {
     flex-direction: column;
