@@ -33,6 +33,11 @@
   margin-block-start: 0;
 }
 
+.text-block + .text-with-media,
+.text-block + .blockquote__container {
+  margin-block-start: var(--site-global--spacing-vertical--wide);
+}
+
 @media screen and (max-width: 1350px) {
   main.home-page .text-block,
   .text-block.intro__paragraph {

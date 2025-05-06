@@ -29,10 +29,6 @@
   overflow: hidden;
 }
 
-.text-block + .text-with-media {
-  margin-block-start: var(--site-global--spacing-vertical);
-}
-
 .text-with-media__inner {
   display: flex;
   flex-direction: row;
