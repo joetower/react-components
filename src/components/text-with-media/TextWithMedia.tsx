@@ -27,6 +27,18 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
     const mediaItems = document.querySelectorAll('.text-with-media__media');
     const mediaTextItems = document.querySelectorAll('.text-with-media__content');
 
+    // Check if the textWithMedia element exists and animation is enabled
+    // If animation is enabled, add the 'animate' class to the media items
+    // and text items to trigger the animation
+    if (textWithMedia) {
+      mediaItems.forEach((item) => {
+        item.classList.add('animate');
+      })
+      mediaTextItems.forEach((item) => {
+        item.classList.add('animate');
+      })
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,7 +46,6 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
           if (entry.isIntersecting && textWithMedia) {
             // Check if the target is a media item
             if (Array.from(mediaItems).includes(entry.target)) {
-              entry.target.classList.add('animate');
               setTimeout(() => {
               entry.target.classList.add('fade-in-left');
               }, 100 * (Array.from(mediaItems).indexOf(entry.target) + 1));
