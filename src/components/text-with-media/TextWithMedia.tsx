@@ -24,8 +24,18 @@ interface TextWithMediaBlockProps {
 export default function TextWithMediaBlock({imageAlignment, baseClass, animation, theme= 'primary', width = 'components', twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextWithMediaBlockProps) {
   useEffect(() => {
     const textWithMedia = document.querySelector('.text-with-media[data-component-animation="true"]');
+    
+    // Select all media items
+    // Select media items based on alignment
     const mediaItems = document.querySelectorAll('.text-with-media__media');
+    const mediaItemsLeft = document.querySelectorAll('[data-component-alignment="left"] .text-with-media__media');
+    const mediaItemsRight = document.querySelectorAll('[data-component-alignment="right"] .text-with-media__media');
+    
+    // Select all text items
+    // Select text items based on alignment
     const mediaTextItems = document.querySelectorAll('.text-with-media__content');
+    const mediaTextItemsLeft = document.querySelectorAll('[data-component-alignment="left"] .text-with-media__content');
+    const mediaTextItemsRight = document.querySelectorAll('[data-component-alignment="right"] .text-with-media__content');
 
     // Check if the textWithMedia element exists and animation is enabled
     // If animation is enabled, add the 'animate' class to the media items
@@ -42,22 +52,24 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Check if the target is intersecting and animation is enabled
-          if (entry.isIntersecting && textWithMedia) {
-            // Check if the target is a media item
-            if (Array.from(mediaItems).includes(entry.target)) {
+            // Check if the target is intersecting and animation is enabled
+            if (entry.isIntersecting && textWithMedia) {
+            const animationMap = [
+              { items: mediaItemsLeft, className: 'fade-in-left', delayMultiplier: 100, animate: true },
+              { items: mediaItemsRight, className: 'fade-in-right', delayMultiplier: 100, animate: true },
+              { items: mediaTextItemsLeft, className: 'fade-in-right', delayMultiplier: 100, animate: true },
+              { items: mediaTextItemsRight, className: 'fade-in-left', delayMultiplier: 100, animate: true },
+            ];
+
+            animationMap.forEach(({ items, className, delayMultiplier, animate }) => {
+              if (Array.from(items).includes(entry.target)) {
+              if (animate) entry.target.classList.add('animate');
               setTimeout(() => {
-              entry.target.classList.add('fade-in-left');
-              }, 100 * (Array.from(mediaItems).indexOf(entry.target) + 1));
+                entry.target.classList.add(className);
+              }, delayMultiplier * (Array.from(items).indexOf(entry.target) + 1));
+              }
+            });
             }
-            // Check if the target is a media text item
-            if (Array.from(mediaTextItems).includes(entry.target)) {
-              entry.target.classList.add('animate');
-              setTimeout(() => {
-                entry.target.classList.add('fade-in-right');
-              }, 100 * (Array.from(mediaTextItems).indexOf(entry.target) + 1));
-            }
-          }
         });
       },
       { threshold: 0.4 } // Adjust threshold as needed
