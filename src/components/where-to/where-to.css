@@ -3,6 +3,9 @@
   --color--text: var(--site-global--color-primary-accent-dark);
   --color--text--hover: var(--site-global--color-primary-accent-dark);
   --color--border: var(--site-global--color-primary-accent-dark);
+  --color--layer-1: var(--site-global--color-primary-accent-lightest);
+  --color--layer-2: var(--site-global--color-primary-accent-light);
+  --color--layer-3: var(--site-global--color-primary-accent);
 }
 
 .places[data-component-theme='secondary'] {
@@ -10,6 +13,9 @@
   --color--text: var(--site-global--color-secondary-accent-dark);
   --color--text--hover: var(--site-global--color-secondary-accent-dark);
   --color--border: var(--site-global--color-secondary-accent-dark);
+  --color--layer-1: var(--site-global--color-secondary-accent-lightest);
+  --color--layer-2: var(--site-global--color-secondary-accent-light);
+  --color--layer-3: var(--site-global--color-secondary-accent);
 }
 
 .places[data-component-theme='tertiary'] {
@@ -17,6 +23,9 @@
   --color--text: var(--site-global--color-tertiary-accent-dark);
   --color--text--hover: var(--site-global--color-tertiary-accent-dark);
   --color--border: var(--site-global--color-tertiary-accent-dark);
+  --color--layer-1: var(--site-global--color-tertiary-accent-lightest);
+  --color--layer-2: var(--site-global--color-tertiary-accent-light);
+  --color--layer-3: var(--site-global--color-tertiary-accent);
 }
 
 .places[data-component-theme='quaternary'] {
@@ -24,27 +33,43 @@
   --color--text: var(--site-global--color-quaternary-accent-dark);
   --color--text--hover: var(--site-global--color-quaternary-accent-dark);
   --color--border: var(--site-global--color-quaternary-accent-dark);
+  --color--layer-1: var(--site-global--color-quaternary-accent-lightest);
+  --color--layer-2: var(--site-global--color-quaternary-accent-light);
+  --color--layer-3: var(--site-global--color-quaternary-accent);
 }
 
 .places {
-  background-color: var(--color--background);
   color: var(--color--text);
+  position: relative;
+  overflow-x: hidden;
+  min-height: 500px;
  }
 
- .places p {
+.places__bg {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  height: 100%;
+  width: max(200%, 100rem);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.places p {
   margin: 0;
- }
+}
 
- .places__inner {
+.places__inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-around;
   gap: var(--site-global--spacing-vertical);
   margin: 0 auto;
   max-width: var(--site-width--inner);
-  padding-block-start: var(--site-global--spacing-vertical);
+  padding-block-start: var(--site-global--spacing-vertical--wide);
   padding-block-end: var(--site-global--spacing-vertical--wide);
+  position: relative;
+  z-index: 1;
 }
 
 [data-component-width="inner"] .places__inner {
@@ -89,4 +114,13 @@
 .places__input-field:focus-visible {
 	outline: var(--site-focus-outline--width) solid var(--site-focus-outline--color);
 	outline-offset: 0.125rem;
+}
+
+/* The animated SVG was inspired by this codepen: 
+** https://codepen.io/enbee81/pen/oggMvoz
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .places__bg {
+    animation: animate-waves var(--site-global--transition-timing--slow) ease alternate infinite;
+  }
 }
