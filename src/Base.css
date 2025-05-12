@@ -59,6 +59,8 @@
 	--site-global--border-width--thicker: 0.375rem; /* 6px */
 	--site-global--border-width--thickest: 0.5rem; /* 8px */
 
+	--site-global--border-radius: 0.5rem; /* 8px */
+
 	/* Global Colors */
 	--site-global--color-primary: hsl(205, 55%, 63%);
 	--site-global--color-secondary: hsl(32, 86%, 51%);
