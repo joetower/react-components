@@ -124,3 +124,16 @@
     animation: animate-waves var(--site-global--transition-timing--slow) ease alternate infinite;
   }
 }
+
+
+@media screen and (max-width: 1350px) {
+  .places__inner {
+    padding-inline-start: var(--site-global--spacing-horizontal);
+    padding-inline-end: var(--site-global--spacing-horizontal);
+  }
+
+  .places__input {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
