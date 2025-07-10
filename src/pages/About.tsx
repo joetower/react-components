@@ -16,7 +16,7 @@ function About() {
       <Heading level='h1' baseClass='intro__heading' content='About the app' />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
         <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
-        This site is a work in progress and will get updated many times per week.</p>
+        This site is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.</p>
       </Paragraph>
 
       <Paragraph baseClass='intro__paragraph' style='default' width='content'>
