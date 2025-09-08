@@ -17,7 +17,7 @@ interface CardProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
 
-export default function Card({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, showButton, imageName = '6-11-11-29 PM-2023-FUJIFILM-X-T3-DSCF4085'}: CardProps) {
+export default function Card({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, showButton, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: CardProps) {
   return (<>
     <div className="card" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'}>
       {imageSrc && (

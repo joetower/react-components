@@ -44,7 +44,7 @@ function About() {
       <Cards heading='Some Card Examples' text='This card data is coming from a card-data.json file. I will change this someday to be custom content or pull from an API' gridCount='3' animation={true} width='content' showButtons={false}/>
       
       <ResponsiveImage 
-      imageName="6-08-11-29 AM-2023-FUJIFILM-X-T3-DSCF3413" 
+      imageName="6-08-11-29-AM-2023-FUJIFILM-X-T3-DSCF3413"
       alt="Scenic view Yosemite National Park"
       caption='Scenic view of Yosemite National Park'
       credit="Photo by Joe Tower"

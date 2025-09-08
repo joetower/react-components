@@ -21,7 +21,7 @@ function Home() {
       <Quote align="left" baseClass='quote' style='quote' content="Never worry about failure. It's gonna happen. But that's OK: Go ahead, take chances… and you might just find that what feels like failure isn't failure at all, it's what inspires you to dream even bigger." author="Kermit the Frog" theme='tertiary' width='content' />
       <Callout heading='Callout component' alignment='center' animation={true} text="This is a callout component. It is made up of combining three components: the heading, text-block, and button components." theme='secondary' link='#' linkText='Call to Action' linkTitle='Link going nowhere for demonstration' />
       <ResponsiveImage 
-      imageName="2-12-6-32 AM-2023-FUJIFILM-X-T3-DSCF1862" 
+      imageName="2-12-6-32-AM-2023-FUJIFILM-X-T3-DSCF1862"
       alt="Elephants drinking water | Uganda" 
       caption='Elephants drinking water | Uganda'
       credit="Photo by Joe Tower"

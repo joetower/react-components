@@ -45,7 +45,7 @@ TextBlockWithMedia.args = {
   baseClass: 'item',
   twmHeading: 'Text with Media',
   twmContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  twmImageName: '6-11-11-29 PM-2023-FUJIFILM-X-T3-DSCF4085',
+  twmImageName: '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085',
   twmImageAlt: 'Sequoia National Park, California',
   twmButtonLabel: 'Check it out',
   twmButtonLink: '#',

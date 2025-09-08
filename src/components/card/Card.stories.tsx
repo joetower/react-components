@@ -40,7 +40,7 @@ Card.args = {
   imageAlt: 'Placeholder Image',
   animation: false,  // Set to true to enable animation
   showButton: false, // Set show button to false
-  imageName: '6-11-11-29 PM-2023-FUJIFILM-X-T3-DSCF4085',
+  imageName: '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085',
   theme: 'primary', // Default value for card theme
 };
 // Default export for Storybook
