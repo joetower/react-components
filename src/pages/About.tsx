@@ -31,7 +31,7 @@ function About() {
         baseClass='item'
         twmHeading='Text with Media'
         twmContent="This component composes multiple smaller components: text-block, responsive-image, heading, and button, to form a more complex, reusable UI element. It demonstrates how to effectively combine components, with each one's props passed in as name-spaced variables for clarity and organization."
-        twmImageName='6-11-11-29 PM-2023-FUJIFILM-X-T3-DSCF4085'
+        twmImageName='6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'
         twmImageAlt='Sequoia National Park, California'
         twmButtonLabel='Check out the code'
         twmButtonLink='https://github.com/joetower/react-components/tree/main/src/components/text-with-media'
