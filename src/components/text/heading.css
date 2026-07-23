@@ -9,7 +9,7 @@
 }
 
 a.heading__link {
-  font-weight: var(--site-global--font-weight--bold);
+  font-weight: var(--site-global--font-weight--bolder);
 }
 
 .intro__heading {

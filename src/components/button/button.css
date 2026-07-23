@@ -41,21 +41,21 @@
   cursor: pointer;
   font-size: var(--site-global--font-size--button);
   font-weight: var(--site-global--font-weight--bold);
-  border: var(--site-global--border-width) solid transparent;
+  border: var(--site-global--border-width--thick) solid transparent;
   display: inline-block;
   color: var(--color--button--text);
-  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal--wide);
+  padding: var(--site-global--spacing-1) var(--site-global--spacing-2);
   text-decoration: none;
 }
 
 .button[data-component-size="small"] {
   font-size: var(--site-global--font-size--button--small);
-  padding: var(--site-button--spacing-vertical--half) var(--site-button--spacing-horizontal--half);
+  padding: var(--site-global--spacing-050) var(--site-global--spacing-1);
 }
 
 .button[data-component-size="large"] {
   font-size: var(--site-global--font-size--button--large);
-  padding: var(--site-button--spacing-vertical) var(--site-button--spacing-horizontal--extra--wide);
+  padding: var(--site-global--spacing-1) var(--site-global--spacing-3);
 }
 
 .button:hover {
@@ -66,7 +66,10 @@
 /* Media Queries: hover effects */
 @media (prefers-reduced-motion: no-preference) {
   .button:hover {
-    transition: all var(--site-global--transition-timing) ease-in-out;
-    box-shadow: 0 0 var(--site-global--border-width--thick) var(--site-global--border-width) var(--color--button--background-accent);
+    transition: background-color var(--site-global--transition-timing) ease-in-out, 
+    color var(--site-global--transition-timing) ease-in-out,
+    border-color var(--site-global--transition-timing) ease-in-out,
+    box-shadow var(--site-global--transition-timing) ease-in-out;
+    box-shadow: var(--color--button--background-accent) 0 0 var(--site-global--border-width--thickest) var(--site-global--border-width);
   }
 }

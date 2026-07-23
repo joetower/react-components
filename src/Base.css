@@ -25,6 +25,21 @@
 
 	--site-global--spacing-vertical--extra-wide: 6rem;
 	--site-global--spacing-horizontal--extra-wide: 6rem;
+	
+	--site-global--spacing-025rem: 0.25rem;
+	--site-global--spacing-050: 0.50rem;
+	--site-global--spacing-075: 0.75rem;
+	--site-global--spacing-1: 1rem;
+	--site-global--spacing-2: 2rem;
+	--site-global--spacing-3: 3rem;
+	--site-global--spacing-4: 4rem;
+	--site-global--spacing-5: 5rem;
+	--site-global--spacing-6: 6rem;
+	--site-global--spacing-7: 7rem;
+	--site-global--spacing-8: 8rem;
+	--site-global--spacing-9: 9rem;
+	--site-global--spacing-10: 10rem;
+
 
 	--site-global--spacing-form-items: 0.15rem;
 	--site-global--spacing-form-items--half: 0.075rem;
@@ -73,7 +88,7 @@
 	--site-global--color-primary-accent-light: hsl(205, 84%, 80%);
 	--site-global--color-primary-accent-lightest: hsl(205, 84%, 90%);
 
-	--site-global--color-secondary-accent: hsl(16, 86%, 51%);
+	--site-global--color-secondary-accent: hsl(347, 83%, 60%);
 	--site-global--color-secondary-accent-dark: hsl(46, 23%, 18%);
 	--site-global--color-secondary-accent-light: hsl(51, 57%, 88%);
 	--site-global--color-secondary-accent-lightest: hsl(51, 57%, 95%);
@@ -181,12 +196,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-weight: var(--site-global--font-weight--bold);
-  font-size: var(--site-global--font-size--h1);
+ font-weight: var(--site-global--font-weight--bolder);
+ font-size: var(--site-global--font-size--h1);
 }
 
 h2 {
-	font-weight: var(--site-global--font-weight--bold);
+  font-weight: var(--site-global--font-weight--bolder);
   font-size: var(--site-global--font-size--h2);
 }
 

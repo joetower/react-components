@@ -48,7 +48,7 @@ blockquote {
 	line-height: var(--site-component--blockquote--line-height);
 	color: var(--site-component--color--blockquote);
 	font-style: italic;
-  margin: 0;
+    margin: 0;
 }
 
 blockquote p {
@@ -133,8 +133,8 @@ blockquote p {
 }
 
 .blockquote__inner {
-  padding-block-start: var(--site-global--spacing-vertical--extra-wide);
-  padding-block-end: var(--site-global--spacing-vertical--wide);
+  padding-block-start: var(--site-global--spacing-8);
+  padding-block-end: var(--site-global--spacing-8);
   padding-inline-start: var(--site-global--spacing-horizontal);
   padding-inline-end: var(--site-global--spacing-horizontal);
   position: relative;
