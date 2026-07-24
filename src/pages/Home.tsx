@@ -13,11 +13,11 @@ function Home() {
       <meta name="keywords" content="Vite, React, component library, example site" />
       <Heading level='h1' baseClass='intro__heading' content='Hello Vite + React!' />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
-        <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries.</p>
+        <p>This site exists to use a set of <a href="/storybook" title="Storybook Components (opens in new tab/window)" target='_blank'>custom React components &#8599;</a> that I developed and continue to refine & extend.</p>
       </Paragraph>
-      <Paragraph baseClass='paragraph' style='default' width='content'>
-        <p>This app applies the components from the <a href="/storybook" title="Storybook Components (opens in new tab/window)" target=''>Component Library &#8599;</a>.</p>
-      </Paragraph>
+        <Paragraph baseClass='intro__paragraph' style='default' width='content'>
+            <p>This site also showcases my photography work from <a href="https://joetower.com/articles/?category=travel" title="Travel category of articles on my website (opens in new tab/window)" target='_blank'>my travels &#8599;</a>.</p>
+        </Paragraph>
       <Quote align="left" baseClass='quote' style='quote' content="Never worry about failure. It's gonna happen. But that's OK: Go ahead, take chances… and you might just find that what feels like failure isn't failure at all, it's what inspires you to dream even bigger." author="Kermit the Frog" theme='tertiary' width='content' />
       <Callout heading='Callout component' alignment='center' animation={true} text="This is a callout component. It is made up of combining three components: the heading, text-block, and button components." theme='secondary' link='#' linkText='Call to Action' linkTitle='Link that goes nowhere, just for demonstration' />
       <ResponsiveImage 

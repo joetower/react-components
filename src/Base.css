@@ -39,7 +39,6 @@
 	/* Custom pairs */
 	--space-s-l: clamp(1rem, 0.3864rem + 2.7273vw, 2.5rem);
 
-
 	--site-global--spacing-form-items: 0.15rem;
 	--site-global--spacing-form-items--half: 0.075rem;
 
@@ -51,17 +50,6 @@
 	--site-global--gap: 0.5rem;
 	--site-global--gap--type: 1rem;
 	--site-global--gap--wide: 2rem;
-
-	/* Buttons */
-	--site-button--spacing-vertical: 0.5rem;
-	--site-button--spacing-vertical--half: 0.25rem;
-	--site-button--spacing-vertical--wide: 1rem;
-	--site-button--spacing-vertical--extra--wide: 1.5rem;
-
-	--site-button--spacing-horizontal: 1rem;
-	--site-button--spacing-horizontal--half: 0.5rem;
-	--site-button--spacing-horizontal--wide: 1.5rem;
-	--site-button--spacing-horizontal--extra--wide: 2rem;
 
 	/* Site focus outline */
 	--site-focus-outline--width: 0.125rem; /* 2px */
@@ -92,7 +80,7 @@
 	--site-global--color-secondary-accent-dark: hsl(46, 23%, 18%);
 	--site-global--color-secondary-accent-mid: hsl(347, 56%, 48%);
 	--site-global--color-secondary-accent-light: hsl(51, 57%, 88%);
-	--site-global--color-secondary-accent-lightest: hsl(51, 57%, 95%);
+	--site-global--color-secondary-accent-lightest: hsl(51, 65%, 92%);
 
 	--site-global--color-tertiary-accent: hsl(94, 88%, 37%);
 	--site-global--color-tertiary-accent-mid: hsl(94, 87%, 31%);

@@ -39,7 +39,7 @@
   display: flex;
   flex-flow: column nowrap;
   gap: var(--site-global--gap--type);
-  padding: var(--space-xl) var(--space-m);
+  padding: var(--space-2xl) var(--space-m);
   max-width: var(--cta-width--content);
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -49,14 +49,6 @@
 .callout__heading__link {
   color: var(--color--title);
   font-size: var(--site-global--font-size--h2);
-}
-
-.callout__link {
-  font-size: var(--site-global--font-size--button);
-  font-weight: var(--site-global--font-weight--bold);
-  display: inline-block;
-  padding: var(--space-s) var(--space-m);
-  text-decoration: none;
 }
 
 .callout__text p {
