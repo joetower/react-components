@@ -1,19 +1,7 @@
-
-:root {
-  --color--callout--background: var(--site-global--color-primary-accent-light);
-  --color--callout--background-accent: var(--site-global--color-primary-accent-dark);
-  --color--callout--border: var(--site-global--color-primary-accent-dark);
-  --color--callout--text: var(--site-global--color-basic-black);
-  --color--callout--title: var(--site-global--color-primary-accent-dark);
-  --color--callout--title-hover: var(--site-global--color-primary-accent-light);
-  --color--callout--link: var(--site-global--color-primary-accent-light);
-  --color--callout--link-hover: var(--site-global--color-primary-accent-dark);
-}
-
 .callout {
   position: relative;
-  color: var(--color--callout--text);
-  background-color: var(--color--callout--background);
+  color: var(--color--text);
+  background-color: var(--color--background);
 }
 
 .callout::after {
@@ -25,7 +13,7 @@
   right: 0;
   height: var(--site-global--border-width--thicker);
   width: 0;
-  background-color: var(--color--callout--border);
+  background-color: var(--color--border);
   z-index: 1;
 }
 
@@ -33,50 +21,6 @@
   .callout[data-component-animation="true"]::after {
     transition: width var(--site-global--transition-timing) ease-in-out;
   }
-}
-
-.callout[data-component-theme="primary"] {
-  --color--callout--background: var(--site-global--color-primary-accent-light);
-  --color--callout--background-accent: var(--site-global--color-primary-accent-dark);
-  --color--callout--border: var(--site-global--color-primary-accent-dark);
-  --color--callout--text: var(--site-global--color-basic-black);
-  --color--callout--title: var(--site-global--color-primary-accent-dark);
-  --color--callout--title-hover: var(--site-global--color-primary-accent-dark);
-  --color--callout--link: var(--site-global--color-primary-accent-light);
-  --color--callout--link-hover: var(--site-global--color-primary-accent-dark);
-}
-
-.callout[data-component-theme="secondary"] {
-  --color--callout--background: var(--site-global--color-secondary-accent-light);
-  --color--callout--background-accent: var(--site-global--color-secondary-accent-dark);
-  --color--callout--border: var(--site-global--color-secondary-accent-dark);
-  --color--callout--text: var(--site-global--color-basic-black);
-  --color--callout--title: var(--site-global--color-secondary-accent-dark);
-  --color--callout--title-hover: var(--site-global--color-secondary-accent-dark);
-  --color--callout--link: var(--site-global--color-secondary-accent-light);
-  --color--callout--link-hover: var(--site-global--color-secondary-accent-dark);
-}
-
-.callout[data-component-theme="tertiary"] {
-  --color--callout--background: var(--site-global--color-tertiary-accent-light);
-  --color--callout--background-accent: var(--site-global--color-tertiary-accent-dark);
-  --color--callout--border: var(--site-global--color-tertiary-accent-dark);
-  --color--callout--text: var(--site-global--color-basic-black);
-  --color--callout--title: var(--site-global--color-tertiary-accent-dark);
-  --color--callout--title-hover: var(--site-global--color-tertiary-accent-dark);
-  --color--callout--link: var(--site-global--color-tertiary-accent-light);
-  --color--callout--link-hover: var(--site-global--color-tertiary-accent-dark);
-}
-
-.callout[data-component-theme="quaternary"] {
-  --color--callout--background: var(--site-global--color-quaternary-accent-light);
-  --color--callout--background-accent: var(--site-global--color-quaternary-accent-dark);
-  --color--callout--border: var(--site-global--color-quaternary-accent-dark);
-  --color--callout--text: var(--site-global--color-basic-black);
-  --color--callout--title: var(--site-global--color-quaternary-accent-dark);
-  --color--callout--title-hover: var(--site-global--color-quaternary-accent-dark);
-  --color--callout--link: var(--site-global--color-quaternary-accent-light);
-  --color--callout--link-hover: var(--site-global--color-quaternary-accent-dark);
 }
 
 .callout[data-component-alignment="right"] {
@@ -103,17 +47,14 @@
 
 .callout__heading,
 .callout__heading__link {
-  color: var(--color--callout--title);
+  color: var(--color--title);
   font-size: var(--site-global--font-size--h2);
 }
 
 .callout__link {
   font-size: var(--site-global--font-size--button);
   font-weight: var(--site-global--font-weight--bold);
-  border: var(--site-global--border-width--thick) solid transparent;
   display: inline-block;
-  color: var(--color--callout--link);
-  background-color: var(--color--callout--background-accent);
   padding: var(--site-global--spacing-1) var(--site-global--spacing-2);
   text-decoration: none;
 }
@@ -124,14 +65,14 @@
 }
 
 .callout:hover::after {
-  background-color: var(--color--callout--border);
+  background-color: var(--color--border);
   width: 100%;
 }
 
 .callout .callout__link:hover {
   background-color: transparent;
-  border-color: var(--color--callout--border);
-  color: var(--color--callout--link-hover);
+  border-color: var(--color--border);
+  color: var(--color--link-hover);
 }
 
 .callout:hover img {

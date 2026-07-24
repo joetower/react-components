@@ -32,7 +32,7 @@ const meta: Meta<typeof Heading> = {
     baseClass: { control: 'text' },
     level: {
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
   },
 }

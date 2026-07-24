@@ -1,63 +1,15 @@
-
-:root {
-  --color--card--background: var(--site-global--color-primary);
-  --color--card--background-accent: var(--site-global--color-basic-white);
-  --color--card--border: var(--site-global--color-primary-accent);
-  --color--card--text: var(--site-global--color-basic-black);
-  --color--card--title: var(--site-global--color-primary-accent-dark);
-  --color--card--title-hover: var(--site-global--color-primary-accent);
-  --color--card--link: var(--site-global--color-primary-accent-dark);
-  --color--card--link-hover: var(--site-global--color-primary-accent-dark);
-}
-
 .card {
   display: flex;
   flex-direction: column;
   position: relative;
   height: 100%;
-  color: var(--color--card--text);
+  color: var(--color--text);
   max-width: var(--card-width--content);
   border: var(--site-global--border-width) solid var(--site-global--color-basic-gray-90);
 }
 
-.card[data-component-theme="primary"] {
-  --color--card--background: var(--site-global--color-primary);
-  --color--card--border: var(--site-global--color-primary-accent);
-  --color--card--title: var(--site-global--color-primary-accent-dark);
-  --color--card--title-hover: var(--site-global--color-primary-accent);
-  --color--card--link: var(--site-global--color-primary-accent-dark);
-  --color--card--link-hover: var(--site-global--color-primary-accent);
-}
-
-.card[data-component-theme="secondary"] {
-  --color--card--background: var(--site-global--color-secondary);
-  --color--card--border: var(--site-global--color-secondary-accent);
-  --color--card--title: var(--site-global--color-secondary-accent-dark);
-  --color--card--title-hover: var(--site-global--color-secondary-accent);
-  --color--card--link: var(--site-global--color-secondary-accent-dark);
-  --color--card--link-hover: var(--site-global--color-secondary-accent);
-}
-
-.card[data-component-theme="tertiary"] {
-  --color--card--background: var(--site-global--color-tertiary);
-  --color--card--border: var(--site-global--color-tertiary-accent);
-  --color--card--title: var(--site-global--color-tertiary-accent-dark);
-  --color--card--title-hover: var(--site-global--color-tertiary-accent);
-  --color--card--link: var(--site-global--color-tertiary-accent-dark);
-  --color--card--link-hover: var(--site-global--color-tertiary-accent);
-}
-
-.card[data-component-theme="quaternary"] {
-  --color--card--background: var(--site-global--color-quaternary);
-  --color--card--border: var(--site-global--color-quaternary-accent);
-  --color--card--title: var(--site-global--color-quaternary-accent-dark);
-  --color--card--title-hover: var(--site-global--color-quaternary-accent);
-  --color--card--link: var(--site-global--color-quaternary-accent-dark);
-  --color--card--link-hover: var(--site-global--color-quaternary-accent);
-}
-
 .card__image {
-  background-color: var(--color--card--background);
+  background-color: var(--color--background);
   line-height: 0;
   width: 100%;
   /* Fallback for browsers with aspect-ratio issues */
@@ -98,7 +50,7 @@
 
 .card__heading,
 .card__heading__link {
-  color: var(--color--card--title);
+  color: var(--color--title);
   font-size: var(--site-global--font-size--h3);
 }
 
@@ -112,7 +64,7 @@
 
 .card:hover {
   box-shadow: 0 0 var(--site-global--border-width--thick) var(--site-global--border-width) var(--color--card--background);
-  border-color: var(--color--card--border);
+  border-color: var(--color--border);
 }
 
 .card:hover img {
@@ -121,7 +73,7 @@
 
 .card:hover .card__heading__link {
   text-decoration: none;
-  color: var(--color--card--title-hover);
+  color: var(--color--title-hover);
 }
 
 /* Media Queries: hover effects */

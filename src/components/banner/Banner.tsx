@@ -5,6 +5,7 @@ import Heading from '../text/Heading';
 import './banner.css'; // Import the SCSS file for styling
 interface BannerProps {
   heading: string;
+  headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Added prop for heading level
   text: string;
   link: string;
   linkText?: string; // Optional prop for link text
@@ -17,7 +18,7 @@ interface BannerProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for banner theme
 }
 
-export default function Banner({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, buttonSize, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: BannerProps) {
+export default function Banner({heading, headingLevel, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, buttonSize, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: BannerProps) {
   return (<>
     <div className="banner" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'}>
       <div className="banner__inner">
@@ -28,7 +29,7 @@ export default function Banner({heading, text, link, linkTitle, linkText, animat
         )}
         <div className="banner__content">
           <div className="banner__text">
-            <Heading level='h2' baseClass='banner__heading' content={heading} />
+            <Heading level={headingLevel} baseClass='banner__heading' content={heading} />
             <TextBlock style="default" baseClass='banner__paragraph'>
               {text}
             </TextBlock>

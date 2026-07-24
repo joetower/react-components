@@ -2,9 +2,10 @@ import BannerItem from "./Banner";
 import { Meta } from "@storybook/react";
 
 export const Banner = (
-  { animation, imageSrc, imageAlt, theme, heading, text, link, imageName, linkTitle, linkText, buttonSize }
+  { animation, imageSrc, imageAlt, theme, heading, headingLevel, text, link, imageName, linkTitle, linkText, buttonSize }
   : { 
-    heading: string; 
+    heading: string;
+    headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     text: string; 
     link: string;
     linkText: string;
@@ -17,6 +18,7 @@ export const Banner = (
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
       <BannerItem
         heading={heading}
+        headingLevel={headingLevel ?? 'h2'}
         text={text}
         link={link}
         linkTitle={linkTitle}
@@ -32,6 +34,7 @@ export const Banner = (
 
 Banner.args = {
   heading: 'This is a heading',
+  headingLevel: 'h2',
   text: 'This is a primary banner description.',
   link: '#',
   linkText: 'This is a link text',
@@ -53,6 +56,10 @@ const meta: Meta<typeof Banner> = {
       control: { type: 'select' },
     },
     heading: { control: 'text' },
+    headingLevel: {
+      options: ['h1','h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'select' },
+    },
     text: { control: 'text' },
     link: { control: 'text' },
     linkText: { control: 'text' },
