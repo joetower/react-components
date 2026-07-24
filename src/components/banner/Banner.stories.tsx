@@ -13,7 +13,7 @@ export const Banner = (
     imageName: string;
     imageSrc: string; 
     imageAlt: string;
-    buttonSize: string;
+    buttonSize?: 'small' | 'medium' | 'large';
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
       <BannerItem
         heading={heading}
