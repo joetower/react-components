@@ -40,7 +40,7 @@
   display: flex;
   flex-flow: column nowrap;
   gap: var(--site-global--gap--type);
-  padding: var(--space-s) var(--space-m);
+  padding: var(--space-m);
   height: 100%;
 }
 
