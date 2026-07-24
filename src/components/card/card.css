@@ -62,6 +62,7 @@
   width: 100%;
   /* Fallback for browsers with aspect-ratio issues */
   padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
 }
 
 /* Modern browsers with proper aspect-ratio support */
@@ -69,7 +70,6 @@
   .card__image {
     aspect-ratio: 16 / 9;
     padding-bottom: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
 }
 
@@ -133,9 +133,13 @@
 
   .card[data-component-animation="true"]:hover {
     animation: pulse var(--site-global--transition-timing) ease-in-out;
+    transition: box-shadow var(--site-global--transition-timing) ease-in-out;
   }
-  .card[data-component-animation="true"]:hover .card__heading__link,
+  .card[data-component-animation="true"]:hover .card__heading__link {
+    transition: color var(--site-global--transition-timing) ease-in-out;
+  }
   .card[data-component-animation="true"]:hover img {
-    transition: all var(--site-global--transition-timing) ease-in-out;
+    transition: opacity var(--site-global--transition-timing) ease-in-out,
+    background-color var(--site-global--transition-timing) ease-in-out;
   }
 }
