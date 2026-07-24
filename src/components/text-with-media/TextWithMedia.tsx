@@ -11,6 +11,7 @@ interface TextWithMediaBlockProps {
   width?: 'components' | 'inner';
   animation?: boolean; // Optional prop for animation class
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for callout theme
+  buttonSize?: 'small' | 'medium' | 'large';
   twmHeading?: string; // Optional prop for heading
   twmContent?: string; // Optional prop for image source
   twmImageName?: string; // Optional prop for image name
@@ -21,7 +22,7 @@ interface TextWithMediaBlockProps {
   twmButtonType?: 'button' | 'button-link' | 'text-link'; // Optional prop for button type
 }
 
-export default function TextWithMediaBlock({imageAlignment, baseClass, animation, theme= 'primary', width = 'components', twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextWithMediaBlockProps) {
+export default function TextWithMediaBlock({imageAlignment, baseClass, animation, theme= 'primary', width = 'components', buttonSize, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextWithMediaBlockProps) {
   useEffect(() => {
     const textWithMedia = document.querySelector('.text-with-media[data-component-animation="true"]');
     
@@ -106,6 +107,7 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
               baseClass={['text-with-media__link'].join(' ')}
               theme="inherit"
               label={twmButtonLabel || "Check it out"}
+              size={buttonSize || 'small'}
               type={twmButtonType || 'button-link'}
               title={twmButtonTitle || "Check it out"}
               href={twmButtonLink || "#"}

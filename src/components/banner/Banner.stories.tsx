@@ -50,7 +50,7 @@ const meta: Meta<typeof Banner> = {
   argTypes: {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     heading: { control: 'text' },
     text: { control: 'text' },

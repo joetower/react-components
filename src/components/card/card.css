@@ -62,7 +62,7 @@
   width: 100%;
   /* Fallback for browsers with aspect-ratio issues */
   padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
 }
 
 /* Modern browsers with proper aspect-ratio support */

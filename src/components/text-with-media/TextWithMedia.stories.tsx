@@ -67,20 +67,20 @@ const meta: Meta<typeof TextBlockWithMedia> = {
     twmButtonTitle: { control: 'text' },
     twmButtonType: {
       options: ['button', 'button-link', 'text-link'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     animation: { control: 'boolean' },
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     width: {
       options: ['components', 'inner'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     imageAlignment: {
       options: ['left', 'right'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
   },
 }

@@ -2,7 +2,7 @@ import CardItem from "./Card";
 import { Meta } from "@storybook/react";
 
 export const Card = (
-  { animation, imageSrc, imageAlt, theme, heading, text, link, imageName, linkTitle, linkText, showButton }
+  { animation, imageSrc, imageAlt, theme, heading, text, link, imageName, linkTitle, linkText, showButton, buttonSize }
   : { 
     heading: string; 
     text: string; 
@@ -14,6 +14,7 @@ export const Card = (
     imageSrc: string; 
     imageAlt: string;
     showButton: boolean;
+    buttonSize?: 'small' | 'medium' | 'large';
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
       <CardItem
         heading={heading}
@@ -27,6 +28,7 @@ export const Card = (
         animation={animation}  // Set to true to enable animation
         theme={theme}  // Default theme
         showButton={showButton} // Set show button to false
+        buttonSize={buttonSize}
       />
     );
 
@@ -40,6 +42,7 @@ Card.args = {
   imageAlt: 'Placeholder Image',
   animation: false,  // Set to true to enable animation
   showButton: false, // Set show button to false
+  buttonSize: 'small',
   imageName: '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085',
   theme: 'primary', // Default value for card theme
 };
@@ -50,7 +53,7 @@ const meta: Meta<typeof Card> = {
   argTypes: {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     heading: { control: 'text' },
     text: { control: 'text' },
@@ -61,6 +64,10 @@ const meta: Meta<typeof Card> = {
     imageAlt: { control: 'text' },
     animation: { control: 'boolean' },
     showButton: { control: 'boolean' },
+    buttonSize: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
+    },
   },
 }
  

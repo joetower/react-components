@@ -2,14 +2,15 @@ import CalloutItem from "./Callout";
 import { Meta } from "@storybook/react";
 
 export const Callout = (
-  { animation, theme, heading, text, link, linkTitle, linkText, alignment }
+  { animation, theme, heading, text, link, linkTitle, linkText, alignment, buttonSize }
   : { 
     heading: string; 
     text: string; 
     link: string;
     linkText: string;
     linkTitle: string; 
-    animation: boolean;  
+    animation: boolean;
+    buttonSize?: 'small' | 'medium' | 'large';
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; 
     alignment?: 'left' | 'center' | 'right'; // Optional prop for callout alignment
   }) => (
@@ -22,6 +23,7 @@ export const Callout = (
     animation={animation}  // Set to true to enable animation
     theme={theme}  // Default theme
     alignment={alignment} // Default alignment
+    buttonSize={buttonSize}
   />
 );
 
@@ -32,6 +34,7 @@ Callout.args = {
   linkText: 'This is a link text',
   linkTitle: 'This is a link title',
   animation: false,  // Set to true to enable animation
+  buttonSize: 'small',
   theme: 'primary',  // Default theme
   alignment: 'left', // Default alignment
 };
@@ -42,7 +45,7 @@ const meta: Meta<typeof Callout> = {
   argTypes: {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     heading: { control: 'text' },
     text: { control: 'text' },
@@ -50,9 +53,13 @@ const meta: Meta<typeof Callout> = {
     linkText: { control: 'text' },
     linkTitle: { control: 'text' },
     animation: { control: 'boolean' },  // Set to true to enable animation
+    buttonSize: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
+    },
     alignment: {
       options: ['left', 'center', 'right'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
   },
 }

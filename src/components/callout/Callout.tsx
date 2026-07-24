@@ -10,10 +10,11 @@ interface CalloutProps {
   linkTitle?: string; // Added linkTitle prop
   animation?: boolean; // Optional prop for animation class
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for callout theme
+  buttonSize?: 'small' | 'medium' | 'large';
   alignment?: 'left' | 'center' | 'right'; // Optional prop for callout alignment
 }
 
-export default function Callout({heading, text, link, linkTitle, linkText, animation, theme, alignment}: CalloutProps) {
+export default function Callout({heading, text, link, linkTitle, linkText, animation, theme, alignment, buttonSize}: CalloutProps) {
   return (<>
     <div className="callout" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'} data-component-alignment={alignment || 'left'}>
       <div className="callout__content">
@@ -29,6 +30,7 @@ export default function Callout({heading, text, link, linkTitle, linkText, anima
             theme={theme || 'primary'}
             label={linkText || 'Learn More'}
             type="button-link"
+            size={buttonSize || 'small'}
             title={linkTitle}
             href={link}
             />

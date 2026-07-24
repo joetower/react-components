@@ -1,49 +1,12 @@
-:root {
-  --color--button--background: var(--site-global--color-primary-accent-light);
-  --color--button--background-hover: var(--site-global--color-primary-accent);
-  --color--button--text: var(--site-global--color-basic-black);
-}
-
-.button[data-component-theme="inherit"] {
-  --color--button--background: var(--site-global--color-primary-accent-light);
-  --color--button--background-accent: var(--site-global--color-primary-accent);
-  --color--button--text: var(--site-global--color-basic-black);
-}
-
-.button[data-component-theme="primary"] {
-  --color--button--background: var(--site-global--color-primary-accent-light);
-  --color--button--background-accent: var(--site-global--color-primary-accent);
-  --color--button--text: var(--site-global--color-basic-black);
-}
-
-.button[data-component-theme="secondary"] {
-  --color--button--background: var(--site-global--color-secondary-accent-light);
-  --color--button--background-accent: var(--site-global--color-secondary-accent);
-  --color--button--text: var(--site-global--color-basic-black);
-}
-
-.button[data-component-theme="tertiary"] {
-  --color--button--background: var(--site-global--color-tertiary-accent-light);
-  --color--button--background-accent: var(--site-global--color-tertiary-accent);
-  --color--button--text: var(--site-global--color-basic-black);
-}
-
-.button[data-component-theme="quaternary"] {
-  --color--button--background: var(--site-global--color-quaternary-accent-light);
-  --color--button--background-accent: var(--site-global--color-quaternary-accent);
-  --color--button--text: var(--site-global--color-basic-black);
-}
-
 .button {
   position: relative;
-  color: var(--color--button--text);
-  background-color: var(--color--button--background);
+  background-color: var(--color--background-button);
   cursor: pointer;
   font-size: var(--site-global--font-size--button);
   font-weight: var(--site-global--font-weight--bold);
   border: var(--site-global--border-width--thick) solid transparent;
   display: inline-block;
-  color: var(--color--button--text);
+  color: var(--color--button-text);
   padding: var(--site-global--spacing-1) var(--site-global--spacing-2);
   text-decoration: none;
 }
@@ -60,16 +23,17 @@
 
 .button:hover {
   background-color: transparent;
-  border-color:var(--color--button--background-accent);
+  color: var(--color--background-button);
+  border-color:var(--color--background-accent);
 }
 
 /* Media Queries: hover effects */
 @media (prefers-reduced-motion: no-preference) {
   .button:hover {
-    transition: background-color var(--site-global--transition-timing) ease-in-out, 
+    transition: background-color var(--site-global--transition-timing) ease-in-out,
     color var(--site-global--transition-timing) ease-in-out,
     border-color var(--site-global--transition-timing) ease-in-out,
     box-shadow var(--site-global--transition-timing) ease-in-out;
-    box-shadow: var(--color--button--background-accent) 0 0 var(--site-global--border-width--thickest) var(--site-global--border-width);
+    box-shadow: var(--color--background-accent) 0 0 var(--site-global--border-width--thickest) var(--site-global--border-width);
   }
 }

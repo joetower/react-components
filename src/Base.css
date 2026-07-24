@@ -86,20 +86,24 @@
 
 	--site-global--color-primary-accent: hsl(205, 74%, 49%);
 	--site-global--color-primary-accent-dark: hsl(205, 77%, 15%);
+	--site-global--color-primary-accent-mid: hsl(205, 75%, 39%);
 	--site-global--color-primary-accent-light: hsl(205, 84%, 80%);
 	--site-global--color-primary-accent-lightest: hsl(205, 84%, 90%);
 
 	--site-global--color-secondary-accent: hsl(347, 83%, 60%);
 	--site-global--color-secondary-accent-dark: hsl(46, 23%, 18%);
+	--site-global--color-secondary-accent-mid: hsl(347, 56%, 48%);
 	--site-global--color-secondary-accent-light: hsl(51, 57%, 88%);
 	--site-global--color-secondary-accent-lightest: hsl(51, 57%, 95%);
 
 	--site-global--color-tertiary-accent: hsl(94, 88%, 37%);
+	--site-global--color-tertiary-accent-mid: hsl(94, 87%, 31%);
 	--site-global--color-tertiary-accent-dark: hsl(94, 87%, 12%);
 	--site-global--color-tertiary-accent-light: hsl(95, 81%, 87%);
 	--site-global--color-tertiary-accent-lightest: hsl(95, 81%, 95%);
 
 	--site-global--color-quaternary-accent: hsl(283, 70%, 58%);
+	--site-global--color-quaternary-accent-mid: hsl(283, 51%, 49%);
 	--site-global--color-quaternary-accent-dark: hsl(283, 70%, 25%);
 	--site-global--color-quaternary-accent-light: hsl(283, 70%, 78%);
 	--site-global--color-quaternary-accent-lightest: hsl(283, 70%, 90%);
@@ -110,6 +114,65 @@
 	--site-global--color-basic-gray-50: hsl(0, 0%, 50%);
 	--site-global--color-basic-gray-80: hsl(0, 0%, 80%);
 	--site-global--color-basic-gray-90: hsl(0, 0%, 90%);
+
+
+	/* Color theme variables */
+	--color--background: var(--site-global--color-primary-accent-lightest);
+	--color--background-accent: var(--site-global--color-basic-white);
+	--color--background-button: var(--color--background-accent);
+	--color--border: var(--site-global--color-primary-accent);
+	--color--text: var(--site-global--color-basic-black);
+	--color--title: var(--site-global--color-primary-accent-dark);
+	--color--title-hover: var(--site-global--color-primary-accent);
+	--color--button-text: var(--site-global--color-basic-white);
+	--color--link: var(--site-global--color-primary-accent-dark);
+	--color--link-hover: var(--site-global--color-primary-accent-dark);
+
+	/* overrides by component theme */
+	[data-component-theme="primary"] {
+		--color--background: var(--site-global--color-primary-accent-lightest);
+		--color--background-accent: var(--site-global--color-primary-accent);
+		--color--background-button: var(--site-global--color-primary-accent-mid);
+		--color--border: var(--site-global--color-primary-accent);
+		--color--title: var(--site-global--color-primary-accent-dark);
+		--color--title-hover: var(--site-global--color-primary-accent);
+		--color--link: var(--site-global--color-primary-accent-dark);
+		--color--link-hover: var(--site-global--color-primary-accent);
+	}
+
+	[data-component-theme="secondary"] {
+		--color--background: var(--site-global--color-secondary-accent-lightest);
+		--color--background-accent: var(--site-global--color-secondary-accent);
+		--color--background-button: var(--site-global--color-secondary-accent-mid);
+		--color--border: var(--site-global--color-secondary-accent);
+		--color--title: var(--site-global--color-secondary-accent-dark);
+		--color--title-hover: var(--site-global--color-secondary-accent);
+		--color--link: var(--site-global--color-secondary-accent-dark);
+		--color--link-hover: var(--site-global--color-secondary-accent);
+	}
+
+	[data-component-theme="tertiary"] {
+		--color--background: var(--site-global--color-tertiary-accent-lightest);
+		--color--background-accent: var(--site-global--color-tertiary-accent);
+		--color--background-button: var(--site-global--color-tertiary-accent-mid);
+		--color--border: var(--site-global--color-tertiary-accent);
+		--color--title: var(--site-global--color-tertiary-accent-dark);
+		--color--title-hover: var(--site-global--color-tertiary-accent);
+		--color--link: var(--site-global--color-tertiary-accent-dark);
+		--color--link-hover: var(--site-global--color-tertiary-accent);
+	}
+
+	[data-component-theme="quaternary"] {
+		--color--background: var(--site-global--color-quaternary-accent-lightest);
+		--color--background-accent: var(--site-global--color-quaternary-accent);
+		--color--background-button: var(--site-global--color-quaternary-accent-mid);
+		--color--border: var(--site-global--color-quaternary-accent);
+		--color--title: var(--site-global--color-quaternary-accent-dark);
+		--color--title-hover: var(--site-global--color-quaternary-accent);
+		--color--link: var(--site-global--color-quaternary-accent-dark);
+		--color--link-hover: var(--site-global--color-quaternary-accent);
+	}
+
 
 	/* Component width to override based on theme widths */
 	--cta-width--content: var(--site-width--narrow);

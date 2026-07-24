@@ -25,7 +25,7 @@ const meta: Meta<typeof Header> = {
   argTypes: {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
   },
 }

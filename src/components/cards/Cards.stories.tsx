@@ -37,9 +37,13 @@ const meta: Meta<CardsProps> = {
   argTypes: {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
     heading: { control: 'text' },
+    gridCount: {
+      options: ['2', '3', '4'],
+      control: { type: 'select' },
+    },
     text: { control: 'text' },
     animation: { control: 'boolean' },
     showButtons: { control: 'boolean' },

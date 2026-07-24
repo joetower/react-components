@@ -21,7 +21,7 @@ const meta: Meta<typeof Footer> = {
   argTypes: {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
-      control: { type: 'radio' },
+      control: { type: 'select' },
     },
   },
 }
