@@ -5,6 +5,7 @@ import Heading from '../text/Heading';
 import './card.css'; // Import the SCSS file for styling
 interface CardProps {
   heading: string;
+  headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Added prop for heading level
   text: string;
   link: string;
   linkText?: string; // Optional prop for link text
@@ -18,7 +19,7 @@ interface CardProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for card theme
 }
 
-export default function Card({heading, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, buttonSize, theme, showButton, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: CardProps) {
+export default function Card({heading, headingLevel = 'h3', text, link, linkTitle, linkText, animation, imageSrc, imageAlt, buttonSize, theme, showButton, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: CardProps) {
   return (<>
     <div className="card" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'}>
       {imageSrc && (
@@ -29,7 +30,7 @@ export default function Card({heading, text, link, linkTitle, linkText, animatio
         </div>
       )}
       <div className="card__content">
-        <Heading level='h2' baseClass='card__heading' content={heading} link={link} linkTitle={linkTitle} linkClass='card__heading__link' />
+        <Heading level={headingLevel} baseClass='card__heading' content={heading} link={link} linkTitle={linkTitle} linkClass='card__heading__link' />
         <div className="card__text">
           <TextBlock style="default" baseClass='card__paragraph'>
             {text}

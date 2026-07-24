@@ -33,6 +33,8 @@ interface CardCollectionProps {
   animation?: boolean; // Optional prop for animation class
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
   heading: string;
+  cardsHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Optional prop for heading level
+  cardHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Optional prop for individual card heading level
   text: string;
   cardsLinkUrl?: string; // Changed to string to match the expected type for href
   cardsLinkText?: string; // Optional prop for link text which is shown as link text
@@ -41,7 +43,7 @@ interface CardCollectionProps {
   showButtons?: boolean; // Optional prop to show buttons
 }
 
-const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'content', showButtons}) => {
+const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, cardsHeadingLevel = 'h2', cardHeadingLevel = 'h3', text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'content', showButtons}) => {
   useEffect(() => {
     const listItems = document.querySelectorAll('.cards__list li');
 
@@ -70,7 +72,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
       <div className='cards__header' data-component-theme={theme} data-component-width={width}>
         <div className='cards__header__inner'>
           <div className='cards__heading'>
-            <Heading level='h2' baseClass='cards__heading__title' content={heading} />
+            <Heading level={cardsHeadingLevel} baseClass='cards__heading__title' content={heading} />
           </div>
           <div className='cards__content'>
             <div className='cards__text'>
@@ -89,7 +91,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (
               <li key={card.id} className={animation ? 'cards__list__item animate' : 'cards__list__item'}>
-                <Card heading={card.title} imageName={card.imageName} animation={animation} text={card.content} link={card.link} linkText={card.linkText} linkTitle={card.linkTitle} theme={theme} imageSrc={card.imageSource} imageAlt={card.imageAlt} showButton={showButtons}/>
+                <Card heading={card.title} headingLevel={cardHeadingLevel} imageName={card.imageName} animation={animation} text={card.content} link={card.link} linkText={card.linkText} linkTitle={card.linkTitle} theme={theme} imageSrc={card.imageSource} imageAlt={card.imageAlt} showButton={showButtons}/>
               </li>
             ))}
           </ul>

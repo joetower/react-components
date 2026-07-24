@@ -43,7 +43,7 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - var(--site-global--spacing-horizontal));
+  width: calc(100% - var(--space-m));
   max-width: var(--site-width--components);
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -97,6 +97,6 @@
 
 @media screen and (max-width: 1350px) {
   .footer__inner {
-    padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal--half);
+    padding: var(--space-s) var(--space-s);
   }
 }

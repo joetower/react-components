@@ -35,13 +35,13 @@
 
 .text-block + .text-with-media,
 .text-block + .blockquote__container {
-  margin-block-start: var(--site-global--spacing-vertical--wide);
+  margin-block-start: var(--space-xl);
 }
 
 @media screen and (max-width: 1350px) {
   main.home-page .text-block,
   .text-block.intro__paragraph {
-    padding-inline-start: var(--site-global--spacing-horizontal);
-    padding-inline-end: var(--site-global--spacing-horizontal);
+    padding-inline-start: var(--space-m);
+    padding-inline-end: var(--space-m);
   }
 }

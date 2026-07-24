@@ -17,8 +17,8 @@ main {
 }
 
 main.page {
-  padding-block-start: var(--site-global--spacing-4);
-  padding-block-end: var(--site-global--spacing-2);
+  padding-block-start: var(--space-xl);
+  padding-block-end: var(--space-m);
 }
 
 .page img {

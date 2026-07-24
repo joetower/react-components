@@ -7,18 +7,18 @@
   border: var(--site-global--border-width--thick) solid transparent;
   display: inline-block;
   color: var(--color--button-text);
-  padding: var(--site-global--spacing-1) var(--site-global--spacing-2);
+  padding: var(--space-s) var(--space-m);
   text-decoration: none;
 }
 
 .button[data-component-size="small"] {
   font-size: var(--site-global--font-size--button--small);
-  padding: var(--site-global--spacing-050) var(--site-global--spacing-1);
+  padding: var(--space-2xs) var(--space-s);
 }
 
 .button[data-component-size="large"] {
   font-size: var(--site-global--font-size--button--large);
-  padding: var(--site-global--spacing-1) var(--site-global--spacing-3);
+  padding: var(--space-s) var(--space-l);
 }
 
 .button:hover {

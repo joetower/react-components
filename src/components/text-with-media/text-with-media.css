@@ -16,8 +16,8 @@
 .text-with-media__content {
   display: flex;
   flex-direction: column;
-  gap: var(--site-global--spacing-vertical--half);
-  padding: var(--site-global--spacing-2);
+  gap: var(--space-s);
+  padding: var(--space-m);
 }
 
 [data-component-width="inner"] .text-with-media__inner {

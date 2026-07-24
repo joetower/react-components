@@ -12,35 +12,32 @@
 	/* Animation */
  	--site-global--transition-timing: 0.5s;
 	--site-global--transition-timing--slow: 40s;
-	--site-global--transition-timing--subtle: 4s;
+	--site-global--transition-timing--subtle: 5s;
 
 	/* Spacing */
-	--site-global--spacing-vertical: 2rem;
-	--site-global--spacing-horizontal: 2rem;
+	/* @link https://utopia.fyi/space/calculator?c=360,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--space-3xs: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
+	--space-2xs: clamp(0.5rem, 0.4489rem + 0.2273vw, 0.625rem);
+	--space-xs: clamp(0.75rem, 0.6733rem + 0.3409vw, 0.9375rem);
+	--space-s: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
+	--space-m: clamp(1.5rem, 1.3466rem + 0.6818vw, 1.875rem);
+	--space-l: clamp(2rem, 1.7955rem + 0.9091vw, 2.5rem);
+	--space-xl: clamp(3rem, 2.6932rem + 1.3636vw, 3.75rem);
+	--space-2xl: clamp(4rem, 3.5909rem + 1.8182vw, 5rem);
+	--space-3xl: clamp(6rem, 5.3864rem + 2.7273vw, 7.5rem);
 
-	--site-global--spacing-vertical--half: 1rem;
-	--site-global--spacing-horizontal--half: 1rem;
-	
-	--site-global--spacing-vertical--wide: 4rem;
-	--site-global--spacing-horizontal--wide: 4rem;
+	/* One-up pairs */
+	--space-3xs-2xs: clamp(0.25rem, 0.0966rem + 0.6818vw, 0.625rem);
+	--space-2xs-xs: clamp(0.5rem, 0.321rem + 0.7955vw, 0.9375rem);
+	--space-xs-s: clamp(0.75rem, 0.5455rem + 0.9091vw, 1.25rem);
+	--space-s-m: clamp(1rem, 0.642rem + 1.5909vw, 1.875rem);
+	--space-m-l: clamp(1.5rem, 1.0909rem + 1.8182vw, 2.5rem);
+	--space-l-xl: clamp(2rem, 1.2841rem + 3.1818vw, 3.75rem);
+	--space-xl-2xl: clamp(3rem, 2.1818rem + 3.6364vw, 5rem);
+	--space-2xl-3xl: clamp(4rem, 2.5682rem + 6.3636vw, 7.5rem);
 
-	--site-global--spacing-vertical--extra-wide: 6rem;
-	--site-global--spacing-horizontal--extra-wide: 6rem;
-	
-	--site-global--spacing-025rem: 0.25rem;
-	--site-global--spacing-050: 0.50rem;
-	--site-global--spacing-075: 0.75rem;
-	--site-global--spacing-1: 1rem;
-	--site-global--spacing-1-5: 1.5rem;
-	--site-global--spacing-2: 2rem;
-	--site-global--spacing-3: 3rem;
-	--site-global--spacing-4: 4rem;
-	--site-global--spacing-5: 5rem;
-	--site-global--spacing-6: 6rem;
-	--site-global--spacing-7: 7rem;
-	--site-global--spacing-8: 8rem;
-	--site-global--spacing-9: 9rem;
-	--site-global--spacing-10: 10rem;
+	/* Custom pairs */
+	--space-s-l: clamp(1rem, 0.3864rem + 2.7273vw, 2.5rem);
 
 
 	--site-global--spacing-form-items: 0.15rem;
@@ -199,12 +196,14 @@
 	--site-global--font-size--xxlarge: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
 	--site-global--font-size--xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
 
-	--site-global--font-size--h6: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
-	--site-global--font-size--h5: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
-	--site-global--font-size--h4: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
-	--site-global--font-size--h3: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
-	--site-global--font-size--h2: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
-	--site-global--font-size--h1: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+
+	/* https://utopia.fyi/type/calculator?c=360,16,1.2,1240,20,1.25,5,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
+	--site-global--font-size--h6: clamp(0.6944rem, 0.6513rem + 0.1919vw, 0.8rem);
+	--site-global--font-size--h5: clamp(0.8333rem, 0.7652rem + 0.303vw, 1rem);
+	--site-global--font-size--h4: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
+	--site-global--font-size--h3: clamp(1.2rem, 1.0517rem + 0.6591vw, 1.5625rem);
+	--site-global--font-size--h2: clamp(1.44rem, 1.2301rem + 0.933vw, 1.9531rem);
+	--site-global--font-size--h1: clamp(1.728rem, 1.4362rem + 1.2971vw, 2.4414rem);
 
 	--site-global--font-size--button--small: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
 	--site-global--font-size--button: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
@@ -270,24 +269,29 @@ h1 {
  font-size: var(--site-global--font-size--h1);
 }
 
-h2 {
+h2,
+h2 a.heading__link {
   font-weight: var(--site-global--font-weight--bolder);
   font-size: var(--site-global--font-size--h2);
 }
 
-h3 {
+h3,
+h3 a.heading__link {
   font-size: var(--site-global--font-size--h3);
 }
 
-h4 {
+h4,
+h4 a.heading__link {
   font-size: var(--site-global--font-size--h4);
 }
 
-h5 {
+h5,
+h5 a.heading__link {
   font-size: var(--site-global--font-size--h5);
 }
 
-h6 {
+h6,
+h6 a.heading__link {
   font-size: var(--site-global--font-size--h6);
 }
 

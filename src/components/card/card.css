@@ -40,18 +40,17 @@
   display: flex;
   flex-flow: column nowrap;
   gap: var(--site-global--gap--type);
-  padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal);
+  padding: var(--space-s) var(--space-m);
   height: 100%;
 }
 
 [data-component-width="full"] .card__content {
-  padding: var(--site-global--spacing-vertical) var(--site-global--spacing-horizontal);
+  padding: var(--space-m) var(--space-m);
 }
 
 .card__heading,
 .card__heading__link {
   color: var(--color--title);
-  font-size: var(--site-global--font-size--h3);
 }
 
 .card__text {

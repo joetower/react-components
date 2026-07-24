@@ -133,10 +133,10 @@ blockquote p {
 }
 
 .blockquote__inner {
-  padding-block-start: var(--site-global--spacing-8);
-  padding-block-end: var(--site-global--spacing-8);
-  padding-inline-start: var(--site-global--spacing-horizontal);
-  padding-inline-end: var(--site-global--spacing-horizontal);
+  padding-block-start: var(--space-3xl);
+  padding-block-end: var(--space-3xl);
+  padding-inline-start: var(--space-m);
+  padding-inline-end: var(--space-m);
   position: relative;
 
   [data-component-width="content"] & {

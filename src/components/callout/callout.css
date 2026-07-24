@@ -39,7 +39,7 @@
   display: flex;
   flex-flow: column nowrap;
   gap: var(--site-global--gap--type);
-  padding: var(--site-global--spacing-vertical--wide) var(--site-global--spacing-horizontal);
+  padding: var(--space-xl) var(--space-m);
   max-width: var(--cta-width--content);
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -55,7 +55,7 @@
   font-size: var(--site-global--font-size--button);
   font-weight: var(--site-global--font-weight--bold);
   display: inline-block;
-  padding: var(--site-global--spacing-1) var(--site-global--spacing-2);
+  padding: var(--space-s) var(--space-m);
   text-decoration: none;
 }
 

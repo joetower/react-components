@@ -41,8 +41,8 @@
   max-width: var(--site-width--inner);
   margin-inline-start: auto;
   margin-inline-end: auto;
-  padding-block-start: var(--site-global--spacing-vertical--half);
-  padding-block-end: var(--site-global--spacing-vertical--half);
+  padding-block-start: var(--space-s);
+  padding-block-end: var(--space-s);
 }
 
 .header__logo {
@@ -138,6 +138,6 @@
 
 @media screen and (max-width: 1350px) {
   .header__inner {
-    padding: var(--site-global--spacing-vertical--half) var(--site-global--spacing-horizontal--half);
+    padding: var(--space-s) var(--space-s);
   }
 }

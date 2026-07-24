@@ -2,9 +2,10 @@ import CardItem from "./Card";
 import { Meta } from "@storybook/react";
 
 export const Card = (
-  { animation, imageSrc, imageAlt, theme, heading, text, link, imageName, linkTitle, linkText, showButton, buttonSize }
+  { animation, imageSrc, imageAlt, theme, heading, headingLevel, text, link, imageName, linkTitle, linkText, showButton, buttonSize }
   : { 
-    heading: string; 
+    heading: string;
+    headingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     text: string; 
     link: string;
     linkText: string;
@@ -18,6 +19,7 @@ export const Card = (
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
       <CardItem
         heading={heading}
+        headingLevel={headingLevel ?? 'h2'}
         text={text}
         link={link}
         linkTitle={linkTitle}
@@ -34,6 +36,7 @@ export const Card = (
 
 Card.args = {
   heading: 'This is a heading',
+  headingLevel: 'h2',
   text: 'This is a primary card description.',
   link: '#',
   linkText: 'This is a link text',
@@ -56,6 +59,10 @@ const meta: Meta<typeof Card> = {
       control: { type: 'select' },
     },
     heading: { control: 'text' },
+    headingLevel: {
+      options: ['h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'select' },
+    },
     text: { control: 'text' },
     link: { control: 'text' },
     linkText: { control: 'text' },

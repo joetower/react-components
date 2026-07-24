@@ -4,9 +4,11 @@ import { Meta, StoryFn } from '@storybook/react';
 interface CardsProps {
   heading: string;
   text: string;
+  cardsHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // heading above card grid
   cardsLinkTitle: string;
   cardsLinkUrl: string;
   cardsLinkText: string;
+  cardHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // individual card
   animation?: boolean; // Optional prop for animation class
   gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
@@ -25,6 +27,8 @@ Cards.args = {
   cardsLinkUrl: 'https://example.com',
   animation: false,
   theme: 'primary', // Default value for card theme
+  cardsHeadingLevel: 'h2',
+  cardHeadingLevel: 'h3',
   gridCount: '4', // Default value for grid count
   width: 'content', // Default value for width
   showButtons: false, // Default value for show button
@@ -40,6 +44,14 @@ const meta: Meta<CardsProps> = {
       control: { type: 'select' },
     },
     heading: { control: 'text' },
+    cardsHeadingLevel: {
+      options: ['h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'select' },
+    },
+    cardHeadingLevel: {
+      options: ['h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'select' },
+    },
     gridCount: {
       options: ['2', '3', '4'],
       control: { type: 'select' },
