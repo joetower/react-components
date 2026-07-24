@@ -28,6 +28,14 @@
   max-width: var(--site-width--components);
 }
 
+[data-component-width="wide"] .text-with-media__inner {
+  max-width: var(--site-width--wide);
+}
+
+[data-component-width="full"] .text-with-media__inner {
+  max-width: var(--site-width--full);
+}
+
 .text-with-media__link[data-component-theme="inherit"] {
   --color--button--background: var(--color--text);
   --color--button--background-accent: var(--color--text--hover);

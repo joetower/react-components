@@ -21,9 +21,12 @@ main.page {
   padding-block-end: var(--space-m);
 }
 
+main.about-page {
+  padding-block-start: 0;
+}
+
 .page img {
   width: 100%;
-  height: auto;
   max-width: var(--site-width--full);
 }
 

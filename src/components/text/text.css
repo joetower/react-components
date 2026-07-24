@@ -38,6 +38,10 @@
   margin-block-start: var(--space-xl);
 }
 
+.banner + .text-block {
+  margin-block-start: var(--space-xl);
+}
+
 @media screen and (max-width: 1350px) {
   main.home-page .text-block,
   .text-block.intro__paragraph {

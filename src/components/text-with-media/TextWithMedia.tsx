@@ -8,7 +8,7 @@ import './text-with-media.css';
 interface TextWithMediaBlockProps {
   imageAlignment?: 'left' | 'right'; // Optional prop for callout imageAlignment
   baseClass?: string | 'text';
-  width?: 'components' | 'inner';
+  width?: 'components' | 'inner' | 'wide' | 'full';
   animation?: boolean; // Optional prop for animation class
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for callout theme
   buttonSize?: 'small' | 'medium' | 'large';

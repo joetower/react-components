@@ -2,7 +2,7 @@ import BannerItem from "./Banner";
 import { Meta } from "@storybook/react";
 
 export const Banner = (
-  { animation, imageSrc, imageAlt, theme, heading, headingLevel, text, link, imageName, linkTitle, linkText, buttonSize }
+  { animation, theme, heading, headingLevel, text, link, linkTitle, linkText, style, buttonSize }
   : { 
     heading: string;
     headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -11,21 +11,18 @@ export const Banner = (
     linkText: string;
     linkTitle: string;
     animation: boolean;
-    imageName: string;
-    imageSrc: string; 
     imageAlt: string;
+    style?: 'default' | 'compressed';
     buttonSize?: 'small' | 'medium' | 'large';
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
       <BannerItem
         heading={heading}
         headingLevel={headingLevel ?? 'h2'}
         text={text}
+        style={style ?? 'default'}
         link={link}
         linkTitle={linkTitle}
         linkText={linkText}
-        imageName={imageName}
-        imageSrc={imageSrc}
-        imageAlt={imageAlt}
         animation={animation}  // Set to true to enable animation
         theme={theme}  // Default theme
         buttonSize={buttonSize}
@@ -36,20 +33,22 @@ Banner.args = {
   heading: 'This is a heading',
   headingLevel: 'h2',
   text: 'This is a primary banner description.',
+  style: 'default',
   link: '#',
   linkText: 'This is a link text',
   linkTitle: 'This is a link title',
-  imageSrc: 'https://placehold.co/600x400',
   imageAlt: 'Placeholder Image',
   buttonSize: 'small',
   animation: false,  // Set to true to enable animation
-  imageName: '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085',
   theme: 'primary', // Default value for banner theme
 };
 // Default export for Storybook
 const meta: Meta<typeof Banner> = {
   title: 'Components/Banner',
   component: Banner,
+  parameters: {
+    controls: { exclude: ['imageName'] },
+  },
   argTypes: {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
@@ -61,6 +60,10 @@ const meta: Meta<typeof Banner> = {
       control: { type: 'select' },
     },
     text: { control: 'text' },
+    style: {
+      options: ['default', 'compressed'],
+      control: { type: 'select' },
+    },
     link: { control: 'text' },
     linkText: { control: 'text' },
     linkTitle: { control: 'text' },
@@ -68,8 +71,6 @@ const meta: Meta<typeof Banner> = {
       options: ['small', 'medium', 'large'],
       control: { type: 'select' },
     },
-    imageSrc: { control: 'text' },
-    imageAlt: { control: 'text' },
     animation: { control: 'boolean' },
   },
 }

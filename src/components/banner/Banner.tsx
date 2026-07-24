@@ -10,21 +10,22 @@ interface BannerProps {
   link: string;
   linkText?: string; // Optional prop for link text
   linkTitle?: string; // Added linkTitle prop
-  imageName: string; // Required prop for image name
+  imageName?: string; // Required prop for image name
   imageSrc?: string; // Optional prop for image source
   imageAlt?: string; // Optional prop for image alt text
+  style?: 'default' | 'compressed';
   buttonSize?: 'small' | 'medium' | 'large';
   animation?: boolean; // Optional prop for animation class
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for banner theme
 }
 
-export default function Banner({heading, headingLevel, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, buttonSize, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: BannerProps) {
+export default function Banner({heading, headingLevel, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, style, buttonSize, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: BannerProps) {
   return (<>
-    <div className="banner" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'}>
+    <div className="banner" data-component-animation={animation ? 'true' : 'false'} data-component-theme={theme || 'primary'} data-component-style={style || 'default'}>
       <div className="banner__inner">
-        {imageSrc && (
+        {imageSrc || imageName && (
           <div className="banner__image">
-              <ResponsiveImage sizes={[200,400,600,800]} alt={imageAlt || "Placeholder Image"} imageName={imageName} />
+              <ResponsiveImage sizes={[200,400,600,800,1200,1400,1600]} alt={imageAlt || "Placeholder Image"} imageName={imageName} />
           </div>
         )}
         <div className="banner__content">

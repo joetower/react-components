@@ -1,10 +1,10 @@
 import MainLayout from '../components/layouts/MainLayout';
 import Paragraph from '../components/text/TextBlock';
-import Heading from '../components/text/Heading';
 import ResponsiveImage from '../components/responsive-image/ResponsiveImage';
 import Cards from '../components/cards/Cards';
 import Quote from '../components/text/Blockquote';
 import TextWithMediaBlock from '../components/text-with-media/TextWithMedia';
+import Banner from '../components/banner/Banner';
 
 function About() {
   return (
@@ -13,7 +13,20 @@ function About() {
       <title>About the app</title>
       <meta name="description" content="About the Vite + React app with a component library." />
       <meta name="keywords" content="Vite, React, component library, example site, about" />
-      <Heading level='h1' baseClass='intro__heading' content='About the app' />
+
+      <Banner
+          heading={'About the app'}
+          headingLevel={'h1'}
+          text={'This is an animated banner component. Qui incididunt mollit cupidatat occaecat, proident mollit id.'}
+          link={'https://github.com/joetower/react-components/tree/main/src/components/banner'}
+          linkTitle={'Takes you to github repo for this component'}
+          linkText={'Check out the code'}
+          animation={true}
+          theme={'secondary'}
+          buttonSize={'small'}
+          imageName={'6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}
+          imageAlt={'Sequoia National Park, California'}
+      />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
         <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
         This site is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.</p>
