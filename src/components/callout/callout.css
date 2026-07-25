@@ -53,7 +53,7 @@
 
 .callout__text p {
   margin: 0;
-  font-size: var(--site-global--font-size--large);
+  font-size: var(--site-global--font-size--medium);
 }
 
 .callout:hover::after {

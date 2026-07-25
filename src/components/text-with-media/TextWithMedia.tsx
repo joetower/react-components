@@ -105,7 +105,7 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
         <div className="text-with-media__content">
           <Heading level="h2" baseClass="text-with-media__heading" content={twmHeading || "Text with Media"} />
           <TextBlock style="default" width="content">
-            <p dangerouslySetInnerHTML={{ __html: twmContent || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' }} />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </TextBlock>
           <div className="text-with-media__actions">
             <Button

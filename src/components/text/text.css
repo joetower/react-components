@@ -36,7 +36,12 @@
   width: 100%;
   font-weight: var(--site-global--font-weight--medium);
   max-width: var(--site-width--text);
-  margin-block-start: 0;
+  margin-block: 0;
+}
+
+.text-block p + p,
+.text-block + .text-block {
+  margin-block-start: var(--space-s);
 }
 
 .text-block + .text-with-media,

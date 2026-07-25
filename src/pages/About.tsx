@@ -28,12 +28,13 @@ function About() {
           imageAlt={'Sequoia National Park, California'}
       />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
-        <p>This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
-        This site is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.</p>
+        This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
+        
+        This site is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.
       </Paragraph>
 
       <Paragraph baseClass='intro__paragraph' style='default' width='content'>
-        <p>Page transitions and the quote component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>. Animation on cards and text with media is handled by CSS animations with useEffect and vanilla JS.</p>
+        Page transitions and the quote component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>. Animation on cards and text with media is handled by CSS animations with useEffect and vanilla JS.
       </Paragraph>
 
       <TextWithMediaBlock
