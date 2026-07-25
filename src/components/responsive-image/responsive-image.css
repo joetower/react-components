@@ -24,10 +24,6 @@ figure {
   flex-flow: column wrap;
   gap: var(--site-global--gap);
   margin: 0;
-
-  picture {
-    margin-block-start: var(--space-m);
-  }
 }
 
 figcaption {

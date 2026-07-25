@@ -16,14 +16,20 @@
   color: var(--site-global--color-basic-black);
 }
 
-.text-block a {
-  color: var(--site-global--color-primary-accent);
+.text-block a,
+.text-block a:link {
+  color: var(--site-global--color-primary-accent-mid);
   text-decoration: underline;
 }
 
 .text-block a:hover {
-  color: var(--site-global--color-primary-accent-dark);
+  color: var(--site-global--color-secondary-accent-mid);
   text-decoration: none;
+}
+
+.text-block a:visited {
+  color: var(--site-global--color-secondary-accent-mid);
+  text-decoration: underline;
 }
 
 .text-block p {

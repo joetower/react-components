@@ -8,28 +8,28 @@
   --color--header--link: var(--site-global--color-primary-accent-dark);
   --color--header--link-hover: var(--site-global--color-primary-accent);
   --color--header--background: var(--site-global--color-primary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-primary-accent);
+  --color--header--link-active: var(--site-global--color-primary-accent-mid);
 }
 
 .header[data-component-theme="secondary"] {
   --color--header--link: var(--site-global--color-secondary-accent-dark);
   --color--header--link-hover: var(--site-global--color-secondary-accent);
   --color--header--background: var(--site-global--color-secondary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-secondary-accent);
+  --color--header--link-active: var(--site-global--color-secondary-accent-mid);
 }
 
 .header[data-component-theme="tertiary"] {
   --color--header--link: var(--site-global--color-tertiary-accent-dark);
   --color--header--link-hover: var(--site-global--color-tertiary-accent);
   --color--header--background: var(--site-global--color-tertiary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-tertiary-accent);
+  --color--header--link-active: var(--site-global--color-tertiary-accent-mid);
 }
 
 .header[data-component-theme="quaternary"] {
   --color--header--link: var(--site-global--color-quaternary-accent-dark);
   --color--header--link-hover: var(--site-global--color-quaternary-accent);
   --color--header--background: var(--site-global--color-quaternary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-quaternary-accent);
+  --color--header--link-active: var(--site-global--color-quaternary-accent-mid);
 }
 
 .header__inner {
@@ -84,10 +84,12 @@
   text-decoration: none;
   font-size: var(--site-global--font-size--base);
   font-weight: var(--site-global--font-weight--bold);
+  border-block-end: var(--site-global--border-width--thick) solid transparent;
 }
 
 .header__nav__menu-links li a.active {
   color: var(--color--header--link-active);
+  border-color: var( --color--header--link-active);
 }
 
 .header__nav__menu-links li a:hover {

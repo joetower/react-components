@@ -67,6 +67,9 @@
   gap: var(--site-global--gap--type);
   padding: var(--space-m);
   background-color: var(--color--background);
+  width: 100%;
+  max-width: var(--site-width--inner);
+  margin-inline: auto;
 }
 
 .banner__heading {

@@ -41,16 +41,6 @@
   max-width: var(--site-width--full);
 }
 
-.text-with-media__link[data-component-theme="inherit"] {
-  --color--button--background: var(--color--text);
-  --color--button--background-accent: var(--color--text--hover);
-  --color--button--text: var(--color--background);
-
-  &:hover {
-    color: var(--color--text--hover);
-    border-color: var(--color--border);
-  }
-}
 
 .text-with-media__media {
   width: 100%;
