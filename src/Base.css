@@ -105,6 +105,8 @@
 	/* Color theme variables */
 	--color--background: var(--site-global--color-primary-accent-lightest);
 	--color--background-accent: var(--site-global--color-basic-white);
+	--color--background-accent-2: var(--site-global--color-basic-white);
+	--color--background-accent-3: var(--site-global--color-basic-white);
 	--color--background-button: var(--color--background-accent);
 	--color--border: var(--site-global--color-primary-accent);
 	--color--text: var(--site-global--color-basic-black);
@@ -118,6 +120,8 @@
 	[data-component-theme="primary"] {
 		--color--background: var(--site-global--color-primary-accent-lightest);
 		--color--background-accent: var(--site-global--color-primary-accent);
+		--color--background-accent-2: var(--site-global--color-primary-accent-light);
+		--color--background-accent-3: var(--site-global--color-primary-accent-dark);
 		--color--background-button: var(--site-global--color-primary-accent-mid);
 		--color--border: var(--site-global--color-primary-accent);
 		--color--title: var(--site-global--color-primary-accent-dark);
@@ -129,6 +133,8 @@
 	[data-component-theme="secondary"] {
 		--color--background: var(--site-global--color-secondary-accent-lightest);
 		--color--background-accent: var(--site-global--color-secondary-accent);
+		--color--background-accent-2:var(--site-global--color-secondary-accent-light);
+		--color--background-accent-3:var(--site-global--color-secondary-accent-dark);
 		--color--background-button: var(--site-global--color-secondary-accent-mid);
 		--color--border: var(--site-global--color-secondary-accent);
 		--color--title: var(--site-global--color-secondary-accent-dark);
@@ -140,6 +146,8 @@
 	[data-component-theme="tertiary"] {
 		--color--background: var(--site-global--color-tertiary-accent-lightest);
 		--color--background-accent: var(--site-global--color-tertiary-accent);
+		--color--background-accent-2: var(--site-global--color-tertiary-accent-light);
+		--color--background-accent-3: var(--site-global--color-tertiary-accent-dark);
 		--color--background-button: var(--site-global--color-tertiary-accent-mid);
 		--color--border: var(--site-global--color-tertiary-accent);
 		--color--title: var(--site-global--color-tertiary-accent-dark);
@@ -151,6 +159,8 @@
 	[data-component-theme="quaternary"] {
 		--color--background: var(--site-global--color-quaternary-accent-lightest);
 		--color--background-accent: var(--site-global--color-quaternary-accent);
+		--color--background-accent-2: var(--site-global--color-quaternary-accent-light);
+		--color--background-accent-3: var(--site-global--color-quaternary-accent-dark);
 		--color--background-button: var(--site-global--color-quaternary-accent-mid);
 		--color--border: var(--site-global--color-quaternary-accent);
 		--color--title: var(--site-global--color-quaternary-accent-dark);

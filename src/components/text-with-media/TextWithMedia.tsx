@@ -95,6 +95,11 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
     >
       <div className="text-with-media__inner">
         <div className="text-with-media__media">
+          <div className="text-with-media__shapes">
+            <div className="text-with-media__shape_one"></div>
+            <div className="text-with-media__shape_two"></div>
+            <div className="text-with-media__shape_three"></div>
+          </div>
           <ResponsiveImage sizes={[200,400,600]} imageName={twmImageName || "6-11-11-29 PM-2023-FUJIFILM-X-T3-DSCF4085"} alt={twmImageAlt || "Sequoia National Park, California"}/>
         </div>
         <div className="text-with-media__content">
