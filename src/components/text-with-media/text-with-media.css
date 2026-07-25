@@ -2,7 +2,10 @@
   background-color: var(--color--background);
   color: var(--color--text);
   overflow: hidden;
-  padding-block: var(--space-2xl);
+  
+  @media (width > 769px) {
+    padding-block: var(--space-2xl);
+  }
 }
 
 .text-with-media__inner {
