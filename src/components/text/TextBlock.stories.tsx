@@ -10,7 +10,7 @@ interface TextBlockProps {
 
 export const TextBlock = ({ children, style = 'default', width = 'content' }: TextBlockProps) => (
   <TextBlockItem style={style} baseClass='text' width={width}>
-    {children}
+    <p>{children}</p>
   </TextBlockItem>
 );
 

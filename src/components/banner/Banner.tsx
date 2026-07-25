@@ -32,7 +32,7 @@ export default function Banner({heading, headingLevel, text, link, linkTitle, li
           <div className="banner__text">
             <Heading level={headingLevel} baseClass='banner__heading' content={heading} />
             <TextBlock style="default" baseClass='banner__paragraph'>
-              {text}
+              <p>{text}</p>
             </TextBlock>
           </div>
             <div className="banner__actions">

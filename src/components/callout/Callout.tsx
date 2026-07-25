@@ -21,7 +21,7 @@ export default function Callout({heading, text, link, linkTitle, linkText, anima
         <Heading level='h2' baseClass='callout__heading' content={heading} />
         <div className="callout__text">
           <Paragraph style="default" baseClass='callout__paragraph'>
-            {text}
+            <p>{text}</p>
           </Paragraph>
         </div>
         <div className="callout__actions">

@@ -33,7 +33,7 @@ export default function Card({heading, headingLevel = 'h3', text, link, linkTitl
         <Heading level={headingLevel} baseClass='card__heading' content={heading} link={link} linkTitle={linkTitle} linkClass='card__heading__link' />
         <div className="card__text">
           <TextBlock style="default" baseClass='card__paragraph'>
-            {text}
+            <p>{text}</p>
           </TextBlock>
         </div>
         {showButton && (

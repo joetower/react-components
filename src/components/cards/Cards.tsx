@@ -77,7 +77,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           <div className='cards__content'>
             <div className='cards__text'>
               <TextBlock style="default" baseClass='cards__paragraph'>
-                {text}
+                <p>{text}</p>
               </TextBlock>
             </div>
             <a className='cards__link' href={cardsLinkUrl} title={cardsLinkTitle}>
