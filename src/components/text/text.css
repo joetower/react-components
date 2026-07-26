@@ -3,7 +3,8 @@
   max-width: 100%;
 }
 
-.text-block[data-component-width="content"] p {
+.text-block[data-component-width="content"] p,
+.text-block[data-component-width="content"] p > a {
   max-width: var(--site-width--components);
   margin-inline-start: auto;
   margin-inline-end: auto;
@@ -13,6 +14,11 @@
   font-weight: var(--site-global--font-weight--bold);
   font-size: var(--site-global--font-size--medium);
   color: var(--site-global--color-basic-black);
+}
+
+.text-block[data-component-style="emphasized"] p > a {
+  font-weight: var(--site-global--font-weight--bold);
+  font-size: var(--site-global--font-size--medium);
 }
 
 .text-block a,

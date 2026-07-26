@@ -29,13 +29,16 @@ function About() {
       />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
         <p>
-        This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. It is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.
+        This is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.
         </p>
       </Paragraph>
 
       <Paragraph baseClass='intro__paragraph' style='default' width='content'>
         <p>
-        Page transitions and the quote component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>. Animation on cards and text with media is handled by CSS animations with useEffect and vanilla JS.
+        Page transitions and the <strong>quote</strong> component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>.</p>
+        <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on thee overlaid shapes.</p>
+        
+        <p>The banner, above, is using <code>animation-timeline</code> for the parallax image movement on scroll (desktop-only) and CSS animation for the subtle infinite gradient glow.
         </p>
       </Paragraph>
 

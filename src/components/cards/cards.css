@@ -105,3 +105,7 @@
 .cards__content > *:last-child {
   margin-bottom: var(--space-m);
 }
+
+.cards + figure{
+  margin-block-start: var(--space-l);
+}
