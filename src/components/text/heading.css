@@ -19,7 +19,7 @@ a.heading__link {
   margin-inline-end: auto;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1070px) {
   main.page .intro__heading {
     padding-inline-start: var(--space-m);
     padding-inline-end: var(--space-m);
