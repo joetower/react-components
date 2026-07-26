@@ -3,16 +3,15 @@
   max-width: 100%;
 }
 
-.text-block[data-component-width="content"] {
+.text-block[data-component-width="content"] p {
   max-width: var(--site-width--components);
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
 
-.text-block[data-component-style="emphasized"] {
+.text-block[data-component-style="emphasized"] p {
   font-weight: var(--site-global--font-weight--bold);
-  font-size: var(--site-global--font-size--large);
-  line-height: var(--site-global--line-height--loose);
+  font-size: var(--site-global--font-size--medium);
   color: var(--site-global--color-basic-black);
 }
 

@@ -28,13 +28,15 @@ function About() {
           imageAlt={'Sequoia National Park, California'}
       />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
-        This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. 
-        
-        This site is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.
+        <p>
+        This is an example site to explore the awesomeness of <strong>React</strong> and component libraries. It is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.
+        </p>
       </Paragraph>
 
       <Paragraph baseClass='intro__paragraph' style='default' width='content'>
+        <p>
         Page transitions and the quote component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>. Animation on cards and text with media is handled by CSS animations with useEffect and vanilla JS.
+        </p>
       </Paragraph>
 
       <TextWithMediaBlock
@@ -45,8 +47,8 @@ function About() {
         baseClass='item'
         twmHeading='Text with Media'
         twmContent="This component composes multiple smaller components: text-block, responsive-image, heading, and button, to form a more complex, reusable UI element. It demonstrates how to effectively combine components, with each one's props passed in as name-spaced variables for clarity and organization."
-        twmImageName='6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'
-        twmImageAlt='Sequoia National Park, California'
+        twmImageName='2-12-6-32-AM-2023-FUJIFILM-X-T3-DSCF1862'
+        twmImageAlt='Elephants drinking water and bathing | Uganda'
         twmButtonLabel='Check out the code'
         twmButtonLink='https://github.com/joetower/react-components/tree/main/src/components/text-with-media'
         twmButtonTitle='Look at the code for this component'
@@ -61,8 +63,8 @@ function About() {
         baseClass='item'
         twmHeading='Text with Media Two: electric boogaloo'
         twmContent="This component composes multiple smaller components: text-block, responsive-image, heading, and button, to form a more complex, reusable UI element. It demonstrates how to effectively combine components, with each one's props passed in as name-spaced variables for clarity and organization."
-        twmImageName='6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'
-        twmImageAlt='Sequoia National Park, California'
+        twmImageName='6-08-11-29-AM-2023-FUJIFILM-X-T3-DSCF3413'
+        twmImageAlt='Yosemite National Park, California'
         twmButtonLabel='Check out the code'
         twmButtonLink='https://github.com/joetower/react-components/tree/main/src/components/text-with-media'
         twmButtonTitle='Look at the code for this component'
