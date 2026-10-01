@@ -1,5 +1,5 @@
 import HeadingItem from './Heading';
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-vite';
 
 // Default export for Storybook
 interface HeadingProps {

@@ -1,5 +1,5 @@
 import Places from './WhereTo';
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-vite';
 
 
 interface WhereToProps {

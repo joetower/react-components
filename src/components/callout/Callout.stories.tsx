@@ -1,5 +1,5 @@
 import CalloutItem from "./Callout";
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 
 export const Callout = (
   { animation, theme, heading, text, link, linkTitle, linkText, alignment, buttonSize }

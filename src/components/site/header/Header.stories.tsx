@@ -1,5 +1,5 @@
 import SiteHeader from "./Header";
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 
 import { MemoryRouter } from "react-router-dom";
 

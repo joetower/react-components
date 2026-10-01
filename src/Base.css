@@ -207,7 +207,7 @@
 	--site-global--font-size--button: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
 	--site-global--font-size--button--large: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
 
-	--site-global--line-height--base: 1.5;
+	--site-global--line-height--base: 1.4;
 	--site-global--line-height--tight: 1.25;
 	--site-global--line-height--tightest: 1;
 	--site-global--line-height--loose: 1.75;

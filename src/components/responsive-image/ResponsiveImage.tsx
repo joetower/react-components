@@ -9,6 +9,7 @@ interface ResponsiveImageProps {
   ext?: "jpg" | "jpeg" | "png" | "webp" | "avif";
   sizes?: number[]; // Example: [200, 400, 800]
   basePath?: string;
+  hasLoading?: 'lazy' | 'eager';
 }
 
 const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
@@ -19,6 +20,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   caption,
   sizes = [400, 800, 1200, 1600],
   basePath = "/images",
+  hasLoading
 }) => {
   const sortedSizes = [...sizes].sort((a, b) => a - b);
   const smallestSize = sortedSizes[0];
@@ -59,7 +61,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
             <img
               src={isLoaded ? currentSrc : lowResSrc} // fallback if browser doesn't support source types
               alt={alt}
-              loading="lazy"
+              loading={hasLoading ? hasLoading : 'lazy'}
               className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
               onLoad={handleImageLoad}
             />
@@ -74,7 +76,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
           <img
             src={isLoaded ? currentSrc : lowResSrc} // fallback if browser doesn't support source types
             alt={alt}
-            loading="lazy"
+            loading={hasLoading ? hasLoading : 'lazy'}
             className={`responsive-image ${isLoaded ? "loaded" : "loading"}`}
             onLoad={handleImageLoad}
           />

@@ -25,7 +25,7 @@ export default function Banner({heading, headingLevel, text, link, linkTitle, li
       <div className="banner__inner">
         {imageSrc || imageName && (
           <div className="banner__image">
-              <ResponsiveImage sizes={[200,400,600,800,1200,1400,1600]} alt={imageAlt || "Placeholder Image"} imageName={imageName} />
+              <ResponsiveImage sizes={[200,400,600,800,1200,1400,1600]} hasLoading="eager" alt={imageAlt || "Placeholder Image"} imageName={imageName} />
           </div>
         )}
         <div className="banner__content">

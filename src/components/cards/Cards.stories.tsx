@@ -1,5 +1,5 @@
 import CardCollection from './Cards.tsx';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-vite';
 
 interface CardsProps {
   heading: string;

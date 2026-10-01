@@ -1,5 +1,5 @@
 import BannerItem from "./Banner";
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 
 export const Banner = (
   { animation, theme, heading, headingLevel, text, link, linkTitle, linkText, style, buttonSize }

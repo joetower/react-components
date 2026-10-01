@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-vite';
 import ImageItem from "./Image";
 
 // Default export for Storybook

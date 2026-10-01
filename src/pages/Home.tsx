@@ -11,7 +11,7 @@ function Home() {
       <title>Application example using Vite + React</title>
       <meta name="description" content="A simple Vite + React app with a component library." />
       <meta name="keywords" content="Vite, React, component library, example site" />
-      <Heading level='h1' baseClass='intro__heading' content='Hello Vite + React!' />
+      <Heading level='h1' baseClass='intro__heading' content='Application example using Vite + React' />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
         <p>This site exists to use a set of <a href="/storybook" title="Storybook Components (opens in new tab/window)" target='_blank'>custom React components &#8599;</a> that I developed and continue to refine & extend.</p>
       </Paragraph>

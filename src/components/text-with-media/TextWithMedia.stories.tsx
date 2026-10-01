@@ -1,5 +1,5 @@
 import TextBlockWithMediaItem from './TextWithMedia';
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-vite';
 
 // Default export for Storybook
 interface TextBlockWithMediaProps {

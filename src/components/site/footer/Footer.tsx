@@ -11,10 +11,11 @@ export default function Footer({theme}: FooterProps) {
       <div className="footer__source">
         <p>View <a href="https://github.com/joetower/react-components" title="View Source Code">source code</a></p>
       </div>
-      <nav className="footer__nav">
+      <nav className="footer__nav" aria-label="Footer Menu">
         <ul>
           <li><a href="https://github.com/joetower" title="GitHub">GitHub</a></li>
-          <li><a href="https://bsky.app/profile/joetower.bsky.social" title="Bluesky Social">Bluesky</a></li>
+          |
+          <li><a href="https://joetower.com" title="My Website">joetower.com</a></li>
         </ul>
       </nav>
     </div>

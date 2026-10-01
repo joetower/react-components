@@ -1,5 +1,5 @@
 import CardItem from "./Card";
-import { Meta } from "@storybook/react";
+import { Meta } from "@storybook/react-vite";
 
 export const Card = (
   { animation, imageSrc, imageAlt, theme, heading, headingLevel, text, link, imageName, linkTitle, linkText, showButton, buttonSize }
