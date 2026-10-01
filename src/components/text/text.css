@@ -3,11 +3,12 @@
   max-width: 100%;
 }
 
-.text-block[data-component-width="content"] p,
-.text-block[data-component-width="content"] p > a {
-  max-width: var(--site-width--components);
-  margin-inline-start: auto;
-  margin-inline-end: auto;
+.text-block__inner {
+  margin-inline: auto;
+  
+  [data-component-width="content"] & {
+    max-width: var(--site-width--components);
+  }
 }
 
 .text-block[data-component-style="emphasized"] p {
@@ -40,8 +41,9 @@
 .text-block p {
   width: 100%;
   font-weight: var(--site-global--font-weight--medium);
-  max-width: var(--site-width--text);
+  max-width: var(--max-char-count);
   margin-block: 0;
+  margin-inline: 0;
 }
 
 .text-block p + p,

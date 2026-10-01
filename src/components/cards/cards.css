@@ -3,7 +3,7 @@
 }
 
 .cards[data-component-width="content"] {
-  max-width: var(--site-width--inner);
+  max-width: var(--site-width--wide);
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
@@ -28,12 +28,12 @@
 
 
 [data-component-width="content"] .cards__header__inner {
-  max-width: var(--site-width--inner);
+  max-width: var(--site-width--components);
   margin-inline-start: auto;
   margin-inline-end: auto;
   
   @media screen and (max-width: 1350px) {
-    max-width: calc(var(--site-width--inner) - var(--space-xl));
+    max-width: calc(var(--site-width--components) - var(--space-xl));
     padding-inline-start: var(--space-m);
     padding-inline-end: var(--space-m);
   } 

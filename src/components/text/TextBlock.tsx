@@ -14,7 +14,11 @@ export default function TextBlock({style, baseClass, children, width = 'full' }:
       data-component-width={width}
       className={`text-block ${baseClass || ''}`}
     >
-      {children}
+      <div
+      className={`text-block__inner ${baseClass || ''}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

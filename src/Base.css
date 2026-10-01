@@ -8,7 +8,8 @@
 	--site-width--components: 65rem; /* 1040px */
 	--site-width--text: 50rem; /* 800px */
 	--site-width--narrow: 40rem; /* 640px */
-
+	--max-char-count: 58ch;
+	
 	/* Animation */
  	--site-global--transition-timing: 0.5s;
 	--site-global--transition-timing--slow: 40s;
