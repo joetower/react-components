@@ -9,16 +9,15 @@ export const Header = (
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
   <MemoryRouter>
     <SiteHeader
-      theme={theme}  // Default theme
+      theme={theme}
     />
   </MemoryRouter>
 );
 
 Header.args = {
-  theme: 'primary',  // Default theme
+  theme: 'primary',
 };
 
-// Default export for Storybook
 const meta: Meta<typeof Header> = {
   title: 'Components/Site/Header',
   component: Header,

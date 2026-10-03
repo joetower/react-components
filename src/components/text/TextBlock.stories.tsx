@@ -31,6 +31,10 @@ const meta: Meta<typeof TextBlock> = {
       options: ['default', 'emphasized'],
       control: { type: 'radio' },
     },
+    width: {
+      options: ['content', 'full'],
+      control: { type: 'radio' },
+    },
   },
 }
  

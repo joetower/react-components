@@ -6,15 +6,14 @@ export const Footer = (
   : { 
     theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; }) => (
   <SiteFooter
-    theme={theme}  // Default theme
+    theme={theme}
   />
 );
 
 Footer.args = {
-  theme: 'primary',  // Default theme
+  theme: 'primary',
 };
 
-// Default export for Storybook
 const meta: Meta<typeof Footer> = {
   title: 'Components/Site/Footer',
   component: Footer,

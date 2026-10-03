@@ -2,13 +2,13 @@ import React from 'react';
 import './heading.css';
 
 interface HeadingProps {
-  content: string; // Required prop for image source
-  level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Added prop for heading level
+  content: string;
+  level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   baseClass?: string;
   width?: 'content' | 'full';
-  linkTitle?: string; // Added link_title prop
-  link?: string; // Added link prop
-  linkClass?: string; // Added link_class prop
+  linkTitle?: string;
+  link?: string; 
+  linkClass?: string;
 }
 export default function Heading({ content, level, baseClass, link, linkTitle, linkClass, width }: HeadingProps & { link?: string }) {
   const headingElement = React.createElement(

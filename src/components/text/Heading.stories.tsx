@@ -1,15 +1,14 @@
 import HeadingItem from './Heading';
 import { Meta } from '@storybook/react-vite';
 
-// Default export for Storybook
 interface HeadingProps {
-  content: string; // Required prop for image source
-  level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Added prop for heading level
+  content: string;
+  level: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   baseClass?: string;
   width?: 'content' | 'full';
-  link?: string; // Added link prop
-  linkTitle?: string; // Added link_title prop
-  linkClass?: string; // Added link_class prop
+  link?: string;
+  linkTitle?: string;
+  linkClass?: string;
 }
 
 export const Heading = ({ content, level = 'h2', baseClass = 'heading__item', width = 'content', link, linkTitle, linkClass ='heading__link' }: HeadingProps) => (
@@ -23,7 +22,6 @@ Heading.args = {
   baseClass: 'heading__item',
 };
 
-// Default export for Storybook
 const meta: Meta<typeof Heading> = {
   title: 'Components/Text/Heading',
   component: Heading,
@@ -33,6 +31,10 @@ const meta: Meta<typeof Heading> = {
     level: {
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'select' },
+    },
+    width: {
+      options: ['content', 'full'],
+      control: { type: 'radio' },
     },
   },
 }

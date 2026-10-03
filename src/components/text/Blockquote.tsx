@@ -6,9 +6,9 @@ interface BlockquoteProps {
   baseClass?: string | 'blockquote';
   width?: 'content' | 'full';
   align?: 'left' | 'center' | 'right';
-  author?: string; // Optional prop for author name
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
-  content: string; // Required prop for image source
+  author?: string;
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  content: string;
 }
 
 export default function Blockquote({style, baseClass, content, width = 'full', align = 'left', theme = 'primary', author = 'Author' }: BlockquoteProps) {

@@ -34,7 +34,6 @@ Button.args = {
 };
 
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: 'Components/Button',
   component: Button,
@@ -53,7 +52,6 @@ const meta = {
       options: ['small', 'medium', 'large'], // Add valid options here
     }
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
 } satisfies Meta<typeof Button>;
 

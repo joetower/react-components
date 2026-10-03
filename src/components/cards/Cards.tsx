@@ -1,20 +1,20 @@
 import { useEffect } from 'react';
-import Card from '../card/Card'; // Assuming Card is exported from Card.tsx
+import Card from '../card/Card';
 import Heading from '../text/Heading';
 import TextBlock from '../text/TextBlock';
 import cardsData from '../cards/cards-data.json';
-import './cards.css'; // Import the SCSS file for styling
+import './cards.css';
 interface CardData {
   title: string;
   content: string;
   link: string;
-  imageName: string; // Required prop for image name
-  linkTitle: string; // Added linkTitle prop
-  linkText: string; // Optional prop for link text which is shown as link text
+  imageName: string;
+  linkTitle: string;
+  linkText: string;
   imageSource: string;
   imageAlt: string;
   id: string;
-  showButton: boolean; // Optional prop to show buttons
+  showButton: boolean;
 }
 
 interface CardsData {
@@ -24,23 +24,23 @@ interface CardsData {
 const cardsDataTyped: CardsData = {
   cards: cardsData.cards.map(card => ({
     ...card,
-    showButton: card.showButton ?? false, // Provide a default value for showButton
+    showButton: card.showButton ?? false,
   })),
 };
 
 interface CardCollectionProps {
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
-  animation?: boolean; // Optional prop for animation class
-  gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  animation?: boolean;
+  gridCount?: '2' | '3' | '4';
   heading: string;
-  cardsHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Optional prop for heading level
-  cardHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Optional prop for individual card heading level
+  cardsHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  cardHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   text: string;
-  cardsLinkUrl?: string; // Changed to string to match the expected type for href
-  cardsLinkText?: string; // Optional prop for link text which is shown as link text
-  cardsLinkTitle?: string; // Added linkTitle prop for title attribute
+  cardsLinkUrl?: string;
+  cardsLinkText?: string;
+  cardsLinkTitle?: string;
   width?: 'content' | 'full';
-  showButtons?: boolean; // Optional prop to show buttons
+  showButtons?: boolean;
 }
 
 const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, cardsHeadingLevel = 'h2', cardHeadingLevel = 'h3', text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'content', showButtons}) => {
@@ -57,7 +57,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           }
         });
       },
-      { threshold: 0.4 } // Adjust threshold as needed
+      { threshold: 0.4 }
     );
 
     listItems.forEach((item) => observer.observe(item));

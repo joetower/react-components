@@ -9,16 +9,17 @@ interface CardsProps {
   cardsLinkUrl: string;
   cardsLinkText: string;
   cardHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // individual card
-  animation?: boolean; // Optional prop for animation class
-  gridCount?: '2' | '3' | '4'; // Optional prop to specify the number of cards in the grid
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
+  animation?: boolean;
+  gridCount?: '2' | '3' | '4';
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   width?: 'content' | 'full';
-  showButtons?: boolean; // Optional prop to show buttons
+  showButtons?: boolean;
 }
 
 const Template: StoryFn<CardsProps> = (args: CardsProps) => <CardCollection {...args} />;
 
 export const Cards = Template.bind({});
+// add default values in Storybook
 Cards.args = {
   heading: 'Cards: Default Heading',
   text: 'Cards: Default Text Description',
@@ -26,12 +27,12 @@ Cards.args = {
   cardsLinkText: 'Cards: Default Link Text',
   cardsLinkUrl: 'https://example.com',
   animation: false,
-  theme: 'primary', // Default value for card theme
+  theme: 'primary',
+  width: 'content',
+  showButtons: false,
   cardsHeadingLevel: 'h2',
   cardHeadingLevel: 'h3',
-  gridCount: '4', // Default value for grid count
-  width: 'content', // Default value for width
-  showButtons: false, // Default value for show button
+  gridCount: '4',
 };
 
 // Default export for Storybook
@@ -42,6 +43,10 @@ const meta: Meta<CardsProps> = {
     theme: {
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'select' },
+    },
+    width: {
+      options: ['content', 'full'],
+      control: { type: 'radio' },
     },
     heading: { control: 'text' },
     cardsHeadingLevel: {

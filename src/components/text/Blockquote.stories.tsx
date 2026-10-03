@@ -1,14 +1,13 @@
 import BlockquoteItem from './Blockquote';
 import { Meta } from '@storybook/react-vite';
 
-// Default export for Storybook
 interface BlockquoteProps {
-  content: string; // Required prop for image source
+  content: string;
   style: 'quote' | 'bar' ;
   width?: 'content' | 'full';
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for card theme
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   baseClass?: string | 'blockquote';
-  author?: string; // Optional prop for author name
+  author?: string;
   align?: 'left' | 'center' | 'right';
 }
 

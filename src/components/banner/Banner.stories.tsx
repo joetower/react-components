@@ -23,8 +23,8 @@ export const Banner = (
         link={link}
         linkTitle={linkTitle}
         linkText={linkText}
-        animation={animation}  // Set to true to enable animation
-        theme={theme}  // Default theme
+        animation={animation}
+        theme={theme}
         buttonSize={buttonSize}
       />
     );

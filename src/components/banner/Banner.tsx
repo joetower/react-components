@@ -2,21 +2,21 @@ import Button from '../button/Button';
 import ResponsiveImage from '../responsive-image/ResponsiveImage';
 import TextBlock from '../text/TextBlock';
 import Heading from '../text/Heading';
-import './banner.css'; // Import the SCSS file for styling
+import './banner.css';
 interface BannerProps {
   heading: string;
-  headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Added prop for heading level
+  headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   text: string;
   link: string;
-  linkText?: string; // Optional prop for link text
-  linkTitle?: string; // Added linkTitle prop
-  imageName?: string; // Required prop for image name
-  imageSrc?: string; // Optional prop for image source
-  imageAlt?: string; // Optional prop for image alt text
+  linkText?: string;
+  linkTitle?: string;
+  imageName?: string;
+  imageSrc?: string;
+  imageAlt?: string;
   style?: 'default' | 'compressed';
   buttonSize?: 'small' | 'medium' | 'large';
-  animation?: boolean; // Optional prop for animation class
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ; // Optional prop for banner theme
+  animation?: boolean;
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary' ;
 }
 
 export default function Banner({heading, headingLevel, text, link, linkTitle, linkText, animation, imageSrc, imageAlt, theme, style, buttonSize, imageName = '6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}: BannerProps) {
