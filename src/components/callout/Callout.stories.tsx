@@ -44,22 +44,52 @@ const meta: Meta<typeof Callout> = {
   component: Callout,
   argTypes: {
     theme: {
+      name: 'Theme',
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'select' },
+      table: { category: 'Options' },
     },
-    heading: { control: 'text' },
-    text: { control: 'text' },
-    link: { control: 'text' },
-    linkText: { control: 'text' },
-    linkTitle: { control: 'text' },
-    animation: { control: 'boolean' },  // Set to true to enable animation
+    heading: { 
+      name: 'Heading',
+      control: 'text' ,
+      table: { category: 'Data' },
+    },
+    text: { 
+      name: 'Content',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    link: { 
+      name: 'Callout link',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    linkText: { 
+      name: 'Link text',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    linkTitle: { 
+      name: 'Link title attribute (when hovering)',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    animation: { 
+      name: 'Enable animation',
+      control: 'boolean',
+      table: { category: 'Options' },
+    },
     buttonSize: {
+      name: 'Button size',
       options: ['small', 'medium', 'large'],
       control: { type: 'select' },
+      table: { category: 'Options' },
     },
     alignment: {
+      name: 'Text alignment',
       options: ['left', 'center', 'right'],
       control: { type: 'select' },
+      table: { category: 'Options' },
     },
   },
 }

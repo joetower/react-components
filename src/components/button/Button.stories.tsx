@@ -40,16 +40,42 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     theme: {
+      name: 'Theme',
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'tertiary', 'quaternary'], // Add valid options here
+      options: ['primary', 'secondary', 'tertiary', 'quaternary'],
+      table: { category: 'Options' },
     },
     type: {
+      name: 'Button link type (a, button)',
       control: { type: 'select' },
-      options: ['button', 'button-link', 'text-link'], // Add valid options here
+      options: ['button', 'button-link', 'text-link'],
+      table: { category: 'Options' },
     },
     size: {
+      name: 'Size',
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'], // Add valid options here
+      options: ['small', 'medium', 'large'],
+      table: { category: 'Options' },
+    },
+    label: {
+      name: 'Button text',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    href: {
+      name: 'Button href',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    title: {
+      name: 'Button title attribute (when hovering)',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    baseClass: {
+      name: 'Base class',
+      control: 'text',
+      table: { category: 'Data' },
     }
   },
   args: {},

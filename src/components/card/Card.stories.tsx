@@ -55,25 +55,72 @@ const meta: Meta<typeof Card> = {
   component: Card,
   argTypes: {
     theme: {
+      name: 'Theme',
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'select' },
+      table: { category: 'Options' }
     },
-    heading: { control: 'text' },
+    heading: { 
+      name: 'Heading',
+      control: 'text',
+      table: { category: 'Data' },
+    },
     headingLevel: {
+      name: 'Heading level',
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'select' },
+      table: { category: 'Data' },
     },
-    text: { control: 'text' },
-    link: { control: 'text' },
-    linkText: { control: 'text' },
-    linkTitle: { control: 'text' },
-    imageSrc: { control: 'text' },
-    imageAlt: { control: 'text' },
-    animation: { control: 'boolean' },
-    showButton: { control: 'boolean' },
+    text: {
+      name: 'Content',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    link: {
+      name: 'Link url',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    linkText: { 
+      name: 'Link text',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    linkTitle: { 
+      name: 'Link title attribute (when hovering)',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    imageSrc: { 
+      name: 'Image src',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    imageAlt: { 
+      name: 'Image alt text',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    imageName: {
+      table: {
+        disable: true,
+      },
+    },
+    animation: { 
+      name: 'Enable animation',
+      control: 'boolean',
+      table: { category: 'Options' }, 
+    },
+    showButton: { 
+      name: 'Show buttons',
+      control: 'boolean' ,
+      table: { category: 'Options' }, 
+    },
     buttonSize: {
+      name: 'Button size',
       options: ['small', 'medium', 'large'],
       control: { type: 'select' },
+      table: { category: 'Options' }, 
     },
   },
 }

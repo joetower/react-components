@@ -27,13 +27,13 @@ function About() {
           imageName={'6-11-11-29-PM-2023-FUJIFILM-X-T3-DSCF4085'}
           imageAlt={'Sequoia National Park, California'}
       />
-      <Paragraph baseClass='intro__paragraph' style='emphasized' width='content'>
+      <Paragraph baseClass='intro__paragraph' style='emphasized' width='components'>
         <p>
         This is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.
         </p>
       </Paragraph>
 
-      <Paragraph baseClass='intro__paragraph' style='default' width='content'>
+      <Paragraph baseClass='intro__paragraph' style='default' width='components'>
         <p>
         Page transitions and the <strong>quote</strong> component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>.</p>
         <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on thee overlaid shapes.</p>
@@ -74,9 +74,9 @@ function About() {
         twmButtonType='button-link'
       />
 
-      <Quote align="left" baseClass='quote' style='quote' content="Travel is fatal to prejuidce, bigotry, and narrow-mindedness, and many of our people need it sorely on these accounts." author="Mark Twain" theme='quaternary' width='content' />
+      <Quote align="left" baseClass='quote' style='quote' content="Travel is fatal to prejuidce, bigotry, and narrow-mindedness, and many of our people need it sorely on these accounts." author="Mark Twain" theme='quaternary' width='components' />
       
-      <Cards heading='Some Card Examples' text='This card data is coming from a card-data.json file. I will change this someday to be custom content or pull from an API' gridCount='3' animation={true} width='content' showButtons={false}/>
+      <Cards heading='Some Card Examples' text='This card data is coming from a card-data.json file. I will change this someday to be custom content or pull from an API' animation={true} width='inner' showButtons={false}/>
     
         
       <ResponsiveImage 

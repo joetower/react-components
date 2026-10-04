@@ -3,11 +3,6 @@ import { Meta } from '@storybook/react-vite';
 
 // Default export for Storybook
 interface TextBlockWithMediaProps {
-  imageAlignment?: 'left' | 'right'; // Optional prop for callout imageAlignment
-  baseClass?: string | 'text';
-  width?: 'components' | 'inner';
-  animation?: boolean; // Optional prop for animation class
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for callout theme
   twmContent?: string;
   twmHeading?: string;
   twmImageName?: string;
@@ -15,14 +10,20 @@ interface TextBlockWithMediaProps {
   twmButtonLabel?: string;
   twmButtonLink?: string;
   twmButtonTitle?: string;
-  twmButtonType?: 'button' | 'button-link' | 'text-link'; // Optional prop for button type
+  twmButtonType?: 'button' | 'button-link' | 'text-link';
+  imageAlignment?: 'left' | 'right';
+  baseClass?: string | 'text';
+  width?: 'components' | 'inner' | 'wide' | 'full';
+  priority?: 'equal' | 'media' | 'text';
+  animation?: boolean;
 }
 
-export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'components', theme = 'primary', animation, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextBlockWithMediaProps) => (
+export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'components', priority = 'equal', theme = 'primary', animation, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextBlockWithMediaProps) => (
   <TextBlockWithMediaItem 
   imageAlignment={imageAlignment} 
   baseClass='text' 
   width={width} 
+  priority={priority}
   theme={theme}
   animation={animation}
   twmHeading={twmHeading}
@@ -38,10 +39,6 @@ export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'component
 
 
 TextBlockWithMedia.args = {
-  imageAlignment: 'left',
-  width: 'components',
-  theme: 'primary',
-  animation: false,
   baseClass: 'item',
   twmHeading: 'Text with Media',
   twmContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -51,6 +48,11 @@ TextBlockWithMedia.args = {
   twmButtonLink: '#',
   twmButtonTitle: 'Check it out',
   twmButtonType: 'button-link',
+  imageAlignment: 'left',
+  width: 'components',
+  priority: 'equal',
+  theme: 'primary',
+  animation: false,
 };
 
 // Default export for Storybook
@@ -58,29 +60,69 @@ const meta: Meta<typeof TextBlockWithMedia> = {
   title: 'Components/Text Block With Media',
   component: TextBlockWithMedia,
   argTypes: {
-    twmHeading: { control: 'text' },
-    twmContent: { control: 'text' },
-    twmImageAlt: { control: 'text' },
-    twmImageName: { control: 'text' },
-    twmButtonLabel: { control: 'text' },
-    twmButtonLink: { control: 'text' },
-    twmButtonTitle: { control: 'text' },
+    baseClass: {
+      name: 'Text with Media base class',
+      control: 'text', 
+      table: { category: 'Data' }
+    },
+    twmHeading: { 
+      name: 'Heading',
+      control: 'text' , 
+      table: { category: 'Data' }
+    },
+    twmContent: { 
+      name: 'Content',
+      control: 'text' , 
+      table: { category: 'Data' }
+    },
+    twmImageAlt: { 
+      name: 'Img alt text',
+      control: 'text' , 
+      table: { category: 'Data' }
+    },
+    twmImageName: {
+      name: 'Img name',
+      control: 'text' , 
+      table: {
+        disable: true,
+      },
+    },
+    twmButtonLabel: { control: 'text', table: { category: 'Data' } },
+    twmButtonLink: { control: 'text' , table: { category: 'Data' }},
+    twmButtonTitle: { control: 'text' , table: { category: 'Data' }},
     twmButtonType: {
+      name: 'Button type (a, button)',
       options: ['button', 'button-link', 'text-link'],
       control: { type: 'select' },
+      table: { category: 'Data' }
     },
-    animation: { control: 'boolean' },
+    animation: { 
+      name: 'Enable animation',
+      control: 'boolean', 
+      table: { category: 'Options' } 
+    },
     theme: {
-      options: ['primary', 'secondary', 'tertiary', 'quaternary'],
+      name: 'Theme',
+      options: ['primary', 'secondary', 'tertiary', 'quaternary'] , table: { category: 'Options' },
       control: { type: 'select' },
+    },
+    priority: {
+      name: 'Priority',
+      options: ['equal', 'media', 'text'],
+      control: { type: 'select' },
+      table: { category: 'Options' }
     },
     width: {
-      options: ['components', 'inner'],
+      name: 'Width',
+      options: ['components', 'inner', 'wide', 'full'],
       control: { type: 'select' },
+      table: { category: 'Options' }
     },
     imageAlignment: {
+      name: 'Image alignment',
       options: ['left', 'right'],
       control: { type: 'select' },
+      table: { category: 'Options' }
     },
   },
 }

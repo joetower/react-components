@@ -3,7 +3,7 @@ import './text.css';
 interface TextBlockProps {
   style: 'default' | 'emphasized' ;
   baseClass?: string | 'text';
-  width?: 'content' | 'full';
+  width?: 'components' | 'inner' | 'wide' | 'full';
   children?: React.ReactNode;
 }
 

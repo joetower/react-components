@@ -133,15 +133,7 @@ blockquote p {
 }
 
 .blockquote__inner {
-  padding-block-start: var(--space-3xl);
-  padding-block-end: var(--space-3xl);
-  padding-inline-start: var(--space-m);
-  padding-inline-end: var(--space-m);
+  padding-block: var(--space-3xl);
+  padding-inline: var(--space-m);
   position: relative;
-
-  [data-component-width="content"] & {
-    max-width: var(--site-width--components);
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-  }
 }

@@ -30,17 +30,17 @@ export const Banner = (
     );
 
 Banner.args = {
+  buttonSize: 'small',
+  animation: false,
+  theme: 'primary',
+  style: 'default',
   heading: 'This is a heading',
   headingLevel: 'h2',
   text: 'This is a primary banner description.',
-  style: 'default',
   link: '#',
   linkText: 'This is a link text',
   linkTitle: 'This is a link title',
   imageAlt: 'Placeholder Image',
-  buttonSize: 'small',
-  animation: false,  // Set to true to enable animation
-  theme: 'primary', // Default value for banner theme
 };
 // Default export for Storybook
 const meta: Meta<typeof Banner> = {
@@ -51,27 +51,64 @@ const meta: Meta<typeof Banner> = {
   },
   argTypes: {
     theme: {
+      name: 'Theme',
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'select' },
+      table: { category: 'Options' },
     },
-    heading: { control: 'text' },
+    heading: { 
+      name: 'Heading',
+      control: 'text' ,
+      table: { category: 'Data' },
+    },
     headingLevel: {
+      name: 'Heading level',
       options: ['h1','h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'select' },
+      table: { category: 'Data' },
     },
-    text: { control: 'text' },
+    text: {
+      name: 'Content',
+      control: 'text',
+      table: { category: 'Data' },
+    },
     style: {
+      name: 'Style',
       options: ['default', 'compressed'],
       control: { type: 'select' },
+      table: { category: 'Options' },
     },
-    link: { control: 'text' },
-    linkText: { control: 'text' },
-    linkTitle: { control: 'text' },
+    link: { 
+      name: 'Link url',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    linkText: { 
+      name: 'Link text',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    linkTitle: { 
+      name: 'Link title attribute (when hovering)',
+      control: 'text',
+      table: { category: 'Data' },
+    },
     buttonSize: { 
+      name: 'Button size',
       options: ['small', 'medium', 'large'],
       control: { type: 'select' },
+      table: { category: 'Options' },
     },
-    animation: { control: 'boolean' },
+    animation: { 
+      name: 'Enable animation',
+      control: 'boolean',
+      table: { category: 'Options' },
+    },
+    imageAlt: { 
+      name: 'Image alt text',
+      control: 'text',
+      table: { category: 'Data' },
+    },
   },
 }
  

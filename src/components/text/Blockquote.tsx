@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 interface BlockquoteProps {
   style: 'quote' | 'bar' ;
   baseClass?: string | 'blockquote';
-  width?: 'content' | 'full';
+  width?: 'components' | 'inner' | 'wide' | 'full';
   align?: 'left' | 'center' | 'right';
   author?: string;
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';

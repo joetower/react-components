@@ -39,11 +39,11 @@ interface CardCollectionProps {
   cardsLinkUrl?: string;
   cardsLinkText?: string;
   cardsLinkTitle?: string;
-  width?: 'content' | 'full';
+  width?: 'components' | 'inner' | 'wide' | 'full';
   showButtons?: boolean;
 }
 
-const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, cardsHeadingLevel = 'h2', cardHeadingLevel = 'h3', text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'content', showButtons}) => {
+const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, cardsHeadingLevel = 'h2', cardHeadingLevel = 'h3', text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'components', showButtons}) => {
   useEffect(() => {
     const listItems = document.querySelectorAll('.cards__list li');
 

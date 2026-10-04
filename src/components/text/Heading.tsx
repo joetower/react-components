@@ -5,7 +5,7 @@ interface HeadingProps {
   content: string;
   level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   baseClass?: string;
-  width?: 'content' | 'full';
+  width?: 'components' | 'inner' | 'wide' | 'full';
   linkTitle?: string;
   link?: string; 
   linkClass?: string;

@@ -10,9 +10,8 @@ interface CardsProps {
   cardsLinkText: string;
   cardHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // individual card
   animation?: boolean;
-  gridCount?: '2' | '3' | '4';
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
-  width?: 'content' | 'full';
+  width?: 'components' | 'inner' | 'wide' | 'full';
   showButtons?: boolean;
 }
 
@@ -28,11 +27,10 @@ Cards.args = {
   cardsLinkUrl: 'https://example.com',
   animation: false,
   theme: 'primary',
-  width: 'content',
+  width: 'components',
   showButtons: false,
   cardsHeadingLevel: 'h2',
   cardHeadingLevel: 'h3',
-  gridCount: '4',
 };
 
 // Default export for Storybook
@@ -41,29 +39,64 @@ const meta: Meta<CardsProps> = {
   component: CardCollection,
   argTypes: {
     theme: {
+      name: 'Theme',
       options: ['primary', 'secondary', 'tertiary', 'quaternary'],
       control: { type: 'select' },
+      table: { category: 'Options' }
     },
     width: {
-      options: ['content', 'full'],
-      control: { type: 'radio' },
+      name: 'Width',
+      options: ['components', 'inner', 'wide', 'full'],
+      control: { type: 'select' },
+      table: { category: 'Options' }
     },
-    heading: { control: 'text' },
+    animation: { 
+      name: 'Enable animation',
+      control: 'boolean', 
+      table: { category: 'Options' }
+    },
+    showButtons: { 
+      name: 'Show cta button',
+      control: 'boolean',
+      table: { category: 'Options' }
+    },
+    heading: { 
+      name: 'Cards group title (above the card grid)',
+      control: 'text',
+      table: { category: 'Data' }
+    },
     cardsHeadingLevel: {
+      name: 'Cards group heading level (above the card grid)',
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'select' },
+      table: { category: 'Data' }
     },
     cardHeadingLevel: {
+      name: 'Card heading level',
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'select' },
+      table: { category: 'Data' }
     },
-    gridCount: {
-      options: ['2', '3', '4'],
-      control: { type: 'select' },
+    text: { 
+      name: 'Card description',
+      control: 'text',
+      table: { category: 'Data' }
     },
-    text: { control: 'text' },
-    animation: { control: 'boolean' },
-    showButtons: { control: 'boolean' },
+    cardsLinkUrl: {
+      name: 'Card link url',
+      control: 'text',
+      table: { category: 'Data' }   
+    },
+    cardsLinkText: {
+      name: 'Card link text',
+      control: 'text',
+      table: { category: 'Data' }   
+    },
+    cardsLinkTitle: {
+      name: 'Card link title attribute text (when hovering)',
+      control: 'text',
+      table: { category: 'Data' }   
+    },
   },
 }
  

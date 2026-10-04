@@ -65,19 +65,9 @@
   align-items: flex-start;
   gap: var(--space-m);
   margin: 0 auto;
-  max-width: var(--site-width--inner);
-  padding-block-start: var(--space-xl);
-  padding-block-end: var(--space-xl);
+  padding-block: var(--space-xl);
   position: relative;
   z-index: 1;
-}
-
-[data-component-width="inner"] .places__inner {
-  max-width: var(--site-width--inner);
-}
-
-[data-component-width="components"] .places__inner {
-  max-width: var(--site-width--components);
 }
 
 .places__label {

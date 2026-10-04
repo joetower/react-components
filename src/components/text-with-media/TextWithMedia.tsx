@@ -6,23 +6,24 @@ import Button from "../button/Button";
 import './text-with-media.css';
 
 interface TextWithMediaBlockProps {
-  imageAlignment?: 'left' | 'right'; // Optional prop for callout imageAlignment
-  baseClass?: string | 'text';
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   width?: 'components' | 'inner' | 'wide' | 'full';
-  animation?: boolean; // Optional prop for animation class
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary'; // Optional prop for callout theme
+  priority?: 'equal' | 'image' | 'text';
+  imageAlignment?: 'left' | 'right';
+  baseClass?: string | 'text';
+  animation?: boolean;
+  twmHeading?: string;
+  twmContent?: string;
+  twmImageName?: string;
+  twmImageAlt?: string;
+  twmButtonLabel?: string;
+  twmButtonLink?: string;
+  twmButtonTitle?: string;
+  twmButtonType?: 'button' | 'button-link' | 'text-link';
   buttonSize?: 'small' | 'medium' | 'large';
-  twmHeading?: string; // Optional prop for heading
-  twmContent?: string; // Optional prop for image source
-  twmImageName?: string; // Optional prop for image name
-  twmImageAlt?: string; // Optional prop for image alt text
-  twmButtonLabel?: string; // Optional prop for button label
-  twmButtonLink?: string; // Optional prop for button link
-  twmButtonTitle?: string; // Optional prop for button title
-  twmButtonType?: 'button' | 'button-link' | 'text-link'; // Optional prop for button type
 }
 
-export default function TextWithMediaBlock({imageAlignment, baseClass, animation, theme= 'primary', width = 'components', buttonSize, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextWithMediaBlockProps) {
+export default function TextWithMediaBlock({imageAlignment, baseClass, animation, theme= 'primary', width = 'components', priority = 'equal', buttonSize, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextWithMediaBlockProps) {
   useEffect(() => {
     const textWithMedia = document.querySelector('.text-with-media[data-component-animation="true"]');
     
@@ -89,6 +90,7 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
     <div
       data-component-alignment={imageAlignment || 'left'}
       data-component-width={width}
+      data-component-priority={priority}
       data-component-animation={animation}
       data-component-theme={theme || 'primary'}
       className={`text-with-media ${baseClass || ''}`}

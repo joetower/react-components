@@ -5,10 +5,6 @@
 
 .text-block__inner {
   margin-inline: auto;
-  
-  [data-component-width="content"] & {
-    max-width: var(--site-width--components);
-  }
 }
 
 .text-block[data-component-style="emphasized"] p {
