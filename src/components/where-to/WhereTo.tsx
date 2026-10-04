@@ -11,7 +11,7 @@ const flagApiUrl = 'https://flagcdn.com/en/codes.json';
 
 interface WhereToProps {
   baseClass?: string | 'where-to';
-  width?: 'components' | 'inner';
+  width?: 'components' | 'inner' | 'wide' | 'full';
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   flag?: string;
   whereToContent?: string;

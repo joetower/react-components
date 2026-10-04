@@ -8,7 +8,7 @@ import './text-with-media.css';
 interface TextWithMediaBlockProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   width?: 'components' | 'inner' | 'wide' | 'full';
-  priority?: 'equal' | 'image' | 'text';
+  priority?: 'equal' | 'media' | 'text';
   imageAlignment?: 'left' | 'right';
   baseClass?: string | 'text';
   animation?: boolean;
@@ -106,7 +106,7 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
         </div>
         <div className="text-with-media__content">
           <Heading level="h2" baseClass="text-with-media__heading" content={twmHeading || "Text with Media"} />
-          <TextBlock style="default" width="content">
+          <TextBlock style="default" width="components">
             <p>{twmContent || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}</p>
           </TextBlock>
           <div className="text-with-media__actions">

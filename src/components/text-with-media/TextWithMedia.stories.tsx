@@ -14,6 +14,7 @@ interface TextBlockWithMediaProps {
   imageAlignment?: 'left' | 'right';
   baseClass?: string | 'text';
   width?: 'components' | 'inner' | 'wide' | 'full';
+  theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   priority?: 'equal' | 'media' | 'text';
   animation?: boolean;
 }
