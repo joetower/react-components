@@ -37,19 +37,6 @@
   width: 100%;
 }
 
-@media (width <= 1249px) {
-  .cards .cards__list {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
-    padding-inline: var(--space-m);
-  }
-}
-
-@media (width < 768px) {
-  .cards .cards__list {
-    grid-template-columns: 1fr;
-  }
-}
-
 .cards__content {
   display: flex;
   flex-direction: column;

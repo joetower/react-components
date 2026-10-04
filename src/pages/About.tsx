@@ -17,7 +17,7 @@ function About() {
       <Banner
           heading={'About the app'}
           headingLevel={'h1'}
-          text={'This is an animated banner component. Qui incididunt mollit cupidatat occaecat, proident mollit id.'}
+          text={"This is an animated banner component and it is using the 'secondary' theme option. The bottom gradient animates in a bottom-to-top pattern, repeatedly getting taller and shorter."}
           link={'https://github.com/joetower/react-components/tree/main/src/components/banner'}
           linkTitle={'Takes you to github repo for this component'}
           linkText={'Check out the code'}
@@ -29,17 +29,20 @@ function About() {
       />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='components'>
         <p>
-        This is a work in progress and will get updated many times per week until I have full-time employment. After that, updates will be less frequent.
+        This is a work in progress. I originally started this React application and component library while unemployed in March 2025 and have continued refining it since becoming employed again in June 2025.
         </p>
       </Paragraph>
 
       <Paragraph baseClass='intro__paragraph' style='default' width='components'>
-        <p>
-        Page transitions and the <strong>quote</strong> component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>.</p>
-        <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on thee overlaid shapes.</p>
+        <p><strong>Below, I have outlined some details about the site.</strong></p>
+        <ul><li>
+        <p>Page transitions and the <strong>quote</strong> component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>.</p></li>
+        <li>
+        <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on thee overlaid shapes.</p></li>
         
-        <p>The banner, above, is using <code>animation-timeline</code> for the parallax image movement on scroll (desktop-only) and CSS animation for the subtle infinite gradient glow.
-        </p>
+        <li><p>The banner, above, is using <code>animation-timeline</code> for the parallax image movement on scroll (desktop-only) and CSS animation for the subtle infinite gradient glow. <strong>Note:</strong> <code>animation-timeline</code> is available in all browsers except Firefox (<em>as of Oct 2026</em>)</p>
+        </li>
+        </ul>
       </Paragraph>
 
       <TextWithMediaBlock
