@@ -69,7 +69,7 @@
   display: flex;
   flex-flow: row wrap;
   gap: var(--site-global--gap--wide);
-  padding: var(--space-xl) var(--space-m);
+  padding: var(--space-xl) var(--space-l);
   background-color: var(--color--background);
   width: 100%;
   max-width: var(--site-width--inner);

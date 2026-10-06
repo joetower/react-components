@@ -134,6 +134,6 @@ blockquote p {
 
 .blockquote__inner {
   padding-block: var(--space-3xl);
-  padding-inline: var(--space-m);
+  padding-inline: var(--space-l);
   position: relative;
 }

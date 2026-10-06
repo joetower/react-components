@@ -13,7 +13,7 @@
   width: 100%;
 
   @media screen and (max-width: 1350px) {
-    padding-inline: var(--space-m);
+    padding-inline: var(--space-l);
   } 
 }
 
@@ -23,7 +23,7 @@
   width: 100%;
   
   @media screen and (max-width: 1350px) {
-    padding-inline: var(--space-m);
+    padding-inline: var(--space-l);
   } 
 }
 
