@@ -38,10 +38,11 @@ function About() {
         <ul><li>
         <p>Page transitions and the <strong>quote</strong> component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>.</p></li>
         <li>
-        <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on thee overlaid shapes.</p></li>
+        <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on the overlaid shapes.</p></li>
         
-        <li><p>The banner, above, is using <code>animation-timeline</code> for the parallax image movement on scroll (desktop-only) and CSS animation for the subtle infinite gradient glow. <strong>Note:</strong> <code>animation-timeline</code> is available in all browsers except Firefox (<em>as of Oct 2026</em>)</p>
+        <li><p>The banner, above, is using <code>animation-timeline</code> for the parallax image movement on scroll (desktop-only) and CSS animation for the subtle infinite gradient glow.</p>
         </li>
+        <li><strong>Note:</strong> <code>animation-timeline</code> is available in all browsers except Firefox (<em>as of Oct 2026</em>) so Firefox is sad without the features, but hey, progressive enhancement.</li>
         </ul>
       </Paragraph>
 

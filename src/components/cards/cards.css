@@ -7,9 +7,9 @@
 .cards__header__inner {
   display: flex;
   flex-flow: column nowrap;
-  gap: var(--site-global--gap);
+  gap: var(--site-global--gap--wide);
   margin-inline: auto;
-  padding-block-start: var(--space-m);
+  padding-block-start: var(--space-xl);
   width: 100%;
 
   @media screen and (max-width: 1350px) {
@@ -65,5 +65,5 @@
 }
 
 .cards + figure{
-  margin-block-start: var(--space-l);
+  margin-block-start: var(--space-2xl);
 }

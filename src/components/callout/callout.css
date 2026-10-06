@@ -4,6 +4,10 @@
   background-color: var(--color--background);
 }
 
+.callout + figure {
+  margin-block-start: var(--space-xl);
+}
+
 .callout::after {
   content: '';
   display: block;
@@ -38,7 +42,7 @@
 .callout__content {
   display: flex;
   flex-flow: column nowrap;
-  gap: var(--site-global--gap--type);
+  gap: var(--site-global--gap--wide);
   padding: var(--space-2xl) var(--space-m);
   max-width: var(--cta-width--content);
   margin-inline-start: auto;

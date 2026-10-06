@@ -17,7 +17,7 @@ main {
 }
 
 main.page {
-  padding-block-start: var(--space-xl);
+  padding-block-start: var(--space-2xl);
   padding-block-end: var(--space-m);
 }
 

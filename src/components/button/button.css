@@ -4,16 +4,16 @@
   cursor: pointer;
   font-size: var(--site-global--font-size--button);
   font-weight: var(--site-global--font-weight--bold);
-  border: var(--site-global--border-width--thick) solid transparent;
+  border: var(--site-global--border-width--thin) solid transparent;
   display: inline-block;
   color: var(--color--button-text);
-  padding: var(--space-s) var(--space-m);
+  padding: var(--space-m);
   text-decoration: none;
 }
 
 .button[data-component-size="small"] {
   font-size: var(--site-global--font-size--button--small);
-  padding: var(--space-2xs) var(--space-s);
+  padding: var(--space-xs) var(--space-s);
 }
 
 .button[data-component-size="large"] {

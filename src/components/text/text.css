@@ -43,17 +43,18 @@
 }
 
 .text-block p + p,
+.text-block p + ul,
 .text-block + .text-block {
-  margin-block-start: var(--space-s);
+  margin-block-start: var(--space-m);
+}
+
+.text-block ul li + li {
+  margin-block-start: var(--space-m);
 }
 
 .text-block + .text-with-media,
 .text-block + .blockquote__container {
-  margin-block-start: var(--space-xl);
-}
-
-.banner + .text-block {
-  margin-block-start: var(--space-xl);
+  margin-block-start: var(--space-2xl);
 }
 
 @media screen and (max-width: 1350px) {

@@ -65,7 +65,7 @@ blockquote p {
 .blockquote__figure {
   display: flex;
   flex-flow: column wrap;
-  gap: var(--site-global--gap);
+  gap: var(--site-global--gap--wide);
   margin: 0;
 
   [data-component-style="bar"][data-component-align="left"] & {

@@ -50,9 +50,10 @@
 	--site-navigation--spacing-horizontal: 0.75rem;
 	--site-navigation--spacing-horizontal---half: 0.375rem;
 
-	--site-global--gap: 0.5rem;
-	--site-global--gap--type: 1rem;
-	--site-global--gap--wide: 2rem;
+	--site-global--gap: clamp(0.5rem, 0.4489rem + 0.2273vw, 0.625rem);
+	--site-global--gap--type: clamp(0.75rem, 0.6733rem + 0.3409vw, 0.9375rem);
+	--site-global--gap--mid: clamp(1.5rem, 1.3466rem + 0.6818vw, 1.875rem);
+	--site-global--gap--wide: clamp(1.5rem, 1.3466rem + 0.6818vw, 1.875rem);
 
 	/* Site focus outline */
 	--site-focus-outline--width: 0.125rem; /* 2px */
@@ -60,6 +61,7 @@
 	--site-focus-outline--offset: 0.25rem;
 
 	/* Borders */
+	--site-global--border-width--thin: 0.0625rem; /* 1px */
 	--site-global--border-width: 0.125rem; /* 2px */
 	--site-global--border-width--thick: 0.25rem; /* 4px */
 	--site-global--border-width--thicker: 0.375rem; /* 6px */
@@ -269,6 +271,16 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  
+  + .text-block[data-component-style="emphasized"] {
+	  margin-block-start: var(--space-m);
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	text-box-trim: trim-both;
+	text-box-edge: cap alphabetic;
+	line-height: var(--site-global--line-height--base);
 }
 
 h1 {
