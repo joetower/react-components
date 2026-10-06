@@ -28,7 +28,7 @@ export default function Blockquote({style, baseClass, content, width = 'full', a
             <motion.blockquote
               initial={{ opacity: 0, y: -100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.8 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.45 }}
               className={`blockquote ${baseClass || ''}`}
             >
@@ -37,7 +37,7 @@ export default function Blockquote({style, baseClass, content, width = 'full', a
             <motion.figcaption
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.8 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.45 }}
               className={`blockquote__caption ${baseClass || ''}`}
             >
