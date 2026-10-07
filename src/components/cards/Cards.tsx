@@ -31,7 +31,6 @@ const cardsDataTyped: CardsData = {
 interface CardCollectionProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   animation?: boolean;
-  gridCount?: '2' | '3' | '4';
   heading: string;
   cardsHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   cardHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -43,7 +42,7 @@ interface CardCollectionProps {
   showButtons?: boolean;
 }
 
-const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animation, heading, cardsHeadingLevel = 'h2', cardHeadingLevel = 'h3', text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'components', showButtons}) => {
+const CardCollection: React.FC<CardCollectionProps> = ({theme, animation, heading, cardsHeadingLevel = 'h2', cardHeadingLevel = 'h3', text, cardsLinkUrl, cardsLinkTitle, cardsLinkText, width = 'components', showButtons}) => {
   useEffect(() => {
     const listItems = document.querySelectorAll('.cards__list li');
 
