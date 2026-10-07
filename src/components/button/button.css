@@ -7,7 +7,7 @@
   border: var(--site-global--border-width--thin) solid transparent;
   display: inline-block;
   color: var(--color--button-text);
-  padding: var(--space-m);
+  padding: var(--space-s) var(--space-m);
   text-decoration: none;
 }
 

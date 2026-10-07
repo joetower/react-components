@@ -7,6 +7,17 @@
 .responsive-image.loaded {
   filter: blur(0);
   opacity: 1;
+  
+  .text-with-media__media & {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.responsive-image__wrapper {
+  .text-with-media__media & {
+    height: 100%;
+  }
 }
 
 picture {
@@ -17,6 +28,11 @@ picture {
   max-width: var(--site-width--wide);
   margin-inline-start: auto;
   margin-inline-end: auto;
+  
+  .text-with-media__media & {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 figure {

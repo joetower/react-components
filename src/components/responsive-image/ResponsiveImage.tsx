@@ -91,7 +91,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
             {figcaption}
           </motion.figure>
         ) : (
-          <motion.div {...fadeUp}>{picture}</motion.div>
+          <motion.div {...fadeUp} className="responsive-image__wrapper">{picture}</motion.div>
         ))}
 
       {prefersReducedMotion &&

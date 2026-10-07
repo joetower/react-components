@@ -1,7 +1,13 @@
+.cards {
+  background-color: var(--color--background);
+  padding-block-end: var(--space-2xl);
+}
+
 .cards__header {
   display: flex;
   width: 100%;
   position: relative;
+  background-color: var(--color--background);
 }
 
 .cards__header__inner {
@@ -9,7 +15,7 @@
   flex-flow: column nowrap;
   gap: var(--site-global--gap--wide);
   margin-inline: auto;
-  padding-block-start: var(--space-xl);
+  padding-block-start: var(--space-2xl);
   width: 100%;
 
   @media screen and (max-width: 1350px) {
@@ -62,8 +68,4 @@
 
 .cards__content > *:last-child {
   margin-bottom: var(--space-m);
-}
-
-.cards + figure{
-  margin-block-start: var(--space-2xl);
 }

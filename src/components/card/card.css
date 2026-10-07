@@ -5,7 +5,8 @@
   height: 100%;
   color: var(--color--text);
   max-width: var(--card-width--content);
-  border: var(--site-global--border-width) solid var(--site-global--color-basic-gray-90);
+  border: var(--site-global--border-width) solid var(--color--background-accent-2);
+  background-color: var(--color--background);
 }
 
 .card__image {

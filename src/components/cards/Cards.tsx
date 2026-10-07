@@ -86,7 +86,7 @@ const CardCollection: React.FC<CardCollectionProps> = ({theme, gridCount, animat
           </div>
         </div>
       </div>
-      <div className="cards" data-grid-count={gridCount || 4} data-component-width={width} data-component-card-show-buttons={showButtons}>
+      <div className="cards" data-component-theme={theme} data-component-width={width} data-component-card-show-buttons={showButtons}>
         <div className='cards__inner'>
           <ul className="cards__list">
             {cardsDataTyped.cards.map((card: CardData) => (
