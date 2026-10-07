@@ -11,7 +11,6 @@ a.heading__link {
 
 @media screen and (max-width: 1070px) {
   main.page .intro__heading {
-    padding-inline-start: var(--space-m);
-    padding-inline-end: var(--space-m);
+    padding-inline: var(--space-l);
   }
 }
