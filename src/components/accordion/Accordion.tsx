@@ -1,5 +1,7 @@
 import { useId, useRef, useState } from 'react';
 import type { KeyboardEvent, ReactNode } from 'react';
+import Heading from '../text/Heading';
+import TextBlock from '../text/TextBlock';
 import './accordion.css';
 
 export interface AccordionItem {
@@ -15,12 +17,21 @@ export interface AccordionItem {
 
 interface AccordionBaseProps {
   items: AccordionItem[];
-  headingLevel: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  /** Optional heading above the whole group of items */
+  groupHeading?: string;
+  groupHeadingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  /** Optional intro text below the group heading. Inline content only (text, links, <code>), since it's wrapped in a <p>. */
+  groupContent?: ReactNode;
+  /** Each item's trigger button is rendered inside a heading of this level. Pick the level that fits the page outline. */
+  itemHeadingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  /** 'single' keeps at most one panel open. 'multiple' lets any number stay open. */
   mode?: 'single' | 'multiple';
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  /** Animate opening and closing (still respects prefers-reduced-motion) */
   animation?: boolean;
   width?: 'components' | 'inner' | 'wide' | 'full';
   baseClass?: string;
+  /** Called with the next list of open ids whenever the user toggles an item */
   onOpenChange?: (openIds: string[]) => void;
 }
 
@@ -50,7 +61,10 @@ export type AccordionProps = UncontrolledProps | ControlledProps;
 export default function Accordion(props: AccordionProps) {
   const {
     items,
-    headingLevel,
+    groupHeading,
+    groupHeadingLevel = 'h2',
+    groupContent,
+    itemHeadingLevel = 'h3',
     mode = 'single',
     theme,
     animation,
@@ -61,7 +75,7 @@ export default function Accordion(props: AccordionProps) {
     defaultOpenIds,
   } = props;
 
-  const Heading = headingLevel;
+  const ItemHeading = itemHeadingLevel;
   const baseId = useId();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -133,6 +147,20 @@ export default function Accordion(props: AccordionProps) {
       data-component-animation={animation ? 'true' : 'false'}
       data-component-width={width}
     >
+      {(groupHeading || groupContent) && (
+        <div className="accordion__header">
+          <div className="accordion__header__inner">
+            {groupHeading && (
+              <Heading level={groupHeadingLevel} baseClass="accordion__group-title" content={groupHeading} />
+            )}
+            {groupContent && (
+              <TextBlock style="default" baseClass="accordion__group-paragraph">
+                <p>{groupContent}</p>
+              </TextBlock>
+            )}
+          </div>
+        </div>
+      )}
       <div className="accordion__inner" ref={containerRef} onKeyDown={handleKeyDown}>
         {items.map((item) => {
           const isOpen = openIds.includes(item.id);
@@ -141,7 +169,7 @@ export default function Accordion(props: AccordionProps) {
 
           return (
             <div className="accordion__item" key={item.id} data-state={isOpen ? 'open' : 'closed'}>
-              <Heading className="accordion__heading">
+              <ItemHeading className="accordion__heading">
                 <button
                   type="button"
                   id={triggerId}
@@ -155,7 +183,7 @@ export default function Accordion(props: AccordionProps) {
                   <span className="accordion__title">{item.title}</span>
                   <span className="accordion__icon" aria-hidden="true" />
                 </button>
-              </Heading>
+              </ItemHeading>
               <div
                 id={panelId}
                 className="accordion__panel"

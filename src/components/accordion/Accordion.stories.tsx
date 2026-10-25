@@ -28,7 +28,7 @@ const meta = {
   component: Accordion,
   args: {
     items: sampleItems,
-    headingLevel: 'h3',
+    itemHeadingLevel: 'h3',
     mode: 'single',
     theme: 'primary',
     animation: true,
@@ -41,8 +41,24 @@ const meta = {
       control: 'object',
       table: { category: 'Data' },
     },
-    headingLevel: {
-      name: 'Heading level',
+    groupHeading: {
+      name: 'Group heading',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    groupHeadingLevel: {
+      name: 'Group heading level',
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      control: { type: 'select' },
+      table: { category: 'Data' },
+    },
+    groupContent: {
+      name: 'Group content',
+      control: 'text',
+      table: { category: 'Data' },
+    },
+    itemHeadingLevel: {
+      name: 'Item heading level',
       options: ['h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'select' },
       table: { category: 'Data' },
@@ -93,6 +109,22 @@ export const InitiallyOpen: Story = {
   args: { defaultOpenIds: ['controlled'] },
 };
 
+/** An optional heading and intro text above the items, like the heading block on Cards. */
+export const WithGroupHeading: Story = {
+  args: {
+    groupHeading: 'What is React state?',
+    groupHeadingLevel: 'h2',
+    groupContent: 'Short answers to common questions, one panel at a time.',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // The group heading sits above the item headings in the page outline
+    await expect(canvas.getByRole('heading', { level: 2, name: 'What is React state?' })).toBeInTheDocument();
+    await expect(canvas.getAllByRole('heading', { level: 3 })).toHaveLength(3);
+  },
+};
+
 /** Any number of panels can stay open. */
 export const AllowMultiple: Story = {
   args: { mode: 'multiple', defaultOpenIds: ['state', 'a11y'] },
@@ -112,7 +144,7 @@ export const Themes: Story = {
         <Accordion
           key={theme}
           items={args.items}
-          headingLevel={args.headingLevel}
+          itemHeadingLevel={args.itemHeadingLevel}
           mode={args.mode}
           animation={args.animation}
           width={args.width}
@@ -124,7 +156,7 @@ export const Themes: Story = {
   ),
 };
 
-type ControlledExampleProps = Pick<AccordionProps, 'items' | 'headingLevel' | 'theme' | 'animation' | 'width'>;
+type ControlledExampleProps = Pick<AccordionProps, 'items' | 'itemHeadingLevel' | 'theme' | 'animation' | 'width'>;
 
 /**
  * The parent owns the open state. The Accordion only reports what the user wants
@@ -157,7 +189,7 @@ export const Controlled: Story = {
   render: (args) => (
     <ControlledExample
       items={args.items}
-      headingLevel={args.headingLevel}
+      itemHeadingLevel={args.itemHeadingLevel}
       theme={args.theme}
       animation={args.animation}
       width={args.width}
@@ -202,7 +234,7 @@ export const SinglePanelAtATime: Story = {
   },
 };
 
-export const KeyboardNavigationTest: Story = {
+export const KeyboardNavigation: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const triggers = canvas.getAllByRole('button');

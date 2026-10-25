@@ -10,6 +10,22 @@
   }
 }
 
+.accordion__header__inner {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--site-global--gap--wide);
+  margin-block-end: var(--space-m);
+}
+
+.accordion__group-title {
+  color: var(--color--title);
+  margin: 0;
+}
+
+.accordion__group-paragraph p {
+  margin: 0;
+}
+
 .accordion__item {
   border-block-end: var(--site-global--border-width--thin) solid var(--color--border);
 }

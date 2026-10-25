@@ -122,15 +122,10 @@ function About() {
 
       <Quote align="left" baseClass='quote' style='quote' content="Travel is fatal to prejuidce, bigotry, and narrow-mindedness, and many of our people need it sorely on these accounts." author="Mark Twain" theme='quaternary' width='components' />
       
-      <Cards heading='Some Card Examples' text='This card data is coming from a card-data.json file. I will change this someday to be custom content or pull from an API' animation={true} width='inner' showButtons={false}/>
-    
-      <Heading level='h2' baseClass='intro__heading' content='What I learned building the Accordion' />
-      <Paragraph baseClass='intro__paragraph' style='default' width='components'>
-        <p>
-          This section is the Accordion component, the first one in the library built around React state. The code is in <a href="https://github.com/joetower/react-components/tree/main/src/components/accordion" title="Accordion code on GitHub (opens in new tab/window)" target='_blank'>the repo &#8599;</a>.
-        </p>
-      </Paragraph>
       <Accordion
+        groupHeading='Foundational accordion component'
+        groupHeadingLevel='h2'
+        groupContent={<>This section is the Accordion component, the first one in the library built around React state. The code is in <a href="https://github.com/joetower/react-components/tree/main/src/components/accordion" title="Accordion code on GitHub (opens in new tab/window)" target='_blank'>the repo &#8599;</a>.</>}
         items={accordionLearnings}
         headingLevel='h3'
         mode='multiple'
@@ -139,6 +134,9 @@ function About() {
         width='components'
         defaultOpenIds={['state-shape']}
       />
+      
+      <Cards heading='Some Card Examples' text='This card data is coming from a card-data.json file. I will change this someday to be custom content or pull from an API' animation={true} width='inner' showButtons={false}/>
+  
 
       <ResponsiveImage 
       imageName="6-08-11-29-AM-2023-FUJIFILM-X-T3-DSCF3413"
