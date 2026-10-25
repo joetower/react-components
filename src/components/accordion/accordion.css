@@ -1,0 +1,146 @@
+.accordion {
+  --accordion-duration: calc(var(--site-global--transition-timing) / 2);
+  color: var(--color--text);
+  margin-block: var(--space-xl);
+}
+
+@media screen and (max-width: 1070px) {
+  .accordion {
+    padding-inline: var(--space-l);
+  }
+}
+
+.accordion__header__inner {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--site-global--gap--wide);
+  margin-block-end: var(--space-m);
+}
+
+.accordion__group-title {
+  color: var(--color--title);
+  margin: 0;
+}
+
+.accordion__group-paragraph p {
+  margin: 0;
+}
+
+.accordion__item {
+  border-block-end: var(--site-global--border-width--thin) solid var(--color--border);
+}
+
+.accordion__item:first-child {
+  border-block-start: var(--site-global--border-width--thin) solid var(--color--border);
+}
+
+/* The heading only exists to give the button a place in the page outline */
+.accordion__heading {
+  margin: 0;
+  font-size: inherit;
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--site-global--gap--wide);
+  width: 100%;
+  padding: var(--space-s) var(--space-xs);
+  border: 0;
+  background: transparent;
+  color: var(--color--title);
+  font: inherit;
+  font-size: var(--site-global--font-size--medium);
+  font-weight: var(--site-global--font-weight--bold);
+  text-align: start;
+  cursor: pointer;
+}
+
+.accordion__trigger:hover {
+  background-color: var(--color--background);
+  color: var(--color--title-hover);
+}
+
+.accordion__trigger:focus-visible {
+  outline: var(--site-focus-outline--width) solid var(--site-focus-outline--color);
+  outline-offset: calc(var(--site-focus-outline--width) * -1);
+}
+
+.accordion__trigger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.accordion__trigger:disabled:hover {
+  background-color: transparent;
+  color: var(--color--title);
+}
+
+/* Chevron drawn with borders, so there's no icon asset to load */
+.accordion__icon {
+  flex: 0 0 auto;
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  border-inline-end: var(--site-global--border-width) solid currentColor;
+  border-block-end: var(--site-global--border-width) solid currentColor;
+  transform: translateY(-25%) rotate(45deg);
+}
+
+.accordion__trigger[aria-expanded="true"] .accordion__icon {
+  transform: translateY(25%) rotate(225deg);
+}
+
+/*
+ * Animating height: auto isn't possible, but a grid row can animate between 0fr and 1fr.
+ * The clip wrapper needs min-height: 0 and overflow: hidden so the content can shrink to nothing.
+ * Hiding with visibility (plus `inert` in the markup) keeps collapsed content out of the tab order
+ * and the accessibility tree, even though it's still in the DOM.
+ */
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+}
+
+.accordion__panel[data-state="open"] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+
+.accordion__panel-clip {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.accordion__content {
+  padding: var(--space-2xs) var(--space-xs) var(--space-s);
+}
+
+.accordion__content > :first-child {
+  margin-block-start: 0;
+}
+
+.accordion__content > :last-child {
+  margin-block-end: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accordion[data-component-animation="true"] .accordion__icon {
+    transition: transform var(--accordion-duration) ease-in-out;
+  }
+
+  /* Closing: wait for the row to finish collapsing before hiding */
+  .accordion[data-component-animation="true"] .accordion__panel {
+    transition:
+      grid-template-rows var(--accordion-duration) ease-in-out,
+      visibility 0s linear var(--accordion-duration);
+  }
+
+  /* Opening: become visible immediately, then expand */
+  .accordion[data-component-animation="true"] .accordion__panel[data-state="open"] {
+    transition:
+      grid-template-rows var(--accordion-duration) ease-in-out,
+      visibility 0s linear 0s;
+  }
+}
