@@ -5,7 +5,6 @@ import Cards from '../components/cards/Cards';
 import Quote from '../components/text/Blockquote';
 import TextWithMediaBlock from '../components/text-with-media/TextWithMedia';
 import Banner from '../components/banner/Banner';
-import Heading from '../components/text/Heading';
 import Accordion from '../components/accordion/Accordion';
 import type { AccordionItem } from '../components/accordion/Accordion';
 
@@ -127,7 +126,7 @@ function About() {
         groupHeadingLevel='h2'
         groupContent={<>This section is the Accordion component, the first one in the library built around React state. The code is in <a href="https://github.com/joetower/react-components/tree/main/src/components/accordion" title="Accordion code on GitHub (opens in new tab/window)" target='_blank'>the repo &#8599;</a>.</>}
         items={accordionLearnings}
-        headingLevel='h3'
+        itemHeadingLevel='h3'
         mode='multiple'
         theme='secondary'
         animation={true}
