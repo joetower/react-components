@@ -1,0 +1,94 @@
+.tabs {
+  color: var(--color--text);
+  margin-block: var(--space-xl);
+}
+
+@media screen and (max-width: 1070px) {
+  .tabs {
+    padding-inline: var(--space-l);
+  }
+}
+
+.tabs[data-orientation="vertical"] .tabs__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m);
+}
+
+.tabs__list {
+  display: flex;
+  flex-flow: row wrap;
+  border-block-end: var(--site-global--border-width--thin) solid var(--color--border);
+}
+
+.tabs[data-orientation="vertical"] .tabs__list {
+  flex: 0 0 auto;
+  flex-direction: column;
+  border-block-end: 0;
+  border-inline-end: var(--site-global--border-width--thin) solid var(--color--border);
+}
+
+.tabs__tab {
+  padding: var(--space-xs) var(--space-s);
+  border: 0;
+  background: transparent;
+  color: var(--color--title);
+  font: inherit;
+  font-size: var(--site-global--font-size--base);
+  font-weight: var(--site-global--font-weight--medium);
+  text-align: start;
+  cursor: pointer;
+  /* The indicator is a border, so selecting a tab doesn't shift the layout */
+  border-block-end: var(--site-global--border-width--thick) solid transparent;
+  margin-block-end: calc(var(--site-global--border-width--thin) * -1);
+}
+
+.tabs[data-orientation="vertical"] .tabs__tab {
+  border-block-end: 0;
+  margin-block-end: 0;
+  border-inline-end: var(--site-global--border-width--thick) solid transparent;
+  margin-inline-end: calc(var(--site-global--border-width--thin) * -1);
+}
+
+.tabs__tab:hover {
+  background-color: var(--color--background);
+  color: var(--color--title-hover);
+}
+
+.tabs__tab[aria-selected="true"] {
+  border-color: var(--color--border);
+  font-weight: var(--site-global--font-weight--bold);
+}
+
+.tabs__tab:focus-visible,
+.tabs__panel:focus-visible {
+  outline: var(--site-focus-outline--width) solid var(--site-focus-outline--color);
+  outline-offset: calc(var(--site-focus-outline--width) * -1);
+}
+
+.tabs__tab:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tabs__tab:disabled:hover {
+  background-color: transparent;
+  color: var(--color--title);
+}
+
+.tabs__panel {
+  flex: 1 1 auto;
+  padding: var(--space-s) var(--space-xs);
+}
+
+.tabs__panel[hidden] {
+  display: none;
+}
+
+.tabs__panel > :first-child {
+  margin-block-start: 0;
+}
+
+.tabs__panel > :last-child {
+  margin-block-end: 0;
+}
