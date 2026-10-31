@@ -183,7 +183,7 @@ function TabPanel({ value, children }: TabPanelProps) {
     <div
       role="tabpanel"
       id={getPanelId(baseId, value)}
-      className="tabs__panel"
+      className="tabs__panel text-block"
       aria-labelledby={getTabId(baseId, value)}
       // Panels stay mounted but hidden, so their internal state (a half-filled form, say) survives tab switches
       hidden={!isSelected}

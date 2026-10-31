@@ -7,6 +7,7 @@ import TextWithMediaBlock from '../components/text-with-media/TextWithMedia';
 import Banner from '../components/banner/Banner';
 import Accordion from '../components/accordion/Accordion';
 import type { AccordionItem } from '../components/accordion/Accordion';
+import Tabs from '../components/tabs/Tabs';
 
 const accordionLearnings: AccordionItem[] = [
   {
@@ -76,16 +77,66 @@ function About() {
 
       <Paragraph baseClass='intro__paragraph' style='default' width='components'>
         <p><strong>Below, I have outlined some details about the site.</strong></p>
-        <ul><li>
-        <p>Page transitions and the <strong>quote</strong> component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>.</p></li>
-        <li>
-        <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on the overlaid shapes.</p></li>
-        
-        <li><p>The banner, above, is using <code>animation-timeline</code> for the parallax image movement on scroll (desktop-only) and CSS animation for the subtle infinite gradient glow.</p>
-        </li>
-        <li><strong>Note:</strong> <code>animation-timeline</code> is available in all browsers except Firefox (<em>as of Oct 2026</em>) so Firefox is sad without the features, but hey, progressive enhancement.</li>
-        </ul>
       </Paragraph>
+      
+      <Tabs defaultValue='animation' theme='tertiary' width='components'>
+        <Tabs.List aria-label='Details about how the site is built'>
+          <Tabs.Tab value='animation'>Animation</Tabs.Tab>
+          <Tabs.Tab value='state'>State</Tabs.Tab>
+          <Tabs.Tab value='accessibility'>Accessibility</Tabs.Tab>
+          <Tabs.Tab value='modularity'>Modularity and personalization</Tabs.Tab>
+        </Tabs.List>
+      
+        <Tabs.Panel value='animation'>
+          <ul>
+            <li>
+              <p>Page transitions and the <strong>quote</strong> component animations are handled by <a href="https://motion.dev" title="Framer Motion website - opens in new window" target='_blank'>Framer Motion</a>.</p>
+            </li>
+            <li>
+              <p>The animation on <strong>cards</strong> and <strong>text with media</strong> is handled by CSS animations with useEffect and vanilla JS. <strong>text with media</strong> also uses the <code>animation-timeline</code> for parallax movement on the overlaid shapes.</p>
+            </li>
+            <li>
+              <p>The banner, above, is using <code>animation-timeline</code> for the parallax image movement on scroll (desktop-only) and CSS animation for the subtle infinite gradient glow.</p>
+            </li>
+            <li>
+              <p><strong>Note:</strong> <code>animation-timeline</code> is available in all browsers except Firefox (<em>as of Oct 2026</em>) so Firefox is sad without the features, but hey, progressive enhancement.</p>
+            </li>
+          </ul>
+        </Tabs.Panel>
+      
+        <Tabs.Panel value='state'>
+          <ul>
+            <li>
+              <p>The <strong>accordion</strong> and <strong>tabs</strong> components can run on their own state or be controlled by a parent. The shared logic lives in a <code>useControllableState</code> hook.</p>
+            </li>
+            <li>
+              <p>The tabs you're using right now are a compound component: <code>Tabs.List</code>, <code>Tabs.Tab</code>, and <code>Tabs.Panel</code> share the selected tab through React Context.</p>
+            </li>
+          </ul>
+        </Tabs.Panel>
+      
+        <Tabs.Panel value='accessibility'>
+          <ul>
+            <li>
+              <p>Try the arrow keys, Home, and End on these tabs. Only the selected tab is in the Tab order (a roving tabindex), and each panel is linked to its tab with <code>aria-labelledby</code>.</p>
+            </li>
+            <li>
+              <p>Animations are switched off for people who prefer reduced motion.</p>
+            </li>
+          </ul>
+        </Tabs.Panel>
+        
+        <Tabs.Panel value='modularity'>
+          <ul>
+            <li>
+              <p>Components are meant to be rearrangeable on a page to effectively tell a story. Their order on the page is not meant to be prescriptive or resemble a "template" to follow.</p>
+            </li>
+            <li>
+              <p>To make components more flexible, several "dials" (options) are presented. For example: <code>width</code>, <code>theme</code>, <code>animation</code>.</p>
+            </li>
+          </ul>
+        </Tabs.Panel>
+      </Tabs>
 
       <TextWithMediaBlock
         imageAlignment='left'
@@ -122,7 +173,7 @@ function About() {
       <Quote align="left" baseClass='quote' style='quote' content="Travel is fatal to prejuidce, bigotry, and narrow-mindedness, and many of our people need it sorely on these accounts." author="Mark Twain" theme='quaternary' width='components' />
       
       <Accordion
-        groupHeading='Foundational accordion component'
+        groupHeading='Accordion component'
         groupHeadingLevel='h2'
         groupContent={<>This section is the Accordion component, the first one in the library built around React state. The code is in <a href="https://github.com/joetower/react-components/tree/main/src/components/accordion" title="Accordion code on GitHub (opens in new tab/window)" target='_blank'>the repo &#8599;</a>.</>}
         items={accordionLearnings}

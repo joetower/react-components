@@ -52,6 +52,7 @@
 
 .tabs__tab:hover {
   background-color: var(--color--background);
+  border-color: var(--color--border);
   color: var(--color--title-hover);
 }
 

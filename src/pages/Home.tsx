@@ -13,7 +13,7 @@ function Home() {
       <meta name="keywords" content="Vite, React, component library, example site" />
       <Heading level='h1' baseClass='intro__heading' content='Application example using Vite + React' />
       <Paragraph baseClass='intro__paragraph' style='emphasized' width='components'>
-        <p>This site exists to use a set of <a href="/storybook" title="Storybook Components (opens in new tab/window)" target='_blank'>custom React components &#8599;</a> that I developed and continue to refine &amp; extend. The component library is meant to be an accessibility-focused starting point for new projects and not fully developed styled components.</p>
+        <p>This site exists to use a set of <a href="/storybook" title="Storybook Components (opens in new tab/window)" target='_blank'>custom React components &#8599;</a> that I developed and continue to refine &amp; extend. The component library is meant to be an accessibility-focused starting point for new projects and not intended to be a fully developed set of styled components.</p>
       </Paragraph>
         <Paragraph baseClass='intro__paragraph' style='default' width='components'>
             <p>This site also showcases my photography work from <a href="https://joetower.com/articles/?category=travel" title="Travel category of articles on my website (opens in new tab/window)" target='_blank'>my travels &#8599;</a>.</p>
