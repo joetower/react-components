@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, fn, userEvent, within } from 'storybook/test';
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test';
 import Tabs from './Tabs';
 import Button from '../button/Button';
 
@@ -241,5 +241,122 @@ export const DisabledTabIsSkipped: Story = {
 
     await userEvent.keyboard('{ArrowRight}');
     await expect(gear).toHaveFocus();
+  },
+};
+
+const manyTabs = Array.from({ length: 12 }, (_, index) => ({
+  value: `tab-${index + 1}`,
+  label: `Destination ${index + 1}`,
+}));
+
+/** A narrow container, so the tabs have to overflow. */
+const narrowContainer: NonNullable<Story['decorators']> = [
+  (StoryComponent) => (
+    <div style={{ maxWidth: '28rem' }}>
+      <StoryComponent />
+    </div>
+  ),
+];
+
+const overflowingTabs = (
+  <>
+    <Tabs.List aria-label="Destinations">
+      {manyTabs.map((tab) => (
+        <Tabs.Tab key={tab.value} value={tab.value}>
+          {tab.label}
+        </Tabs.Tab>
+      ))}
+    </Tabs.List>
+    {manyTabs.map((tab) => (
+      <Tabs.Panel key={tab.value} value={tab.value}>
+        <p>Content for {tab.label}.</p>
+      </Tabs.Panel>
+    ))}
+  </>
+);
+
+const getScrollArrows = (canvasElement: HTMLElement) => ({
+  start: canvasElement.querySelector<HTMLButtonElement>('.tabs__scroll--start')!,
+  end: canvasElement.querySelector<HTMLButtonElement>('.tabs__scroll--end')!,
+});
+
+/**
+ * When the tabs don't fit, they scroll sideways instead of wrapping. An arrow appears on
+ * each side where tabs are hidden. The arrows are for mouse and touch: keyboard users
+ * already have the arrow keys, which also scroll focused tabs into view.
+ */
+export const OverflowingTabs: Story = {
+  args: { defaultValue: 'tab-1', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const list = canvas.getByRole('tablist');
+    const { start, end } = getScrollArrows(canvasElement);
+
+    // Tabs stay on one line and overflow
+    await expect(list.scrollWidth).toBeGreaterThan(list.clientWidth);
+
+    // At the start, only the end arrow is shown
+    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'true'));
+    await expect(start).toHaveAttribute('data-visible', 'false');
+
+    // The arrows are mouse and touch only, so they stay out of the accessibility tree and Tab order
+    await expect(end).toHaveAttribute('aria-hidden', 'true');
+    await expect(end).toHaveAttribute('tabindex', '-1');
+
+    await userEvent.click(end);
+    await waitFor(() => expect(list.scrollLeft).toBeGreaterThan(0));
+    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'true'));
+
+    // Using the arrow didn't change which tab is selected
+    await expect(canvas.getByRole('tab', { name: 'Destination 1' })).toHaveAttribute('aria-selected', 'true');
+  },
+};
+
+/** The selected tab starts off-screen, so the list scrolls to reveal it. */
+export const SelectedTabScrollsIntoView: Story = {
+  args: { defaultValue: 'tab-12', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const list = canvas.getByRole('tablist');
+    const { start, end } = getScrollArrows(canvasElement);
+
+    await waitFor(() => expect(list.scrollLeft).toBeGreaterThan(0));
+    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'true'));
+    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'false'));
+
+    // The selected tab sits fully inside the visible area
+    const selected = canvas.getByRole('tab', { name: 'Destination 12' });
+    const listRect = list.getBoundingClientRect();
+    const tabRect = selected.getBoundingClientRect();
+    await expect(tabRect.left).toBeGreaterThanOrEqual(listRect.left);
+    await expect(tabRect.right).toBeLessThanOrEqual(listRect.right + 1);
+  },
+};
+
+/** Keyboard navigation scrolls the focused tab into view and updates the arrows. */
+export const KeyboardScrollsOverflowingTabs: Story = {
+  args: { defaultValue: 'tab-1', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const list = canvas.getByRole('tablist');
+    const { start, end } = getScrollArrows(canvasElement);
+
+    await userEvent.tab();
+    await userEvent.keyboard('{End}');
+
+    await expect(canvas.getByRole('tab', { name: 'Destination 12' })).toHaveFocus();
+    await waitFor(() => expect(list.scrollLeft).toBeGreaterThan(0));
+    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'true'));
+    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'false'));
+
+    await userEvent.keyboard('{Home}');
+    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'true'));
+    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'false'));
   },
 };
