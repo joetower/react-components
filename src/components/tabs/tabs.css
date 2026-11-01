@@ -81,10 +81,10 @@
   color: var(--color--title);
   font: inherit;
   font-size: var(--site-global--font-size--base);
-  font-weight: var(--site-global--font-weight--medium);
+  font-weight: var(--site-global--font-weight--bold);
   text-align: start;
   cursor: pointer;
-  border-block-end: var(--site-global--border-width--thick) solid transparent;
+  border-block-start: var(--site-global--border-width--thick) solid transparent;
 }
 
 .tabs[data-orientation="vertical"] .tabs__tab {
@@ -94,7 +94,6 @@
 }
 
 .tabs__tab:hover {
-  border-color: var(--color--border);
   background-color: var(--color--background);
   color: var(--color--link-hover);
 }
@@ -195,11 +194,34 @@
 
 .tabs__panel {
   flex: 1 1 auto;
-  padding: var(--space-s) var(--space-xs);
+  padding: var(--space-m) var(--space-xs);
+  background-color: var(--color--background);
 }
 
 .tabs__panel[hidden] {
   display: none;
+}
+
+.tabs__panel p {
+  font-weight: var(--site-global--font-weight--medium);
+  max-width: var(--max-char-count);
+  width: 100%;
+}
+
+.tabs__panel a,
+.tabs__panel a:link {
+  color: var(--site-global--color-primary-accent-mid);
+  text-decoration: underline;
+}
+
+.tabs__panel a:hover {
+  color: var(--site-global--color-secondary-accent-mid);
+  text-decoration: none;
+}
+
+.tabs__panel a:visited {
+  color: var(--site-global--color-secondary-accent-mid);
+  text-decoration: underline;
 }
 
 .tabs__panel > :first-child {

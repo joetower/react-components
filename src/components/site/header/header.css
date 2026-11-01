@@ -1,35 +1,7 @@
 .header {
   display: flex;
   width: 100%;
-  background-color: var(--color--header--background);
-}
-
-.header[data-component-theme="primary"] {
-  --color--header--link: var(--site-global--color-primary-accent-dark);
-  --color--header--link-hover: var(--site-global--color-primary-accent);
-  --color--header--background: var(--site-global--color-primary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-primary-accent-mid);
-}
-
-.header[data-component-theme="secondary"] {
-  --color--header--link: var(--site-global--color-secondary-accent-dark);
-  --color--header--link-hover: var(--site-global--color-secondary-accent);
-  --color--header--background: var(--site-global--color-secondary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-secondary-accent-mid);
-}
-
-.header[data-component-theme="tertiary"] {
-  --color--header--link: var(--site-global--color-tertiary-accent-dark);
-  --color--header--link-hover: var(--site-global--color-tertiary-accent);
-  --color--header--background: var(--site-global--color-tertiary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-tertiary-accent-mid);
-}
-
-.header[data-component-theme="quaternary"] {
-  --color--header--link: var(--site-global--color-quaternary-accent-dark);
-  --color--header--link-hover: var(--site-global--color-quaternary-accent);
-  --color--header--background: var(--site-global--color-quaternary-accent-lightest);
-  --color--header--link-active: var(--site-global--color-quaternary-accent-mid);
+  background-color: var(--color--background);
 }
 
 .header__inner {
@@ -79,7 +51,7 @@
 }
 
 .header__nav__menu-links li a {
-  color: var(--color--header--link);
+  color: var(--color--link);
   text-decoration: none;
   font-size: var(--site-global--font-size--base);
   font-weight: var(--site-global--font-weight--bold);
@@ -87,16 +59,16 @@
 }
 
 .header__nav__menu-links li a.active {
-  color: var(--color--header--link-active);
-  border-color: var( --color--header--link-active);
+  color: var(--color--link-active);
+  border-color: var( --color--link-active);
 }
 
 .header__nav__menu-links li a:hover {
-  color: var(--color--header--link-hover);
+  color: var(--color--link-hover);
 }
 
 .header__logo a:hover svg {
-  fill: var(--color--header--link-hover);
+  fill: var(--color--link-hover);
 }
 
 .header__logo a svg path.header__logo__mark {

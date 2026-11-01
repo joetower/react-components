@@ -379,7 +379,7 @@ function TabPanel({ value, children }: TabPanelProps) {
     <div
       role="tabpanel"
       id={getPanelId(baseId, value)}
-      className="tabs__panel text-block"
+      className="tabs__panel"
       aria-labelledby={getTabId(baseId, value)}
       hidden={!isSelected}
       tabIndex={0}

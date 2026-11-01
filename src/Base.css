@@ -120,6 +120,7 @@
 	--color--button-text: var(--site-global--color-basic-white);
 	--color--link: var(--site-global--color-primary-accent-dark);
 	--color--link-hover: var(--site-global--color-primary-accent-dark);
+	--color--link-active: var(--site-global--color-primary-accent);
 
 	/* overrides by component theme */
 	[data-component-theme="primary"] {
@@ -133,6 +134,7 @@
 		--color--title-hover: var(--site-global--color-primary-accent);
 		--color--link: var(--site-global--color-primary-accent-dark);
 		--color--link-hover: var(--site-global--color-primary-accent);
+		--color--link-active: var(--site-global--color-primary-accent);
 	}
 
 	[data-component-theme="secondary"] {
@@ -146,6 +148,7 @@
 		--color--title-hover: var(--site-global--color-secondary-accent);
 		--color--link: var(--site-global--color-secondary-accent-dark);
 		--color--link-hover: var(--site-global--color-secondary-accent);
+		--color--link-active: var(--site-global--color-secondary-accent);
 	}
 
 	[data-component-theme="tertiary"] {
@@ -159,6 +162,7 @@
 		--color--title-hover: var(--site-global--color-tertiary-accent);
 		--color--link: var(--site-global--color-tertiary-accent-dark);
 		--color--link-hover: var(--site-global--color-tertiary-accent);
+		--color--link-active: var(--site-global--color-tertiary-accent);
 	}
 
 	[data-component-theme="quaternary"] {
@@ -172,6 +176,7 @@
 		--color--title-hover: var(--site-global--color-quaternary-accent);
 		--color--link: var(--site-global--color-quaternary-accent-dark);
 		--color--link-hover: var(--site-global--color-quaternary-accent);
+		--color--link-active: var(--site-global--color-quaternary-accent);
 	}
 
 

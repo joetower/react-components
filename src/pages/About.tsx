@@ -134,6 +134,11 @@ function About() {
             <li>
               <p>To make components more flexible, several "dials" (options) are presented. For example: <code>width</code>, <code>theme</code>, <code>animation</code>.</p>
             </li>
+            <li>
+              <p>Theme selections use base variables (e.g. <code>--color-background</code>) which get assigned a new value depending on context. If the component uses the seconary theme, the color mapping would use the <code>data-component-theme="secondary"</code> context and map the <code>--color-background</code> to use its color assignment. The parent theme option sets the variable context for the entire component. Variables that themes use should have default values, outside of all <code>data-component-theme</code> contexts, so they can be re-written by context.</p>
+            </li>
+            <li><p>Data attributes add options/context to components. They should be placed on the parent/outer component element. This way, all child items can be styled based on the parent context.</p></li>
+            <li><p>This way all components can use theme color variables. If the component doesn't need color variation, the component will use the default variables. To opt-in to a color theme, all you have to do is allow the color theme value to change.</p></li>
           </ul>
         </Tabs.Panel>
       </Tabs>
