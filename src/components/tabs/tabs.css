@@ -195,7 +195,8 @@
 .tabs__panel {
   flex: 1 1 auto;
   padding: var(--space-m) var(--space-xs);
-  background-color: var(--color--background);
+  background: var(--color--background);
+  border-block-end: var(--site-global--border-width) solid var(--color--background-accent);
 }
 
 .tabs__panel[hidden] {

@@ -121,6 +121,7 @@
 	--color--link: var(--site-global--color-primary-accent-dark);
 	--color--link-hover: var(--site-global--color-primary-accent-dark);
 	--color--link-active: var(--site-global--color-primary-accent);
+	--color--background-gradient: linear-gradient(to bottom, var(--color--background) 90%, var(--color--background-accent-2));
 
 	/* overrides by component theme */
 	[data-component-theme="primary"] {
@@ -135,6 +136,7 @@
 		--color--link: var(--site-global--color-primary-accent-dark);
 		--color--link-hover: var(--site-global--color-primary-accent);
 		--color--link-active: var(--site-global--color-primary-accent);
+		--color--background-gradient: linear-gradient(to bottom, var(--color--background) 90%, var(--color--background-accent-2));
 	}
 
 	[data-component-theme="secondary"] {
@@ -149,6 +151,7 @@
 		--color--link: var(--site-global--color-secondary-accent-dark);
 		--color--link-hover: var(--site-global--color-secondary-accent);
 		--color--link-active: var(--site-global--color-secondary-accent);
+		--color--background-gradient: linear-gradient(to bottom, var(--color--background) 90%, var(--color--background-accent-2));
 	}
 
 	[data-component-theme="tertiary"] {
@@ -163,6 +166,7 @@
 		--color--link: var(--site-global--color-tertiary-accent-dark);
 		--color--link-hover: var(--site-global--color-tertiary-accent);
 		--color--link-active: var(--site-global--color-tertiary-accent);
+		--color--background-gradient: linear-gradient(to bottom, var(--color--background) 90%, var(--color--background-accent-2));
 	}
 
 	[data-component-theme="quaternary"] {
@@ -177,9 +181,9 @@
 		--color--link: var(--site-global--color-quaternary-accent-dark);
 		--color--link-hover: var(--site-global--color-quaternary-accent);
 		--color--link-active: var(--site-global--color-quaternary-accent);
+		--color--background-gradient: linear-gradient(to bottom, var(--color--background) 90%, var(--color--background-accent-2));
 	}
-
-
+	
 	/* Component width to override based on theme widths */
 	--cta-width--content: var(--site-width--narrow);
 	--cta-width--wide: var(--site-width--extra-wide);
