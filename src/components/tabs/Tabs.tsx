@@ -1,4 +1,13 @@
-import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { KeyboardEvent, ReactNode } from 'react';
 import { useControllableState } from '../../hooks/useControllableState';
 import { TabsContext, getPanelId, getTabId, useTabsContext } from './TabsContext';
@@ -53,13 +62,14 @@ function TabsRoot({
   onValueChange,
 }: TabsProps) {
   const baseId = useId();
+
   const [selectedValue, select] = useControllableState<string>({
     value,
     defaultValue: defaultValue ?? '',
     onChange: onValueChange,
   });
 
-  // Memoized so consumers only re-render when something they read actually changes
+  // Memoized so consumers only re-render when something they read actually changes.
   const context = useMemo(
     () => ({ baseId, selectedValue, select, activation, orientation }),
     [baseId, selectedValue, select, activation, orientation]
@@ -94,8 +104,14 @@ const SCROLL_STEP = 0.75;
  * scroll arrows that overlay both edges. Scrolls the list itself, never the page,
  * which `element.scrollIntoView()` can do by accident.
  */
-function revealTab(list: HTMLElement, tab: HTMLElement, behavior: ScrollBehavior) {
-  const edge = list.parentElement?.querySelector<HTMLElement>('.tabs__scroll')?.offsetWidth ?? 0;
+function revealTab(
+  list: HTMLElement,
+  tab: HTMLElement,
+  behavior: ScrollBehavior
+) {
+  const edge =
+    list.parentElement?.querySelector<HTMLElement>('.tabs__scroll')?.offsetWidth ?? 0;
+
   const listRect = list.getBoundingClientRect();
   const tabRect = tab.getBoundingClientRect();
 
@@ -110,87 +126,159 @@ function revealTab(list: HTMLElement, tab: HTMLElement, behavior: ScrollBehavior
 }
 
 function TabList({ children, ...aria }: TabListProps) {
-  const { select, activation, orientation, selectedValue } = useTabsContext('Tabs.List');
+  const { select, activation, orientation, selectedValue } =
+    useTabsContext('Tabs.List');
+
   const listRef = useRef<HTMLDivElement>(null);
   const hasMountedRef = useRef(false);
-  const [overflow, setOverflow] = useState({ start: false, end: false });
+
+  const [overflow, setOverflow] = useState({
+    start: false,
+    end: false,
+  });
+
   const isHorizontal = orientation === 'horizontal';
 
-  // Reads the scroll position and records whether tabs are hidden on each side.
-  // Math.abs makes it work for right-to-left too, where scrollLeft counts down from 0.
+  // Measure the actual positions of the first and last tabs.
+  // This avoids relying on scrollLeft, which behaves differently across
+  // browsers and RTL implementations.
   const updateOverflow = useCallback(() => {
     const list = listRef.current;
-    if (!list) return;
-    const maxScroll = list.scrollWidth - list.clientWidth;
-    const position = Math.abs(list.scrollLeft);
-    const next = { start: position > 1, end: position < maxScroll - 1 };
-    // Returning the same object tells React nothing changed, so scrolling doesn't re-render needlessly
-    setOverflow((previous) => (previous.start === next.start && previous.end === next.end ? previous : next));
+
+    if (!list || list.children.length === 0) return;
+
+    const first = list.children[0].getBoundingClientRect();
+    const last =
+      list.children[list.children.length - 1].getBoundingClientRect();
+
+    const bounds = list.getBoundingClientRect();
+
+    const isRtl = getComputedStyle(list).direction === 'rtl';
+
+    const next = isRtl
+      ? {
+          start: first.right > bounds.right + 1,
+          end: last.left < bounds.left - 1,
+        }
+      : {
+          start: first.left < bounds.left - 1,
+          end: last.right > bounds.right + 1,
+        };
+
+    setOverflow((previous) =>
+      previous.start === next.start && previous.end === next.end
+        ? previous
+        : next
+    );
   }, []);
 
-  // Measure after every render, before paint, so tabs being added or removed are noticed
+  // Measure after every render, before paint, so tabs being added or removed are noticed.
   useLayoutEffect(() => {
     if (isHorizontal) updateOverflow();
   });
 
-  // Re-measure when the container or any tab changes size (window resize, web font loading, ...)
+  // Re-measure when the container or any tab changes size.
   useEffect(() => {
     const list = listRef.current;
-    if (!isHorizontal || !list || typeof ResizeObserver === 'undefined') return;
+
+    if (
+      !isHorizontal ||
+      !list ||
+      typeof ResizeObserver === 'undefined'
+    ) {
+      return;
+    }
+
     const observer = new ResizeObserver(updateOverflow);
+
     observer.observe(list);
     Array.from(list.children).forEach((child) => observer.observe(child));
+
     return () => observer.disconnect();
   });
 
-  // Keep the selected tab in view: on first render (the default may be off-screen) and when it changes
+  // Keep the selected tab in view: on first render and when selection changes.
   useEffect(() => {
     const list = listRef.current;
+
     if (!isHorizontal || !list) return;
-    const selected = list.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]');
-    if (selected) revealTab(list, selected, hasMountedRef.current ? 'auto' : 'instant');
+
+    const selected = list.querySelector<HTMLElement>(
+      '[role="tab"][aria-selected="true"]'
+    );
+
+    if (selected) {
+      revealTab(
+        list,
+        selected,
+        hasMountedRef.current ? 'auto' : 'instant'
+      );
+    }
+
     hasMountedRef.current = true;
   }, [selectedValue, isHorizontal]);
 
-  // `direction` is logical: -1 scrolls toward the start of the list, 1 toward the end
+  // Direction is logical: -1 scrolls toward the start, 1 toward the end.
   const scrollByPage = (direction: -1 | 1) => {
     const list = listRef.current;
+
     if (!list) return;
+
     const isRtl = getComputedStyle(list).direction === 'rtl';
     const physical = isRtl ? -direction : direction;
-    list.scrollBy({ left: physical * list.clientWidth * SCROLL_STEP });
+
+    list.scrollBy({
+      left: physical * list.clientWidth * SCROLL_STEP,
+      behavior: 'smooth',
+    });
   };
 
   // WAI-ARIA tabs pattern: arrows move focus between tabs, Home/End jump to the ends.
-  // Enter and Space already work because each tab is a real <button>.
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    const tabs = Array.from(listRef.current?.querySelectorAll<HTMLButtonElement>('[role="tab"]:not(:disabled)') ?? []);
-    const current = tabs.indexOf((event.target as HTMLElement).closest<HTMLButtonElement>('[role="tab"]') as HTMLButtonElement);
+    const tabs = Array.from(
+      listRef.current?.querySelectorAll<HTMLButtonElement>(
+        '[role="tab"]:not(:disabled)'
+      ) ?? []
+    );
+
+    const current = tabs.indexOf(
+      (event.target as HTMLElement).closest<HTMLButtonElement>(
+        '[role="tab"]'
+      ) as HTMLButtonElement
+    );
+
     if (current === -1) return;
 
     const previousKey = isHorizontal ? 'ArrowLeft' : 'ArrowUp';
     const nextKey = isHorizontal ? 'ArrowRight' : 'ArrowDown';
 
     let next: number;
+
     switch (event.key) {
       case nextKey:
         next = (current + 1) % tabs.length;
         break;
+
       case previousKey:
         next = (current - 1 + tabs.length) % tabs.length;
         break;
+
       case 'Home':
         next = 0;
         break;
+
       case 'End':
         next = tabs.length - 1;
         break;
+
       default:
         return;
     }
 
     event.preventDefault();
+
     tabs[next].focus();
+
     if (activation === 'automatic') {
       select(tabs[next].dataset.value as string);
     }
@@ -210,13 +298,9 @@ function TabList({ children, ...aria }: TabListProps) {
     </div>
   );
 
-  // Vertical lists don't scroll sideways, so they need no arrows
+  // Vertical lists don't scroll sideways, so they need no arrows.
   if (!isHorizontal) return tablist;
 
-  // The arrows are for mouse and touch users. Keyboard and screen reader users already have
-  // the arrow keys, which also scroll focused tabs into view, so the buttons are hidden from
-  // assistive technology and kept out of the Tab order (otherwise they'd be a confusing
-  // extra stop, and a screen reader would announce unlabelled buttons).
   return (
     <div className="tabs__list-wrapper">
       <button
@@ -225,13 +309,14 @@ function TabList({ children, ...aria }: TabListProps) {
         aria-hidden="true"
         tabIndex={-1}
         data-visible={overflow.start}
-        // Stops the click from moving focus off the tab the user was on
         onMouseDown={(event) => event.preventDefault()}
         onClick={() => scrollByPage(-1)}
       >
         <span className="tabs__scroll-icon" />
       </button>
+
       {tablist}
+
       <button
         type="button"
         className="tabs__scroll tabs__scroll--end"
@@ -255,7 +340,9 @@ interface TabProps {
 }
 
 function Tab({ value, children, disabled }: TabProps) {
-  const { baseId, selectedValue, select } = useTabsContext('Tabs.Tab');
+  const { baseId, selectedValue, select } =
+    useTabsContext('Tabs.Tab');
+
   const isSelected = value === selectedValue;
 
   return (
@@ -266,7 +353,6 @@ function Tab({ value, children, disabled }: TabProps) {
       className="tabs__tab"
       aria-selected={isSelected}
       aria-controls={getPanelId(baseId, value)}
-      // Roving tabindex: the whole tablist is a single Tab stop, landing on the selected tab
       tabIndex={isSelected ? 0 : -1}
       disabled={disabled}
       data-value={value}
@@ -284,7 +370,9 @@ interface TabPanelProps {
 }
 
 function TabPanel({ value, children }: TabPanelProps) {
-  const { baseId, selectedValue } = useTabsContext('Tabs.Panel');
+  const { baseId, selectedValue } =
+    useTabsContext('Tabs.Panel');
+
   const isSelected = value === selectedValue;
 
   return (
@@ -293,9 +381,7 @@ function TabPanel({ value, children }: TabPanelProps) {
       id={getPanelId(baseId, value)}
       className="tabs__panel text-block"
       aria-labelledby={getTabId(baseId, value)}
-      // Panels stay mounted but hidden, so their internal state (a half-filled form, say) survives tab switches
       hidden={!isSelected}
-      // Lets keyboard users reach panels that contain no focusable content of their own
       tabIndex={0}
     >
       {children}
