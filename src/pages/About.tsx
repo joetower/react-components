@@ -142,6 +142,7 @@ function About() {
         imageAlignment='left'
         width='inner'
         theme='tertiary'
+        style='overlaid-bars'
         animation={true}
         baseClass='item'
         twmHeading='Text with Media'
@@ -158,6 +159,7 @@ function About() {
         imageAlignment='right'
         width='inner'
         theme='primary'
+        style='overlaid-bars'
         animation={true}
         baseClass='item'
         twmHeading='Text with Media Two: electric boogaloo'

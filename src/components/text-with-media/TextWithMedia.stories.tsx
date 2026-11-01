@@ -14,18 +14,20 @@ interface TextBlockWithMediaProps {
   imageAlignment?: 'left' | 'right';
   baseClass?: string | 'text';
   width?: 'components' | 'inner' | 'wide' | 'full';
+  style?: 'default' | 'overlaid-bars';
   theme: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   priority?: 'equal' | 'media' | 'text';
   animation?: boolean;
 }
 
-export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'components', priority = 'equal', theme = 'primary', animation, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextBlockWithMediaProps) => (
+export const TextBlockWithMedia = ({ imageAlignment = 'left', width = 'components', priority = 'equal', theme = 'primary', style= 'default', animation, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextBlockWithMediaProps) => (
   <TextBlockWithMediaItem 
   imageAlignment={imageAlignment} 
   baseClass='text' 
   width={width} 
   priority={priority}
   theme={theme}
+  style={style}
   animation={animation}
   twmHeading={twmHeading}
   twmContent={twmContent} 
@@ -53,6 +55,7 @@ TextBlockWithMedia.args = {
   width: 'components',
   priority: 'equal',
   theme: 'primary',
+  style: 'overlaid-bars',
   animation: false,
 };
 
@@ -116,6 +119,12 @@ const meta: Meta<typeof TextBlockWithMedia> = {
     width: {
       name: 'Width',
       options: ['components', 'inner', 'wide', 'full'],
+      control: { type: 'select' },
+      table: { category: 'Options' }
+    },
+    style: {
+      name: 'Style',
+      options: ['default', 'overlaid-bars'],
       control: { type: 'select' },
       table: { category: 'Options' }
     },

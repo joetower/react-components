@@ -9,6 +9,7 @@ interface TextWithMediaBlockProps {
   theme?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   width?: 'components' | 'inner' | 'wide' | 'full';
   priority?: 'equal' | 'media' | 'text';
+  style?: 'default' | 'overlaid-bars';
   imageAlignment?: 'left' | 'right';
   baseClass?: string | 'text';
   animation?: boolean;
@@ -23,7 +24,7 @@ interface TextWithMediaBlockProps {
   buttonSize?: 'small' | 'medium' | 'large';
 }
 
-export default function TextWithMediaBlock({imageAlignment, baseClass, animation, theme= 'primary', width = 'components', priority = 'equal', buttonSize, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextWithMediaBlockProps) {
+export default function TextWithMediaBlock({imageAlignment, baseClass, animation, theme= 'primary', width = 'components', priority = 'equal', style = 'default', buttonSize, twmHeading, twmContent, twmImageAlt, twmImageName, twmButtonLabel, twmButtonLink, twmButtonTitle, twmButtonType }: TextWithMediaBlockProps) {
   useEffect(() => {
     const textWithMedia = document.querySelector('.text-with-media[data-component-animation="true"]');
     
@@ -92,16 +93,19 @@ export default function TextWithMediaBlock({imageAlignment, baseClass, animation
       data-component-width={width}
       data-component-priority={priority}
       data-component-animation={animation}
+      data-component-style={style}
       data-component-theme={theme || 'primary'}
       className={`text-with-media ${baseClass || ''}`}
     >
       <div className="text-with-media__inner">
         <div className="text-with-media__media">
-          <div className="text-with-media__shapes">
-            <div className="text-with-media__shape_one"></div>
-            <div className="text-with-media__shape_two"></div>
-            <div className="text-with-media__shape_three"></div>
-          </div>
+          {(style == 'overlaid-bars') && (
+            <div className="text-with-media__shapes">
+              <div className="text-with-media__shape_one"></div>
+              <div className="text-with-media__shape_two"></div>
+              <div className="text-with-media__shape_three"></div>
+            </div>
+          )}
           <ResponsiveImage sizes={[200,400,600]} imageName={twmImageName || "6-11-11-29 PM-2023-FUJIFILM-X-T3-DSCF4085"} alt={twmImageAlt || "Sequoia National Park, California"}/>
         </div>
         <div className="text-with-media__content">
