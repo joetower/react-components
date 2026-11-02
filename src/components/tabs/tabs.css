@@ -17,11 +17,17 @@
 
 /*
  * Horizontal tabs scroll sideways instead of wrapping onto a second line.
- * The wrapper holds the two scroll arrows and the baseline under the tabs.
+ * The wrapper is a row: [arrow] [scrolling list] [arrow]. The arrows sit beside the tabs rather
+ * than over them, so they can never hide a tab or steal a tap meant for one. It also holds the
+ * baseline under the tabs.
  */
 .tabs__list-wrapper {
-  --tabs-scroll-button-size: 2.5rem;
+  --tabs-scroll-button-size: 2rem;
+  display: flex;
+  align-items: stretch;
   position: relative;
+  /* Lets the row shrink to its container instead of stretching to fit every tab */
+  min-width: 0;
 }
 
 /*
@@ -46,13 +52,15 @@
 .tabs[data-orientation="horizontal"] .tabs__list {
   position: relative;
   z-index: 1;
+  /* Take the space the arrows leave, and allow shrinking below the width of all the tabs */
+  flex: 1 1 0;
+  min-width: 0;
   flex-flow: row nowrap;
   overflow-x: auto;
-  overscroll-behavior-x: contain;
+  /* No elastic bounce past the first and last tab, and no scrolling the page sideways from here */
+  overscroll-behavior-x: none;
   /* Hide the scrollbar: the arrows and swipe/trackpad scrolling replace it */
   scrollbar-width: none;
-  /* Keeps a focused or revealed tab clear of the arrows that overlay the edges */
-  scroll-padding-inline: var(--tabs-scroll-button-size);
 }
 
 .tabs[data-orientation="horizontal"] .tabs__list::-webkit-scrollbar {
@@ -75,10 +83,14 @@
   /* Tabs keep their natural width and never shrink or wrap, so overflow scrolls */
   flex: 0 0 auto;
   white-space: nowrap;
+  /* A column, so the hidden copy of the label below can sit under the visible one */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: var(--space-xs) var(--space-s);
   border: 0;
   background: transparent;
-  color: var(--color--title);
+  color: var(--color--link);
   font: inherit;
   font-size: var(--site-global--font-size--base);
   font-weight: var(--site-global--font-weight--bold);
@@ -91,6 +103,21 @@
   border-block-end: 0;
   border-inline-end: var(--site-global--border-width--thick) solid transparent;
   margin-inline-end: calc(var(--site-global--border-width--thin) * -1);
+}
+
+/*
+ * The selected tab is bold, and bold text is wider. Without this, selecting a tab resizes it and
+ * shifts every tab after it, which breaks the scroll position. This adds an invisible copy of the
+ * label in bold, so the tab is always wide enough for either weight.
+ */
+.tabs__tab[data-label]::after {
+  content: attr(data-label);
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-weight: var(--site-global--font-weight--bold);
+  pointer-events: none;
+  user-select: none;
 }
 
 .tabs__tab:hover {
@@ -107,7 +134,6 @@
 .tabs__panel:focus-visible {
   outline: var(--site-focus-outline--width) solid var(--site-focus-outline--color);
   outline-offset: calc(var(--site-focus-outline--width) * -1);
-  
 }
 
 .tabs__tab:disabled {
@@ -120,51 +146,30 @@
   color: var(--color--title);
 }
 
-/* Scroll arrows: overlaid on the edges, shown only on the side where tabs are hidden */
+/* Scroll arrows: flex items beside the list, present only when the tabs don't fit */
 .tabs__scroll {
-  position: absolute;
-  inset-block-start: 0;
+  flex: 0 0 var(--tabs-scroll-button-size);
   /* Stop above the baseline so the line stays continuous */
-  inset-block-end: var(--site-global--border-width--thin);
-  z-index: 2;
+  margin-block-end: var(--site-global--border-width--thin);
   display: flex;
   align-items: center;
   justify-content: center;
-  inline-size: var(--tabs-scroll-button-size);
   padding: 0;
   border: 0;
-  background-color: var(--color--background);
+  background-color: transparent;
   color: var(--color--title);
   cursor: pointer;
-  /* visibility (not display) keeps the layout stable and removes the button from interaction */
-  visibility: hidden;
-  opacity: 0;
 }
 
-.tabs__scroll[data-visible="true"] {
-  visibility: visible;
-  opacity: 1;
+.tabs__scroll:hover:not(:disabled) {
+  background-color: var(--color--background);
+  color: var(--color--title-hover);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .tabs__scroll {
-    transition:
-      opacity var(--site-global--transition-timing) ease-in-out,
-      visibility var(--site-global--transition-timing) ease-in-out;
-  }
-}
-
-.tabs__scroll:hover {
-  background-color: var(--color--background-accent-2);
-  color: var(--color--link-hover);
-}
-
-.tabs__scroll--start {
-  inset-inline-start: 0;
-}
-
-.tabs__scroll--end {
-  inset-inline-end: 0;
+/* Nothing left to reveal that way: dimmed, not removed, so the list never changes width mid-scroll */
+.tabs__scroll:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* Chevron drawn with borders, so there's no icon asset to load. Physical borders keep the geometry fixed. */

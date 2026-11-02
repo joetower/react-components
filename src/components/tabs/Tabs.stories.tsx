@@ -275,15 +275,28 @@ const overflowingTabs = (
   </>
 );
 
-const getScrollArrows = (canvasElement: HTMLElement) => ({
-  start: canvasElement.querySelector<HTMLButtonElement>('.tabs__scroll--start')!,
-  end: canvasElement.querySelector<HTMLButtonElement>('.tabs__scroll--end')!,
-});
+/** The arrows only exist while the tabs don't fit, so wait for them to appear. */
+const findScrollArrows = async (canvasElement: HTMLElement) => {
+  await waitFor(() => expect(canvasElement.querySelector('.tabs__scroll--end')).not.toBeNull());
+  return {
+    start: canvasElement.querySelector<HTMLButtonElement>('.tabs__scroll--start')!,
+    end: canvasElement.querySelector<HTMLButtonElement>('.tabs__scroll--end')!,
+  };
+};
+
+const getTabWidth = (tab: HTMLElement) => tab.getBoundingClientRect().width;
+
+/** True when the tab is fully inside the visible part of the list (1px of rounding allowed). */
+const isFullyVisible = (list: HTMLElement, tab: HTMLElement) => {
+  const listRect = list.getBoundingClientRect();
+  const tabRect = tab.getBoundingClientRect();
+  return tabRect.left >= listRect.left - 1 && tabRect.right <= listRect.right + 1;
+};
 
 /**
- * When the tabs don't fit, they scroll sideways instead of wrapping. An arrow appears on
- * each side where tabs are hidden. The arrows are for mouse and touch: keyboard users
- * already have the arrow keys, which also scroll focused tabs into view.
+ * When the tabs don't fit, they scroll sideways instead of wrapping. Arrows appear beside the
+ * tabs (never on top of them). The arrow for a direction with nothing left to reveal is dimmed.
+ * The arrows are for mouse and touch: keyboard users already have the arrow keys.
  */
 export const OverflowingTabs: Story = {
   args: { defaultValue: 'tab-1', width: 'full' },
@@ -292,14 +305,14 @@ export const OverflowingTabs: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const list = canvas.getByRole('tablist');
-    const { start, end } = getScrollArrows(canvasElement);
+    const { start, end } = await findScrollArrows(canvasElement);
 
     // Tabs stay on one line and overflow
     await expect(list.scrollWidth).toBeGreaterThan(list.clientWidth);
 
-    // At the start, only the end arrow is shown
-    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'true'));
-    await expect(start).toHaveAttribute('data-visible', 'false');
+    // At the start there is nothing to the left, so only the end arrow is usable
+    await expect(start).toBeDisabled();
+    await expect(end).toBeEnabled();
 
     // The arrows are mouse and touch only, so they stay out of the accessibility tree and Tab order
     await expect(end).toHaveAttribute('aria-hidden', 'true');
@@ -307,10 +320,18 @@ export const OverflowingTabs: Story = {
 
     await userEvent.click(end);
     await waitFor(() => expect(list.scrollLeft).toBeGreaterThan(0));
-    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'true'));
+    await waitFor(() => expect(start).toBeEnabled());
 
     // Using the arrow didn't change which tab is selected
     await expect(canvas.getByRole('tab', { name: 'Destination 1' })).toHaveAttribute('aria-selected', 'true');
+  },
+};
+
+/** Tabs that fit need no arrows at all. */
+export const TabsThatFitHaveNoArrows: Story = {
+  render: (args) => <Tabs {...args}>{sampleTabs()}</Tabs>,
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.querySelectorAll('.tabs__scroll')).toHaveLength(0);
   },
 };
 
@@ -322,18 +343,13 @@ export const SelectedTabScrollsIntoView: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const list = canvas.getByRole('tablist');
-    const { start, end } = getScrollArrows(canvasElement);
+    const { start, end } = await findScrollArrows(canvasElement);
 
     await waitFor(() => expect(list.scrollLeft).toBeGreaterThan(0));
-    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'true'));
-    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'false'));
+    await waitFor(() => expect(start).toBeEnabled());
+    await waitFor(() => expect(end).toBeDisabled());
 
-    // The selected tab sits fully inside the visible area
-    const selected = canvas.getByRole('tab', { name: 'Destination 12' });
-    const listRect = list.getBoundingClientRect();
-    const tabRect = selected.getBoundingClientRect();
-    await expect(tabRect.left).toBeGreaterThanOrEqual(listRect.left);
-    await expect(tabRect.right).toBeLessThanOrEqual(listRect.right + 1);
+    await expect(isFullyVisible(list, canvas.getByRole('tab', { name: 'Destination 12' }))).toBe(true);
   },
 };
 
@@ -345,18 +361,117 @@ export const KeyboardScrollsOverflowingTabs: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const list = canvas.getByRole('tablist');
-    const { start, end } = getScrollArrows(canvasElement);
+    const { start, end } = await findScrollArrows(canvasElement);
 
     await userEvent.tab();
     await userEvent.keyboard('{End}');
 
     await expect(canvas.getByRole('tab', { name: 'Destination 12' })).toHaveFocus();
     await waitFor(() => expect(list.scrollLeft).toBeGreaterThan(0));
-    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'true'));
-    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'false'));
+    await waitFor(() => expect(start).toBeEnabled());
+    await waitFor(() => expect(end).toBeDisabled());
 
     await userEvent.keyboard('{Home}');
-    await waitFor(() => expect(end).toHaveAttribute('data-visible', 'true'));
-    await waitFor(() => expect(start).toHaveAttribute('data-visible', 'false'));
+    await waitFor(() => expect(end).toBeEnabled());
+    await waitFor(() => expect(start).toBeDisabled());
+  },
+};
+
+/**
+ * With manual activation, arrow keys move focus without changing the selection. The list must
+ * still scroll to show the focused tab, or keyboard users would be focused on a tab they can't see.
+ */
+export const ManualActivationRevealsFocusedTab: Story = {
+  args: { defaultValue: 'tab-1', activation: 'manual', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const list = canvas.getByRole('tablist');
+    await findScrollArrows(canvasElement);
+
+    await userEvent.tab();
+    await userEvent.keyboard('{End}');
+
+    const last = canvas.getByRole('tab', { name: 'Destination 12' });
+    await expect(last).toHaveFocus();
+    // Focus moved, the selection did not
+    await expect(canvas.getByRole('tab', { name: 'Destination 1' })).toHaveAttribute('aria-selected', 'true');
+    await waitFor(() => expect(isFullyVisible(list, last)).toBe(true));
+  },
+};
+
+/**
+ * Regression test for scroll whitespace. Reported: after scrolling to the last tab and
+ * making it active, there was extra room after it; scrolling back left a large scrollable
+ * gap before the first tab. The tabs must meet the edges of the list exactly, and the list
+ * must not be scrollable beyond its tabs.
+ */
+export const NoWhitespaceAtEitherEnd: Story = {
+  args: { defaultValue: 'tab-1', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const list = canvas.getByRole('tablist');
+    const { start, end } = await findScrollArrows(canvasElement);
+    const tabs = canvas.getAllByRole('tab');
+    const first = tabs[0];
+    const last = tabs[tabs.length - 1];
+
+    // The list's scrollable width is exactly its tabs. There's no padding or leftover space.
+    const tabsWidth = tabs.reduce((total, tab) => total + getTabWidth(tab), 0);
+    await expect(Math.abs(list.scrollWidth - tabsWidth)).toBeLessThan(2);
+
+    // At the start, the first tab meets the left edge
+    await expect(Math.abs(first.getBoundingClientRect().left - list.getBoundingClientRect().left)).toBeLessThan(1);
+
+    // Click the end arrow until there's nothing left to reveal, the way a user would,
+    // then make the last tab active by clicking it
+    const widthBefore = getTabWidth(last);
+    for (let attempts = 0; attempts < 20 && !end.disabled; attempts++) {
+      await userEvent.click(end);
+      await new Promise((resolve) => setTimeout(resolve, 400));
+    }
+    await waitFor(() => expect(end).toBeDisabled(), { timeout: 3000 });
+    await userEvent.click(last);
+    await waitFor(() => expect(last).toHaveAttribute('aria-selected', 'true'));
+
+    // Becoming active (bold) must not resize the tab, or everything after it shifts
+    await expect(Math.abs(getTabWidth(last) - widthBefore)).toBeLessThan(0.5);
+
+    // At the end, the last tab meets the right edge, with no gap after it, and the list can't scroll further
+    await waitFor(() =>
+      expect(Math.abs(last.getBoundingClientRect().right - list.getBoundingClientRect().right)).toBeLessThan(1)
+    );
+    await expect(Math.abs(list.scrollLeft - (list.scrollWidth - list.clientWidth))).toBeLessThan(1);
+
+    // Scroll all the way back. The first tab meets the left edge again, and nothing scrolls past it.
+    for (let attempts = 0; attempts < 20 && !start.disabled; attempts++) {
+      await userEvent.click(start);
+      await new Promise((resolve) => setTimeout(resolve, 400));
+    }
+    await waitFor(() => expect(start).toBeDisabled(), { timeout: 3000 });
+    await expect(list.scrollLeft).toBe(0);
+    await expect(Math.abs(first.getBoundingClientRect().left - list.getBoundingClientRect().left)).toBeLessThan(1);
+  },
+};
+
+/** Selecting a tab makes its text bold. That must not change its width. */
+export const SelectingATabNeverResizesIt: Story = {
+  args: { defaultValue: 'tab-1', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await findScrollArrows(canvasElement);
+    const widthsBefore = canvas.getAllByRole('tab').map(getTabWidth);
+
+    await userEvent.click(canvas.getByRole('tab', { name: 'Destination 3' }));
+    await waitFor(() => expect(canvas.getByRole('tab', { name: 'Destination 3' })).toHaveAttribute('aria-selected', 'true'));
+
+    canvas.getAllByRole('tab').forEach((tab, index) => {
+      expect(Math.abs(getTabWidth(tab) - widthsBefore[index])).toBeLessThan(0.5);
+    });
   },
 };
