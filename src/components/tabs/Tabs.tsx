@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import type { KeyboardEvent, ReactNode } from 'react';
+import { useId, useMemo } from 'react';
+import type { FocusEvent, KeyboardEvent, ReactNode } from 'react';
 import { useControllableState } from '../../hooks/useControllableState';
 import { TabsContext, getPanelId, getTabId, useTabsContext } from './TabsContext';
+import { useTabsOverflow } from './useTabsOverflow';
 import './tabs.css';
 
 interface TabsBaseProps {
@@ -86,130 +87,11 @@ interface TabListProps {
   'aria-labelledby'?: string;
 }
 
-/** How much of the visible width one click on a scroll arrow moves, as a fraction. */
-const SCROLL_STEP = 0.75;
-
-/**
- * Scrolls the list just far enough that `tab` is fully visible. Scrolls the list itself,
- * never the page, which `element.scrollIntoView()` can do by accident.
- */
-function revealTab(list: HTMLElement, tab: HTMLElement, behavior: ScrollBehavior) {
-  const listRect = list.getBoundingClientRect();
-  const tabRect = tab.getBoundingClientRect();
-
-  if (tabRect.left < listRect.left) {
-    list.scrollBy({ left: tabRect.left - listRect.left, behavior });
-  } else if (tabRect.right > listRect.right) {
-    list.scrollBy({ left: tabRect.right - listRect.right, behavior });
-  }
-}
-
-interface OverflowState {
-  /** The tabs are wider than the space available, so scroll arrows are needed at all */
-  needsScroll: boolean;
-  /** Tabs are hidden toward the start (the left, in a left-to-right layout) */
-  canScrollStart: boolean;
-  /** Tabs are hidden toward the end */
-  canScrollEnd: boolean;
-}
-
-const NO_OVERFLOW: OverflowState = { needsScroll: false, canScrollStart: false, canScrollEnd: false };
-
 function TabList({ children, ...aria }: TabListProps) {
   const { select, activation, orientation, selectedValue } = useTabsContext('Tabs.List');
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
-  const hasMountedRef = useRef(false);
-  const [overflow, setOverflow] = useState<OverflowState>(NO_OVERFLOW);
   const isHorizontal = orientation === 'horizontal';
-
-  // Works from where the tabs actually are on screen, not from scrollLeft, which differs
-  // between browsers (and goes negative in right-to-left layouts).
-  const updateOverflow = useCallback(() => {
-    const list = listRef.current;
-    const wrapper = wrapperRef.current;
-    if (!list || !wrapper || list.children.length === 0) return;
-
-    const listRect = list.getBoundingClientRect();
-    let contentLeft = Infinity;
-    let contentRight = -Infinity;
-    for (const tab of Array.from(list.children)) {
-      const rect = tab.getBoundingClientRect();
-      contentLeft = Math.min(contentLeft, rect.left);
-      contentRight = Math.max(contentRight, rect.right);
-    }
-
-    // Compared with the whole wrapper, not the list: the arrows take space from the list when
-    // they appear, and a decision based on the list would flip-flop as they come and go.
-    const needsScroll = contentRight - contentLeft > wrapper.getBoundingClientRect().width + 0.5;
-
-    const hiddenOnLeft = contentLeft < listRect.left - 1;
-    const hiddenOnRight = contentRight > listRect.right + 1;
-    const isRtl = getComputedStyle(list).direction === 'rtl';
-
-    const next: OverflowState = {
-      needsScroll,
-      canScrollStart: isRtl ? hiddenOnRight : hiddenOnLeft,
-      canScrollEnd: isRtl ? hiddenOnLeft : hiddenOnRight,
-    };
-
-    // Returning the same object tells React nothing changed, so scrolling doesn't re-render needlessly
-    setOverflow((previous) =>
-      previous.needsScroll === next.needsScroll &&
-      previous.canScrollStart === next.canScrollStart &&
-      previous.canScrollEnd === next.canScrollEnd
-        ? previous
-        : next
-    );
-  }, []);
-
-  // Measure after every render, before paint, so tabs being added or removed are noticed
-  useLayoutEffect(() => {
-    if (isHorizontal) updateOverflow();
-  });
-
-  // Re-measure when the container or any tab changes size (window resize, web font loading, ...)
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const list = listRef.current;
-    if (!isHorizontal || !wrapper || !list || typeof ResizeObserver === 'undefined') return;
-
-    const observer = new ResizeObserver(updateOverflow);
-    observer.observe(wrapper);
-    observer.observe(list);
-    Array.from(list.children).forEach((child) => observer.observe(child));
-    return () => observer.disconnect();
-  });
-
-  const revealSelected = useCallback((behavior: ScrollBehavior) => {
-    const list = listRef.current;
-    const selected = list?.querySelector<HTMLElement>('[role="tab"][aria-selected="true"]');
-    if (list && selected) revealTab(list, selected, behavior);
-  }, []);
-
-  // The arrows appearing or disappearing changes how wide the list is, which can push the
-  // selected tab out of view (for example when the default tab is the last one). Fix it
-  // immediately and without animation, before the user sees it.
-  useLayoutEffect(() => {
-    if (isHorizontal) revealSelected('instant');
-  }, [isHorizontal, overflow.needsScroll, revealSelected]);
-
-  // When the user picks a different tab, bring it into view smoothly
-  useEffect(() => {
-    if (!isHorizontal) return;
-    if (hasMountedRef.current) revealSelected('auto');
-    hasMountedRef.current = true;
-  }, [selectedValue, isHorizontal, revealSelected]);
-
-  // `direction` is logical: -1 scrolls toward the start of the list, 1 toward the end.
-  // No `behavior` is passed on purpose: CSS `scroll-behavior` decides, and it's turned
-  // off for people who prefer reduced motion.
-  const scrollByPage = (direction: -1 | 1) => {
-    const list = listRef.current;
-    if (!list) return;
-    const isRtl = getComputedStyle(list).direction === 'rtl';
-    list.scrollBy({ left: (isRtl ? -direction : direction) * list.clientWidth * SCROLL_STEP });
-  };
+  const { wrapperRef, listRef, measure, revealTab, scrollTabs, needsScroll, indicator, canScrollStart, canScrollEnd } =
+    useTabsOverflow({ enabled: isHorizontal, selectedValue });
 
   // WAI-ARIA tabs pattern: arrows move focus between tabs, Home/End jump to the ends.
   // Enter and Space already work because each tab is a real <button>.
@@ -240,14 +122,21 @@ function TabList({ children, ...aria }: TabListProps) {
     }
 
     event.preventDefault();
-    // Scroll the list ourselves instead of leaving it to the browser's focus scrolling, which
-    // doesn't reliably reveal a hidden tab (it matters most in manual activation, where
-    // moving focus doesn't change the selection). preventScroll also stops the page jumping.
+    // preventScroll stops the browser's own focus scrolling, which doesn't reliably reveal a
+    // hidden tab and can jump the page. handleFocus below scrolls the list instead.
     tabs[next].focus({ preventScroll: true });
-    if (listRef.current) revealTab(listRef.current, tabs[next], 'auto');
     if (activation === 'automatic') {
       select(tabs[next].dataset.value as string);
     }
+  };
+
+  // Keyboard focus scrolls the tab into view (the Drupal version's `ensureVisible`). This matters
+  // most in manual activation, where moving focus doesn't change the selection. Skipped for mouse
+  // and touch: scrolling between the press and the release could move a different tab under the
+  // pointer and swallow the click. A click still reveals its tab, via the selection change.
+  const handleFocus = (event: FocusEvent<HTMLDivElement>) => {
+    const tab = (event.target as HTMLElement).closest<HTMLElement>('[role="tab"]');
+    if (isHorizontal && tab?.matches(':focus-visible')) revealTab(tab);
   };
 
   const tablist = (
@@ -257,7 +146,8 @@ function TabList({ children, ...aria }: TabListProps) {
       role="tablist"
       aria-orientation={orientation}
       onKeyDown={handleKeyDown}
-      onScroll={isHorizontal ? updateOverflow : undefined}
+      onFocus={handleFocus}
+      onScroll={isHorizontal ? measure : undefined}
       {...aria}
     >
       {children}
@@ -274,32 +164,35 @@ function TabList({ children, ...aria }: TabListProps) {
   // They're for mouse and touch users. Keyboard and screen reader users already have the arrow keys,
   // which also scroll focused tabs into view, so the buttons are hidden from assistive technology
   // and kept out of the Tab order.
+  //
+  // `data-scroll-indicator` ('none' | 'left' | 'right' | 'both') says which sides have hidden tabs,
+  // as a hook for styling such as edge fades.
   return (
-    <div ref={wrapperRef} className="tabs__list-wrapper">
-      {overflow.needsScroll && (
+    <div ref={wrapperRef} className="tabs__list-wrapper" data-scroll-indicator={needsScroll ? indicator : 'none'}>
+      {needsScroll && (
         <button
           type="button"
           className="tabs__scroll tabs__scroll--start"
           aria-hidden="true"
           tabIndex={-1}
-          disabled={!overflow.canScrollStart}
+          disabled={!canScrollStart}
           // Stops the click from moving focus off the tab the user was on
           onMouseDown={(event) => event.preventDefault()}
-          onClick={() => scrollByPage(-1)}
+          onClick={() => scrollTabs('start')}
         >
           <span className="tabs__scroll-icon" />
         </button>
       )}
       {tablist}
-      {overflow.needsScroll && (
+      {needsScroll && (
         <button
           type="button"
           className="tabs__scroll tabs__scroll--end"
           aria-hidden="true"
           tabIndex={-1}
-          disabled={!overflow.canScrollEnd}
+          disabled={!canScrollEnd}
           onMouseDown={(event) => event.preventDefault()}
-          onClick={() => scrollByPage(1)}
+          onClick={() => scrollTabs('end')}
         >
           <span className="tabs__scroll-icon" />
         </button>

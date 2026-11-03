@@ -475,3 +475,92 @@ export const SelectingATabNeverResizesIt: Story = {
     });
   },
 };
+
+// Pattern ported from the Drupal tabs script: the wrapper reports which sides have hidden tabs
+export const ScrollIndicatorTracksHiddenTabs: Story = {
+  args: { defaultValue: 'tab-1', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const { end } = await findScrollArrows(canvasElement);
+    const wrapper = canvasElement.querySelector<HTMLElement>('.tabs__list-wrapper') as HTMLElement;
+    const list = canvasElement.querySelector<HTMLElement>('.tabs__list') as HTMLElement;
+
+    // At the start only the right side has hidden tabs
+    await expect(wrapper).toHaveAttribute('data-scroll-indicator', 'right');
+
+    // In the middle, both do
+    await userEvent.click(end);
+    await waitFor(() => expect(wrapper).toHaveAttribute('data-scroll-indicator', 'both'));
+
+    // At the far end, only the left does
+    list.scrollTo({ left: list.scrollWidth, behavior: 'instant' });
+    await waitFor(() => expect(wrapper).toHaveAttribute('data-scroll-indicator', 'left'));
+  },
+};
+
+export const TabsThatFitReportNoIndicator: Story = {
+  args: { defaultValue: 'tab-1' },
+  render: (args) => (
+    <Tabs {...args}>
+      <Tabs.List aria-label="Few tabs">
+        <Tabs.Tab value="tab-1">One</Tabs.Tab>
+        <Tabs.Tab value="tab-2">Two</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value="tab-1">First</Tabs.Panel>
+      <Tabs.Panel value="tab-2">Second</Tabs.Panel>
+    </Tabs>
+  ),
+  play: async ({ canvasElement }) => {
+    const wrapper = canvasElement.querySelector('.tabs__list-wrapper') as HTMLElement;
+    await expect(wrapper).toHaveAttribute('data-scroll-indicator', 'none');
+  },
+};
+
+// An arrow click moves by whole tabs, so the list always comes to rest with a tab flush at the edge
+export const ArrowsScrollTabByTab: Story = {
+  args: { defaultValue: 'tab-1', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const list = canvas.getByRole('tablist');
+    const { start, end } = await findScrollArrows(canvasElement);
+    const tabs = canvas.getAllByRole('tab');
+    const listLeft = () => list.getBoundingClientRect().left;
+    const flushTab = () => tabs.find((tab) => Math.abs(tab.getBoundingClientRect().left - listLeft()) < 1);
+
+    await userEvent.click(end);
+    await waitFor(() => expect(list.scrollLeft).toBeGreaterThan(0));
+    await waitFor(() => expect(flushTab()).toBeDefined());
+    await expect(flushTab()).not.toBe(tabs[0]);
+
+    // And back: the tab cut off on the left comes flush, ending exactly at the first tab
+    const scrolledTo = list.scrollLeft;
+    await userEvent.click(start);
+    await waitFor(() => expect(list.scrollLeft).toBeLessThan(scrolledTo));
+    await waitFor(() => expect(flushTab()).toBeDefined());
+  },
+};
+
+// A click on a partly hidden tab selects it, then the selection change scrolls it fully into view
+export const ClickingAHalfHiddenTabSelectsIt: Story = {
+  args: { defaultValue: 'tab-1', width: 'full' },
+  decorators: narrowContainer,
+  render: (args) => <Tabs {...args}>{overflowingTabs}</Tabs>,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const list = canvas.getByRole('tablist');
+    await findScrollArrows(canvasElement);
+    const listRect = list.getBoundingClientRect();
+    const partlyHidden = canvas
+      .getAllByRole('tab')
+      .find((tab) => tab.getBoundingClientRect().right > listRect.right + 1 && tab.getBoundingClientRect().left < listRect.right - 10);
+    await expect(partlyHidden).toBeDefined();
+
+    await userEvent.click(partlyHidden as HTMLElement);
+    await waitFor(() => expect(partlyHidden).toHaveAttribute('aria-selected', 'true'));
+    // ...and it was then brought fully into view
+    await waitFor(() => expect(isFullyVisible(list, partlyHidden as HTMLElement)).toBe(true));
+  },
+};
